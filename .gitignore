@@ -1,0 +1,13 @@
+# Source deck - 11MB, not needed to run the site
+Genre Machine.pdf
+
+# Stock music, licensing unclear
+assets/audio/Music/
+
+# Local tooling noise
+.claude/
+__pycache__/
+*.pyc
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,194 @@
+/* steampunk.css — atmosphere: steam, rivets, brass texture, mood */
+
+/* Riveted edge details on the wall-frame using pseudo-elements */
+.wall-frame::before,
+.wall-frame::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.wall-frame::before {
+  /* Rivets along the top edge */
+  top: 4px;
+  left: 12px;
+  right: 12px;
+  height: 8px;
+  background-image:
+    radial-gradient(circle, var(--brass-bright) 0%, var(--brass-dark) 40%, transparent 50%);
+  background-size: 18px 8px;
+  background-repeat: repeat-x;
+  opacity: 0.5;
+}
+
+.wall-frame::after {
+  /* Rivets along the bottom edge */
+  bottom: 4px;
+  left: 12px;
+  right: 12px;
+  height: 8px;
+  background-image:
+    radial-gradient(circle, var(--brass-bright) 0%, var(--brass-dark) 40%, transparent 50%);
+  background-size: 18px 8px;
+  background-repeat: repeat-x;
+  opacity: 0.5;
+}
+
+/* Steam wisps — three layered pseudo-clouds drifting between viewports */
+
+.steam {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.steam-a {
+  top: 20%;
+  left: 10%;
+  width: 300px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(216, 174, 80, 0.18) 0%, transparent 70%);
+  animation: drift-a 22s ease-in-out infinite;
+}
+
+.steam-b {
+  top: 50%;
+  right: 5%;
+  width: 250px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(58, 125, 125, 0.15) 0%, transparent 70%);
+  animation: drift-b 28s ease-in-out infinite;
+}
+
+.steam-c {
+  bottom: 15%;
+  left: 35%;
+  width: 280px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(184, 115, 51, 0.14) 0%, transparent 70%);
+  animation: drift-c 32s ease-in-out infinite;
+}
+
+@keyframes drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  33%      { transform: translate(60px, -30px) scale(1.2); opacity: 0.5; }
+  66%      { transform: translate(20px, 40px) scale(0.9); opacity: 0.2; }
+}
+
+@keyframes drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50%      { transform: translate(-80px, 50px) scale(1.3); opacity: 0.15; }
+}
+
+@keyframes drift-c {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.25; }
+  40%      { transform: translate(40px, -60px) scale(1.1); opacity: 0.5; }
+  80%      { transform: translate(-30px, -20px) scale(1.4); opacity: 0.2; }
+}
+
+/* Steam burst on shift — a flash that covers the wall when lever pulls */
+
+.wall-frame.bursting::before {
+  animation: rivet-flicker 0.5s ease;
+}
+
+.wall-frame .steam-burst {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(216, 174, 80, 0.5) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0;
+  animation: steam-burst 0.9s ease-out forwards;
+  filter: blur(20px);
+}
+
+@keyframes steam-burst {
+  0%   { opacity: 0; transform: scale(0.6); }
+  40%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.4); }
+}
+
+@keyframes rivet-flicker {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+/* Brass frame on each viewport — ornate ring */
+
+.viewport::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 2px var(--brass-bright),
+    inset 0 0 0 4px var(--shadow-deep),
+    inset 0 0 0 6px var(--brass-mid),
+    inset 0 0 16px rgba(0, 0, 0, 0.6),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 7;
+}
+
+.viewport:hover::after,
+.viewport:focus-visible::after {
+  box-shadow:
+    inset 0 0 0 2px var(--ember-glow),
+    inset 0 0 0 4px var(--shadow-deep),
+    inset 0 0 0 5px var(--brass-bright),
+    inset 0 0 12px rgba(0, 0, 0, 0.6),
+    0 0 18px rgba(255, 139, 74, 0.5);
+}
+
+/* Title plate engraved feel */
+
+.title-plate {
+  background: linear-gradient(180deg, var(--shadow-soft) 0%, var(--shadow-mid) 50%, var(--shadow-soft) 100%);
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 0 1px var(--brass-dark),
+    inset 0 1px 0 rgba(216, 174, 80, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.story-plate {
+  background:
+    linear-gradient(180deg, var(--shadow-soft), var(--shadow-mid));
+  border-radius: 2px;
+  box-shadow:
+    inset 0 0 0 1px var(--brass-deep),
+    inset 0 1px 0 rgba(216, 174, 80, 0.2);
+}
+
+/* Subtle vignette over the whole body */
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.25) 100%);
+  z-index: 50;
+}
+
+/* Flicker on the story-name when story shifts */
+
+.story-name.shifting {
+  animation: name-flicker 0.7s ease;
+}
+
+@keyframes name-flicker {
+  0%       { opacity: 1; }
+  20%      { opacity: 0; }
+  35%      { opacity: 0.7; }
+  50%      { opacity: 0.1; }
+  100%     { opacity: 1; }
+}

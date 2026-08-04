@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Genre Machine — pick a story, pick a genre, watch the same tale retold. A teaching tool for genre literacy.">
+  <title>The Genre Machine</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   The Genre Machine — deck edition
+   Matches the Canva deck: black stage, image panel, typewriter
+   card, hairline genre grid, neon-green tagline.
+   ============================================================ */
+
+:root {
+  --black:        #000100;
+  --paper:        #e4e5e9;
+  --paper-ink:    #101010;
+  --rule:         #ffffff;
+  --rule-dim:     rgba(255,255,255,0.34);
+  --green:        #34eb34;
+  --green-light:  #9cff9c;
+  --green-deep:   #0d3f0d;
+  --ui:           'Poppins', system-ui, -apple-system, sans-serif;
+  --type:         'Courier Prime', 'Courier New', monospace;
+  --stage:        1120px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: var(--black); }
+
+body {
+  background: var(--black);
+  color: #fff;
+  font-family: var(--ui);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1rem, 3vw, 2.25rem) clamp(0.75rem, 3vw, 2rem) 2.5rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.stage {
+  width: 100%;
+  max-width: var(--stage);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.7rem, 1.6vw, 1.1rem);
+}
+
+/* === MASTHEAD ========================================================== */
+
+.masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wordmark {
+  font-weight: 800;
+  font-size: clamp(0.95rem, 1.9vw, 1.3rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.wordmark em {
+  font-style: normal;
+  color: var(--green);
+}
+
+.masthead-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.tool {
+  font-family: var(--ui);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  background: transparent;
+  border: 1px solid var(--rule-dim);
+  padding: 0.42rem 0.8rem;
+  cursor: pointer;
+  transition: border-color .14s, color .14s, background .14s;
+}
+.tool:hover:not(:disabled) { border-color: var(--green); color: var(--green); }
+.tool:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.tool:disabled { opacity: 0.4; cursor: default; }
+.tool[data-state="busy"] { color: var(--green); border-color: var(--green); }
+.tool[data-state="playing"] { color: var(--black); background: var(--green); border-color: var(--green); }
+
+/* === STORY SELECTOR ==================================================== */
+
+.story-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--rule);
+  border-right: 0;
+}
+
+.story-tab {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--rule);
+  color: #fff;
+  font-family: var(--ui);
+  font-size: clamp(0.6rem, 1.15vw, 0.76rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.72rem 0.4rem;
+  cursor: pointer;
+  position: relative;
+  transition: color .14s, background .14s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.story-tab:hover { background: rgba(255,255,255,0.07); }
+.story-tab:focus-visible { outline: 2px solid var(--green); outline-offset: -4px; }
+.story-tab[aria-pressed="true"] {
+  color: var(--green);
+  background: rgba(52,235,52,0.08);
+  font-weight: 600;
+}
+.story-tab[aria-pressed="true"]::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 3px; background: var(--green);
+}
+
+/* === IMAGE PANEL ======================================================= */
+
+.plate {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 720 / 412;
+  background: #050505;
+  overflow: hidden;
+}
+
+.plate img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity .32s ease;
+}
+.plate img.is-loaded { opacity: 1; }
+
+/* Placeholder shown when no illustration exists for this cell */
+.plate-empty {
+  position: absolute; inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1.5rem;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #070707 0 14px,
+      #0d0d0d 14px 28px
+    );
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.plate.is-empty .plate-empty { display: flex; }
+.plate.is-empty img { display: none; }
+
+.plate-empty-id {
+  font-family: var(--type);
+  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  font-weight: 700;
+  color: rgba(255,255,255,0.13);
+  line-height: 1;
+}
+.plate-empty-genre {
+  font-weight: 600;
+  font-size: clamp(0.85rem, 2vw, 1.15rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.plate-empty-story {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.plate-empty-note {
+  font-family: var(--type);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.3);
+  margin-top: 0.3rem;
+}
+
+/* === TYPEWRITER CARD =================================================== */
+
+.card {
+  background: var(--paper);
+  color: var(--paper-ink);
+  padding: clamp(1rem, 2.4vw, 1.6rem) clamp(1rem, 2.6vw, 1.9rem);
+  min-height: clamp(9rem, 20vw, 13rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-text {
+  font-family: var(--type);
+  font-size: clamp(0.72rem, 1.16vw, 0.9rem);
+  line-height: 1.85;
+  white-space: pre-wrap;
+}
+
+/* Fallback state: no full prose written for this cell yet */
+.card.is-logline { justify-content: center; }
+.card.is-logline .card-text {
+  font-size: clamp(0.85rem, 1.5vw, 1.08rem);
+  line-height: 1.8;
+  text-align: center;
+  max-width: 46em;
+  margin: 0 auto;
+}
+.card-stub {
+  display: none;
+  font-family: var(--ui);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7a7a80;
+  text-align: center;
+  margin-top: 1.1rem;
+}
+.card.is-logline .card-stub { display: block; }
+
+/* === GENRE GRID ======================================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.cell {
+  appearance: none;
+  background: transparent;
+  color: #fff;
+  border: 0;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--ui);
+  font-size: clamp(0.58rem, 1.05vw, 0.74rem);
+  font-weight: 400;
+  line-height: 1.25;
+  padding: 0.68rem 0.4rem;
+  min-height: 2.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  transition: background .12s, color .12s;
+}
+.cell:hover { background: rgba(255,255,255,0.09); }
+.cell:focus-visible { outline: 2px solid var(--green); outline-offset: -5px; z-index: 3; }
+
+/* Cell that has fully written prose behind it */
+.cell.has-text::before {
+  content: '';
+  position: absolute;
+  top: 5px; right: 5px;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: 0.55;
+}
+
+.cell[aria-pressed="true"] {
+  text-decoration: none;
+  font-weight: 600;
+  outline: 4px solid var(--green);
+  outline-offset: -4px;
+  background: rgba(52,235,52,0.07);
+  z-index: 2;
+}
+.cell[aria-pressed="true"]::before { opacity: 1; }
+
+/* === TAGLINE =========================================================== */
+
+.tagline {
+  text-align: center;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 2.5vw, 1.65rem);
+  letter-spacing: 0.13em;
+  color: var(--green-light);
+  text-shadow: 0 0 14px rgba(52,235,52,0.85), 0 0 34px rgba(52,235,52,0.4);
+  padding-top: clamp(0.5rem, 1.5vw, 0.9rem);
+  text-transform: uppercase;
+}
+
+.colophon {
+  text-align: center;
+  font-family: var(--type);
+  font-size: 0.66rem;
+  color: rgba(255,255,255,0.32);
+  line-height: 1.7;
+}
+.colophon .dot { color: var(--green); opacity: .7; }
+
+/* === RESPONSIVE ======================================================== */
+
+@media (min-width: 1100px) {
+  .grid { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .story-strip { grid-template-columns: repeat(2, 1fr); }
+  .story-tab:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+</style>
+</head>
+<body>
+
+<div class="stage">
+
+  <header class="masthead">
+    <div class="wordmark">The Genre <em>Machine</em></div>
+    <div class="masthead-tools">
+      <button class="tool" id="narrate" type="button">▶ Narrate</button>
+      <button class="tool" id="shuffle" type="button">Shuffle</button>
+    </div>
+  </header>
+
+  <div class="story-strip" id="story-strip" role="group" aria-label="Choose a story"></div>
+
+  <figure class="plate" id="plate">
+    <img id="plate-img" alt="">
+    <div class="plate-empty" aria-hidden="true">
+      <span class="plate-empty-id" id="empty-id">01</span>
+      <span class="plate-empty-genre" id="empty-genre">Original Fairy Tale</span>
+      <span class="plate-empty-story" id="empty-story">The Three Little Pigs</span>
+      <span class="plate-empty-note">illustration not yet generated</span>
+    </div>
+  </figure>
+
+  <section class="card" id="card" aria-live="polite">
+    <p class="card-text" id="card-text"></p>
+    <p class="card-stub">Logline only — full text not yet written for this pairing</p>
+  </section>
+
+  <div class="grid" id="grid" role="group" aria-label="Choose a genre"></div>
+
+  <p class="tagline">Change the genre &ndash; change the story</p>
+
+  <p class="colophon">
+    <span id="colophon-count"></span><br>
+    <span class="dot">&bull;</span> marks a pairing with full prose written.
+    Narration needs Voice Creator Pro on port 8100 and this page served over http
+    (browsers block file:// pages from calling local APIs).
+  </p>
+
+  <audio id="narration-audio" hidden></audio>
+</div>
+
+<script src="data/stories.js"></script>
+<script src="data/scripts-generated.js"></script>
+<script>
+/* ============================================================
+   Genre Machine — app logic
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var DATA = window.GENRE_MACHINE_DATA;
+  if (!DATA) {
+    document.getElementById('card-text').textContent =
+      'data/stories.js did not load. Open this page from the project folder.';
+    return;
+  }
+
+  var TTS_BASE   = 'http://127.0.0.1:8100/api/v1';
+  var TTS_SPEAKER = 'Ryan';
+
+  /* True only when served from this machine, where the local voice API can exist.
+     On GitHub Pages we play pre-rendered audio and never call out to localhost. */
+  var LOCAL = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+
+  var el = {
+    strip:    document.getElementById('story-strip'),
+    grid:     document.getElementById('grid'),
+    plate:    document.getElementById('plate'),
+    img:      document.getElementById('plate-img'),
+    emptyId:  document.getElementById('empty-id'),
+    emptyGen: document.getElementById('empty-genre'),
+    emptySto: document.getElementById('empty-story'),
+    card:     document.getElementById('card'),
+    text:     document.getElementById('card-text'),
+    narrate:  document.getElementById('narrate'),
+    shuffle:  document.getElementById('shuffle'),
+    audio:    document.getElementById('narration-audio'),
+    count:    document.getElementById('colophon-count')
+  };
+
+  var state = { story: DATA.stories[0], genre: DATA.genres[0] };
+
+  /* ---------- build controls ---------- */
+
+  DATA.stories.forEach(function (story) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'story-tab';
+    b.textContent = story.title;
+    b.title = story.title;
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { select(story, state.genre); });
+    story._btn = b;
+    el.strip.appendChild(b);
+  });
+
+  DATA.genres.forEach(function (genre) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'cell';
+    b.textContent = genre.name;
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { select(state.story, genre); });
+    genre._btn = b;
+    el.grid.appendChild(b);
+  });
+
+  /* ---------- rendering ---------- */
+
+  function imagePath(story, genre) {
+    return 'assets/images/' + story.id + '_' + genre.id + '_' + genre.slug + '.webp';
+  }
+
+  function render() {
+    var story = state.story, genre = state.genre;
+    var full  = story.texts && story.texts[genre.id];
+    var line  = story.loglines[genre.id] || '';
+
+    DATA.stories.forEach(function (s) {
+      s._btn.setAttribute('aria-pressed', String(s === story));
+    });
+    DATA.genres.forEach(function (g) {
+      g._btn.setAttribute('aria-pressed', String(g === genre));
+      g._btn.classList.toggle('has-text', !!(story.texts && story.texts[g.id]));
+    });
+
+    el.text.textContent = full || line;
+    el.card.classList.toggle('is-logline', !full);
+
+    el.emptyId.textContent  = genre.id;
+    el.emptyGen.textContent = genre.name;
+    el.emptySto.textContent = story.title;
+
+    el.img.classList.remove('is-loaded');
+    el.plate.classList.remove('is-empty');
+    el.img.alt = genre.name + ' retelling of ' + story.title;
+    el.img.src = imagePath(story, genre);
+
+    stopNarration();
+    document.title = story.title + ' — ' + genre.name + ' — The Genre Machine';
+
+    try {
+      history.replaceState(null, '', '#' + story.id + '/' + genre.slug);
+    } catch (e) { /* file:// can refuse this; harmless */ }
+  }
+
+  el.img.addEventListener('load',  function () { el.img.classList.add('is-loaded'); });
+  el.img.addEventListener('error', function () { el.plate.classList.add('is-empty'); });
+
+  function select(story, genre) {
+    state.story = story;
+    state.genre = genre;
+    render();
+  }
+
+  /* ---------- shuffle ---------- */
+
+  el.shuffle.addEventListener('click', function () {
+    var s = DATA.stories[Math.floor(Math.random() * DATA.stories.length)];
+    var g = DATA.genres[Math.floor(Math.random() * DATA.genres.length)];
+    select(s, g);
+  });
+
+  /* ---------- keyboard ---------- */
+
+  document.addEventListener('keydown', function (e) {
+    if (e.target.matches('input, textarea')) return;
+    var gi = DATA.genres.indexOf(state.genre);
+    var si = DATA.stories.indexOf(state.story);
+    if (e.key === 'ArrowRight')     { select(state.story, DATA.genres[(gi + 1) % DATA.genres.length]); }
+    else if (e.key === 'ArrowLeft') { select(state.story, DATA.genres[(gi - 1 + DATA.genres.length) % DATA.genres.length]); }
+    else if (e.key === 'ArrowDown') { e.preventDefault(); select(DATA.stories[(si + 1) % DATA.stories.length], state.genre); }
+    else if (e.key === 'ArrowUp')   { e.preventDefault(); select(DATA.stories[(si - 1 + DATA.stories.length) % DATA.stories.length], state.genre); }
+    else if (e.key === 'r' || e.key === 'R') { el.shuffle.click(); }
+    else { return; }
+  });
+
+  /* ---------- narration (Voice Creator Pro, port 8100) ---------- */
+
+  var narrating = false;
+
+  function setNarrateState(label, mode, disabled) {
+    el.narrate.textContent = label;
+    if (mode) { el.narrate.setAttribute('data-state', mode); }
+    else      { el.narrate.removeAttribute('data-state'); }
+    el.narrate.disabled = !!disabled;
+  }
+
+  function stopNarration() {
+    narrating = false;
+    el.audio.pause();
+    el.audio.removeAttribute('src');
+    setNarrateState('▶ Narrate', null, false);
+  }
+
+  el.narrate.addEventListener('click', function () {
+    if (narrating) { stopNarration(); return; }
+    narrate();
+  });
+
+  el.audio.addEventListener('ended', stopNarration);
+
+  /* The API lazily loads its model. Kick the load and poll so the user gets
+     "Loading voice…" instead of a two-minute silent stall on first play. */
+  function ensureModel() {
+    return fetch(TTS_BASE + '/model/status')
+      .then(function (r) { return r.json(); })
+      .then(function (s) {
+        if (s.loaded) { return true; }
+        setNarrateState('Loading voice…', 'busy', true);
+        return fetch(TTS_BASE + '/model/load', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: '{}'
+        }).then(function () { return poll(0); });
+      });
+
+    function poll(n) {
+      if (n > 240) { throw new Error('model load timed out'); }
+      return new Promise(function (res) { setTimeout(res, 1500); })
+        .then(function () { return fetch(TTS_BASE + '/model/load/progress'); })
+        .then(function (r) { return r.json(); })
+        .then(function (p) {
+          if (!narrating) { return false; }
+          if (p.percent) { setNarrateState('Loading voice ' + p.percent + '%', 'busy', true); }
+          if (p.status === 'error') { throw new Error(p.message || 'model load failed'); }
+          if (p.status === 'ready' || p.status === 'loaded' || p.percent >= 100) { return true; }
+          return poll(n + 1);
+        });
+    }
+  }
+
+  /* Pre-rendered narration, produced by tools/narrate.py. If the WAV exists we
+     play it instantly and never touch the API — which is what you want on a
+     laptop with no GPU, or offline. Otherwise fall through to live generation. */
+  function prerenderedUrl() {
+    return 'assets/audio/' + state.story.id + '_' + state.genre.id + '_' +
+           state.genre.slug + '.wav';
+  }
+
+  function playPrerendered() {
+    var url = prerenderedUrl();
+    return fetch(url, { method: 'HEAD' })
+      .then(function (r) {
+        if (!r.ok) { return false; }
+        if (!narrating) { return true; }
+        el.audio.src = url;
+        setNarrateState('■ Stop', 'playing', false);
+        return el.audio.play().then(function () { return true; });
+      })
+      .catch(function () { return false; });
+  }
+
+  function narrate() {
+    var body = el.text.textContent.trim();
+    if (!body) { return; }
+
+    narrating = true;
+    setNarrateState('Generating…', 'busy', true);
+
+    playPrerendered().then(function (done) {
+      if (done) { return null; }
+      /* Live generation needs Voice Creator Pro on this machine. On the hosted
+         copy there is no such thing, so say so instead of failing at it. */
+      if (!LOCAL) {
+        narrating = false;
+        setNarrateState('Narration coming soon', null, true);
+        setTimeout(function () { setNarrateState('▶ Narrate', null, false); }, 2600);
+        return null;
+      }
+      return liveNarrate(body);
+    });
+  }
+
+  function liveNarrate(body) {
+    return ensureModel().then(function () {
+      if (!narrating) { return null; }
+      setNarrateState('Generating…', 'busy', true);
+      return speak(body);
+    })
+    .catch(function (err) {
+      narrating = false;
+      setNarrateState('Voice offline', null, true);
+      console.warn('Narration failed:', err);
+      setTimeout(function () { setNarrateState('▶ Narrate', null, false); }, 2600);
+    });
+  }
+
+  function speak(body) {
+    return fetch(TTS_BASE + '/tts/generate?sync=true', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text: body,
+        speaker: TTS_SPEAKER,
+        language: 'English',
+        instruct: 'Warm storyteller reading aloud to a classroom, ' +
+                  'in the style of ' + state.genre.name + '.'
+      })
+    })
+    .then(function (r) {
+      if (!r.ok) { throw new Error('HTTP ' + r.status); }
+      return r.json();
+    })
+    .then(function (res) {
+      if (!res.audio_base64) { throw new Error(res.status || 'no audio returned'); }
+      el.audio.src = 'data:audio/wav;base64,' + res.audio_base64;
+      setNarrateState('■ Stop', 'playing', false);
+      return el.audio.play();
+    });
+  }
+
+  /* ---------- boot ---------- */
+
+  function fromHash() {
+    var m = (location.hash || '').replace('#', '').split('/');
+    var s = DATA.stories.filter(function (x) { return x.id === m[0]; })[0];
+    var g = DATA.genres.filter(function (x) { return x.slug === m[1]; })[0];
+    if (s) { state.story = s; }
+    if (g) { state.genre = g; }
+  }
+
+  var written = DATA.stories.reduce(function (n, s) {
+    return n + Object.keys(s.texts || {}).length;
+  }, 0);
+  var total = DATA.stories.length * DATA.genres.length;
+  el.count.textContent =
+    DATA.stories.length + ' stories × ' + DATA.genres.length + ' genres = ' +
+    total + ' pairings — ' + written + ' with full prose so far.';
+
+  window.addEventListener('hashchange', function () { fromHash(); render(); });
+
+  fromHash();
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+/* responsive.css — mobile and tablet breakpoints */
+
+/* Tablet (lever moves below the wall) */
+@media (max-width: 900px) {
+  .machine {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem 1rem 2rem;
+  }
+
+  .lever-housing {
+    position: static;
+    order: 2;
+    flex-direction: row;
+    height: auto;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .lever-track {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+  }
+
+  .detent {
+    flex-direction: column;
+    width: auto;
+    height: 60px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .detent::before {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .detent-mark {
+    margin-top: 18px;
+    width: auto;
+  }
+
+  .lever-arm {
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 0.7s cubic-bezier(0.6, 0.1, 0.3, 1);
+  }
+
+  .lever-shaft {
+    width: 8px;
+    height: 40px;
+    right: 50%;
+    top: 0;
+    transform: translateX(50%);
+  }
+
+  .lever-knob {
+    right: 50%;
+    top: auto;
+    bottom: -20px;
+    transform: translateX(50%);
+  }
+
+  .gauges {
+    margin-top: 1rem;
+    padding: 0 1rem;
+  }
+
+  .gauge-face {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Phone (4-column grid since 5x5 gets cramped) */
+@media (max-width: 600px) {
+  :root {
+    --grid-gap: 0.4rem;
+  }
+
+  .viewport-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .machine-header {
+    padding: 1rem 1rem 0.5rem;
+  }
+
+  .story-plate {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .wall-frame {
+    padding: 0.8rem;
+  }
+
+  .gauges {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .magnifier-frame {
+    padding: 1rem;
+  }
+
+  .magnifier-img {
+    max-width: 100%;
+  }
+
+  .machine-footer {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem 1.5rem;
+  }
+}
+
+/* Very small phone (3-column grid) */
+@media (max-width: 400px) {
+  .viewport-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .detent-name {
+    display: none;
+  }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .steam { display: none; }
+}
