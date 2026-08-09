@@ -434,6 +434,10 @@ body {
   <header class="masthead">
     <div class="wordmark">The Genre <em>Machine</em></div>
     <div class="masthead-tools">
+      <button class="tool" id="lang" type="button" aria-pressed="false"
+              title="Cambiar el texto al español">Español</button>
+      <button class="tool" id="music" type="button" aria-pressed="false"
+              title="Play a looping theme for the selected genre">♪ Music</button>
       <button class="tool" id="narrate" type="button">▶ Narrate</button>
       <button class="tool" id="shuffle" type="button">Shuffle</button>
     </div>
@@ -486,10 +490,12 @@ body {
   </p>
 
   <audio id="narration-audio" hidden></audio>
+  <audio id="music-audio" hidden loop></audio>
 </div>
 
 <script src="data/stories.js"></script>
 <script src="data/scripts-generated.js"></script>
+<script src="data/scripts-es.js"></script>
 <script src="data/genre-notes.js"></script>
 <script>
 /* ============================================================
@@ -533,7 +539,8 @@ body {
     count:    document.getElementById('colophon-count')
   };
 
-  var state = { story: DATA.stories[0], genre: DATA.genres[0] };
+  var state = { story: DATA.stories[0], genre: DATA.genres[0], lang: 'en' };
+  var ES = window.GENRE_MACHINE_ES || {};
 
   /* ---------- build controls ---------- */
 
@@ -569,6 +576,9 @@ body {
   function render() {
     var story = state.story, genre = state.genre;
     var full  = story.texts && story.texts[genre.id];
+    if (state.lang === 'es' && ES[story.id] && ES[story.id][genre.id]) {
+      full = ES[story.id][genre.id];
+    }
     var line  = story.loglines[genre.id] || '';
 
     DATA.stories.forEach(function (s) {
@@ -594,6 +604,7 @@ body {
     el.img.src = imagePath(story, genre);
 
     stopNarration();
+    if (typeof syncMusic === 'function') { syncMusic(); }
     document.title = story.title + ' — ' + genre.name + ' — The Genre Machine';
 
     try {
@@ -630,6 +641,61 @@ body {
     state.genre = genre;
     render();
   }
+
+  /* ---------- music toggle ---------- */
+
+  var elMusic = document.getElementById('music');
+  var musicAudio = document.getElementById('music-audio');
+  musicAudio.volume = 0.32;
+  var musicOn = false;
+
+  function musicUrl() {
+    return 'assets/audio/Music/music_' + state.genre.id + '_' +
+           state.genre.slug + '.mp3';
+  }
+
+  /* Swap (or stop) the theme to match the current genre. Missing tracks fail
+     quietly — the toggle stays on and music resumes at the next genre that
+     has a theme. */
+  function syncMusic() {
+    if (!musicOn) {
+      musicAudio.pause();
+      musicAudio.removeAttribute('src');
+      elMusic.removeAttribute('data-state');
+      return;
+    }
+    var url = musicUrl();
+    if (musicAudio.getAttribute('src') === url && !musicAudio.paused) { return; }
+    musicAudio.src = url;
+    musicAudio.play().then(function () {
+      elMusic.setAttribute('data-state', 'playing');
+    }).catch(function () {
+      elMusic.removeAttribute('data-state');
+    });
+  }
+
+  musicAudio.addEventListener('error', function () {
+    elMusic.removeAttribute('data-state');
+  });
+
+  elMusic.addEventListener('click', function () {
+    musicOn = !musicOn;
+    elMusic.setAttribute('aria-pressed', String(musicOn));
+    syncMusic();
+  });
+
+  /* ---------- language toggle ---------- */
+
+  var elLang = document.getElementById('lang');
+  elLang.addEventListener('click', function () {
+    state.lang = state.lang === 'en' ? 'es' : 'en';
+    elLang.setAttribute('aria-pressed', String(state.lang === 'es'));
+    elLang.textContent = state.lang === 'es' ? 'English' : 'Español';
+    elLang.title = state.lang === 'es'
+      ? 'Switch the text back to English'
+      : 'Cambiar el texto al español';
+    render();
+  });
 
   /* ---------- shuffle ---------- */
 

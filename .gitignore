@@ -1,8 +1,10 @@
 # Source deck - 11MB, not needed to run the site
 Genre Machine.pdf
 
-# Stock music, licensing unclear
-assets/audio/Music/
+# Legacy stock music, licensing unclear - never publish these
+# (locally generated music_* themes are fine to commit)
+assets/audio/Music/[0-9].mp3
+assets/audio/Music/[0-9][0-9].mp3
 
 # Local tooling noise
 .claude/
