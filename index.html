@@ -405,6 +405,113 @@ body {
 }
 .colophon .dot { color: var(--green); opacity: .7; }
 
+/* === CORNER BUTTONS & SHEETS =========================================== */
+
+.corner {
+  position: fixed;
+  right: clamp(0.6rem, 2vw, 1.2rem);
+  bottom: clamp(0.6rem, 2vw, 1.2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  z-index: 40;
+}
+.corner .tool { background: var(--black); }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 1, 0, 0.78);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.75rem, 3vw, 2rem);
+  z-index: 50;
+}
+.overlay.open { display: flex; }
+
+.sheet {
+  background: var(--paper);
+  color: var(--paper-ink);
+  max-width: 47rem;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: clamp(1.2rem, 3vw, 2rem) clamp(1.2rem, 3.4vw, 2.3rem);
+  position: relative;
+}
+.sheet h2 {
+  font-family: var(--ui);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  margin-bottom: 1rem;
+  padding-right: 2.5rem;
+}
+.sheet h3 {
+  font-family: var(--ui);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  margin: 1.2rem 0 0.5rem;
+}
+.sheet p, .sheet li {
+  font-family: var(--type);
+  font-size: clamp(0.72rem, 1.1vw, 0.84rem);
+  line-height: 1.75;
+  margin-bottom: 0.5em;
+}
+.sheet ul, .sheet ol { padding-left: 1.3em; }
+.sheet table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0 0.8rem;
+}
+.sheet th, .sheet td {
+  font-family: var(--type);
+  font-size: clamp(0.66rem, 1vw, 0.78rem);
+  line-height: 1.55;
+  text-align: left;
+  vertical-align: top;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid rgba(16,16,16,0.25);
+}
+.sheet th {
+  font-family: var(--ui);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: rgba(13,63,13,0.08);
+}
+.sheet kbd {
+  font-family: var(--type);
+  border: 1px solid rgba(16,16,16,0.4);
+  border-bottom-width: 2px;
+  padding: 0 0.35em;
+  font-size: 0.9em;
+}
+.sheet-close {
+  position: absolute;
+  top: 0.7rem; right: 0.8rem;
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(16,16,16,0.35);
+  color: var(--paper-ink);
+  font-family: var(--ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  cursor: pointer;
+}
+.sheet-close:hover { border-color: var(--green-deep); color: var(--green-deep); }
+.sheet-close:focus-visible { outline: 2px solid var(--green-deep); outline-offset: 2px; }
+
 /* === RESPONSIVE ======================================================== */
 
 @media (min-width: 1100px) {
@@ -491,6 +598,73 @@ body {
 
   <audio id="narration-audio" hidden></audio>
   <audio id="music-audio" hidden loop></audio>
+</div>
+
+<div class="corner">
+  <button class="tool" id="open-instructions" type="button">? Instructions</button>
+  <button class="tool" id="open-lesson" type="button">Lesson Plan &amp; TEKS</button>
+</div>
+
+<div class="overlay" id="sheet-instructions" role="dialog" aria-modal="true" aria-labelledby="instructions-title">
+  <div class="sheet">
+    <button class="sheet-close" type="button" data-close>✕ Close</button>
+    <h2 id="instructions-title">How to Use the Genre Machine</h2>
+    <p>The same story, retold. Four fairy tales &times; forty genres. Change the genre &mdash; change the story.</p>
+    <h3>The controls</h3>
+    <ul>
+      <li><strong>Story strip</strong> (top): pick which tale the machine retells.</li>
+      <li><strong>Genre grid</strong> (bottom): pick the genre. A green dot marks a pairing with full prose behind it.</li>
+      <li><strong>&#9654; Narrate</strong>: hear the story read aloud in a voice designed for that genre &mdash; a noir gumshoe, a courtroom clerk, a mythic bard.</li>
+      <li><strong>&#9834; Music</strong>: loop an instrumental theme matched to the genre. It layers under narration &mdash; use both, or either alone.</li>
+      <li><strong>Espa&ntilde;ol</strong>: switch the story text to Spanish. Narration stays in English &mdash; try reading along in one language while listening in the other.</li>
+      <li><strong>About this genre</strong> (below the story): the genre's hallmarks, a short history, and three landmark books to try.</li>
+      <li><strong>Shuffle</strong>: random story, random genre.</li>
+    </ul>
+    <h3>Keyboard</h3>
+    <p><kbd>&larr;</kbd> <kbd>&rarr;</kbd> change genre &nbsp;&bull;&nbsp; <kbd>&uarr;</kbd> <kbd>&darr;</kbd> change story &nbsp;&bull;&nbsp; <kbd>R</kbd> shuffle</p>
+    <h3>One suggestion</h3>
+    <p>Read the same tale in two very different genres, back to back. Notice what survived the trip &mdash; and what the genre replaced. That difference is what genre <em>is</em>.</p>
+  </div>
+</div>
+
+<div class="overlay" id="sheet-lesson" role="dialog" aria-modal="true" aria-labelledby="lesson-title">
+  <div class="sheet">
+    <button class="sheet-close" type="button" data-close>✕ Close</button>
+    <h2 id="lesson-title">Lesson Plan: Genre Swap &mdash; One Tale, Forty Voices</h2>
+    <p><strong>Course:</strong> English I&ndash;II (adaptable for grades 8&ndash;12) &nbsp;&bull;&nbsp; <strong>Time:</strong> two to three class periods &nbsp;&bull;&nbsp; <strong>Materials:</strong> this site, a notebook, headphones if available.</p>
+    <p><strong>Objective:</strong> Students analyze how genre conventions transform a familiar narrative &mdash; setting, narrator, diction, and stakes &mdash; and then compose an original genre transformation of their own, justifying their craft choices.</p>
+
+    <h3>Sequence</h3>
+    <ol>
+      <li><strong>Warm-up (10 min).</strong> Read the Original Fairy Tale together with narration on. As a class, list the story's fixed elements: three builders, three escalating structures, one threat, one reversal at the chimney.</li>
+      <li><strong>Guided contrast (15 min).</strong> Switch to one dramatic transformation (Film Noir works well). Annotate together: who is narrating now? What is the wolf? What happened to the sentences? Open <em>About this genre</em> and match what you found to the listed hallmarks.</li>
+      <li><strong>Exploration (25 min).</strong> In pairs, students choose three genres and complete a comparison matrix: setting / narrator &amp; voice / what the wolf is / how the ending lands / three examples of genre-typical diction. Music and narration toggles encouraged.</li>
+      <li><strong>Discussion (15 min).</strong> Which story elements are the tale's <em>brick</em> &mdash; they survive every genre &mdash; and which are its <em>straw</em>, the first things each genre blows away?</li>
+      <li><strong>Composition (1&ndash;2 periods).</strong> Each student rewrites a <em>different</em> fairy tale (150&ndash;200 words) in a genre of their choice, using that genre's hallmarks, then adds a three-sentence craft note citing two diction choices and one structural choice they made on purpose.</li>
+      <li><strong>Extension.</strong> Students record their own narration in a designed voice; emergent bilingual students can draft in Spanish or compare the Espa&ntilde;ol text against the English side by side.</li>
+    </ol>
+
+    <h3>Assessment</h3>
+    <ul>
+      <li>Comparison matrix complete for three genres with textual examples.</li>
+      <li>Retelling demonstrates at least four hallmarks of the chosen genre.</li>
+      <li>Craft note cites specific diction with the effect it creates.</li>
+    </ul>
+
+    <h3>TEKS alignment &mdash; English I (19 TAC &sect;110.36) / English II (&sect;110.37)</h3>
+    <table>
+      <tr><th>TEKS</th><th>Standard (abridged)</th><th>Where it lives in the lesson</th></tr>
+      <tr><td>(b)(1)</td><td>Oral language: engage in meaningful discourse</td><td>Paired exploration; brick-vs-straw discussion</td></tr>
+      <tr><td>(b)(5)(C)</td><td>Use text evidence and commentary to support responses</td><td>Comparison matrix; craft note</td></tr>
+      <tr><td>(b)(6)(A)</td><td>Analyze how themes develop through characterization and plot</td><td>Fixed-elements list; matrix</td></tr>
+      <tr><td>(b)(6)(D)</td><td>Analyze how setting influences theme</td><td>Setting row of the matrix</td></tr>
+      <tr><td>(b)(7)</td><td>Analyze genre-specific characteristics, structures, and purposes</td><td>The whole machine; hallmarks panels</td></tr>
+      <tr><td>(b)(8)(D)</td><td>Analyze how the author's language achieves specific purposes</td><td>Guided annotation</td></tr>
+      <tr><td>(b)(8)(F)</td><td>Analyze how diction and syntax contribute to mood, voice, and tone</td><td>Diction examples; craft note</td></tr>
+      <tr><td>(b)(10)(A)</td><td>Compose literary texts using genre characteristics and craft</td><td>The genre-swap retelling</td></tr>
+    </table>
+    <p>English II (&sect;110.37) mirrors these strand numbers at greater text complexity. For grade 8, the parallel standards live in &sect;110.24.</p>
+  </div>
 </div>
 
 <script src="data/stories.js"></script>
@@ -641,6 +815,30 @@ body {
     state.genre = genre;
     render();
   }
+
+  /* ---------- corner sheets ---------- */
+
+  function bindSheet(btnId, overlayId) {
+    var overlay = document.getElementById(overlayId);
+    document.getElementById(btnId).addEventListener('click', function () {
+      overlay.classList.add('open');
+    });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay || e.target.hasAttribute('data-close')) {
+        overlay.classList.remove('open');
+      }
+    });
+  }
+  bindSheet('open-instructions', 'sheet-instructions');
+  bindSheet('open-lesson', 'sheet-lesson');
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.overlay.open').forEach(function (o) {
+        o.classList.remove('open');
+      });
+    }
+  });
 
   /* ---------- music toggle ---------- */
 
