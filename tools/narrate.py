@@ -143,7 +143,9 @@ if __name__ == "__main__":
     ensure_model()
     ids = a.genres
     if a.all:
-        ids = ["%02d" % i for i in range(1, 33)]
+        # every genre folder that actually exists, so new rows are picked up
+        ids = sorted(os.path.basename(d)[:2]
+                     for d in glob.glob(os.path.join(ROOT, "Stories", "[0-9][0-9] *")))
     for g in ids:
         run(a.story, g.zfill(2))
     print("\ndone.", flush=True)
