@@ -6,8 +6,8 @@ genre_id: "09"
 genre_slug: post-apocalyptic
 status: drafted
 voice_prompt: "A dry, rasping survivor's voice, worn thin by dust and distance. Low energy, hard-earned calm, speaking from beside a small fire."
-voice_id: ""
-audio: ""
+voice_id: "voice_7bad7ae6"
+audio: "assets/audio/pigs_09_post-apocalyptic.wav"
 tags: [genre-machine, post-apocalyptic, pigs]
 ---
 
@@ -22,5 +22,5 @@ In a bleak, post-apocalyptic world, three pigs sought refuge from the chaos. The
 ## Voice design
 
 - **Prompt:** A dry, rasping survivor's voice, worn thin by dust and distance. Low energy, hard-earned calm, speaking from beside a small fire.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_7bad7ae6
+- **Audio file:** assets/audio/pigs_09_post-apocalyptic.wav

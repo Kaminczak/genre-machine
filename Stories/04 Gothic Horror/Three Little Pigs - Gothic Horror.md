@@ -6,8 +6,8 @@ genre_id: "04"
 genre_slug: gothic
 status: drafted
 voice_prompt: "A sepulchral, refined male voice with velvet menace. Slow, deliberate, faintly theatrical, savouring the dread like an old aristocrat telling a family secret."
-voice_id: ""
-audio: ""
+voice_id: "voice_4df28d07"
+audio: "assets/audio/pigs_04_gothic.wav"
 tags: [genre-machine, gothic, pigs]
 ---
 
@@ -22,5 +22,5 @@ In the shadowed corners of the ancient village of Ravensbrook, three pig brother
 ## Voice design
 
 - **Prompt:** A sepulchral, refined male voice with velvet menace. Slow, deliberate, faintly theatrical, savouring the dread like an old aristocrat telling a family secret.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_4df28d07
+- **Audio file:** assets/audio/pigs_04_gothic.wav

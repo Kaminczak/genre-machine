@@ -6,8 +6,8 @@ genre_id: "05"
 genre_slug: steampunk
 status: drafted
 voice_prompt: "A brisk Victorian gentleman-inventor with a warm baritone and crisp diction. Enthusiastic, precise, slightly breathless about machinery, as if narrating a patent demonstration to a rapt society hall."
-voice_id: ""
-audio: ""
+voice_id: "voice_9d9ff195"
+audio: "assets/audio/pigs_05_steampunk.wav"
 tags: [genre-machine, steampunk, pigs]
 ---
 
@@ -22,5 +22,5 @@ In the soot-gold city of Cogsmere, three pig engineers filed three very differen
 ## Voice design
 
 - **Prompt:** A brisk Victorian gentleman-inventor with a warm baritone and crisp diction. Enthusiastic, precise, slightly breathless about machinery, as if narrating a patent demonstration to a rapt society hall.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_9d9ff195
+- **Audio file:** assets/audio/pigs_05_steampunk.wav

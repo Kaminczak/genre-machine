@@ -6,8 +6,8 @@ genre_id: "06"
 genre_slug: cyberpunk
 status: drafted
 voice_prompt: "A cool, synthetic-edged narrator, mid-range and unhurried, with a faint digital compression on the consonants. Detached street-level cynicism, like a fixer explaining a job you already lost."
-voice_id: ""
-audio: ""
+voice_id: "voice_70927fe5"
+audio: "assets/audio/pigs_06_cyberpunk.wav"
 tags: [genre-machine, cyberpunk, pigs]
 ---
 
@@ -22,5 +22,5 @@ Three pig runners, three tiers of ICE, one very bad night in the Trough. Nix sta
 ## Voice design
 
 - **Prompt:** A cool, synthetic-edged narrator, mid-range and unhurried, with a faint digital compression on the consonants. Detached street-level cynicism, like a fixer explaining a job you already lost.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_70927fe5
+- **Audio file:** assets/audio/pigs_06_cyberpunk.wav

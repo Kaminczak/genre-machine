@@ -6,8 +6,8 @@ genre_id: "22"
 genre_slug: detective
 status: drafted
 voice_prompt: "A shrewd, precise male voice with clipped observational rhythm. Slightly arch, quietly amused, laying out deductions like cards on a table."
-voice_id: ""
-audio: ""
+voice_id: "voice_655125d5"
+audio: "assets/audio/pigs_22_detective.wav"
 tags: [genre-machine, detective, pigs]
 ---
 
@@ -22,5 +22,5 @@ In the enigmatic town of Whispering Pines, three pig detectives were renowned fo
 ## Voice design
 
 - **Prompt:** A shrewd, precise male voice with clipped observational rhythm. Slightly arch, quietly amused, laying out deductions like cards on a table.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_655125d5
+- **Audio file:** assets/audio/pigs_22_detective.wav

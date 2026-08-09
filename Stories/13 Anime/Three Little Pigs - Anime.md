@@ -6,8 +6,8 @@ genre_id: "13"
 genre_slug: anime
 status: drafted
 voice_prompt: "An earnest young male narrator with bright energy and dramatic swells, dropping to sincere quiet on emotional beats. Anime-trailer intensity, heartfelt rather than campy."
-voice_id: ""
-audio: ""
+voice_id: "voice_e2b5b490"
+audio: "assets/audio/pigs_13_anime.wav"
 tags: [genre-machine, anime, pigs]
 ---
 
@@ -22,5 +22,5 @@ Three friends. One dorm complex. Zero chance of a quiet semester. Kohta trained 
 ## Voice design
 
 - **Prompt:** An earnest young male narrator with bright energy and dramatic swells, dropping to sincere quiet on emotional beats. Anime-trailer intensity, heartfelt rather than campy.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_e2b5b490
+- **Audio file:** assets/audio/pigs_13_anime.wav

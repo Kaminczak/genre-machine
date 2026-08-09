@@ -40,7 +40,15 @@ window.GENRE_MACHINE_DATA = {
     { id: "29", slug: "biography",          name: "Biography / Memoir" },
     { id: "30", slug: "historical-fiction", name: "Historical Fiction" },
     { id: "31", slug: "stage-drama",        name: "Stage Drama" },
-    { id: "32", slug: "graphic-novel",      name: "Graphic Novel" }
+    { id: "32", slug: "graphic-novel",      name: "Graphic Novel" },
+    { id: "33", slug: "ergodic",            name: "Ergodic" },
+    { id: "34", slug: "transgressive",      name: "Transgressive" },
+    { id: "35", slug: "climate-fiction",    name: "Climate Fiction" },
+    { id: "36", slug: "slipstream",         name: "Slipstream" },
+    { id: "37", slug: "bangsian",           name: "Bangsian" },
+    { id: "38", slug: "black-comedy",       name: "Black Comedy" },
+    { id: "39", slug: "magical-realism",    name: "Magical Realism" },
+    { id: "40", slug: "epistolary",         name: "Epistolary" }
   ],
   stories: [
     {
@@ -80,7 +88,15 @@ window.GENRE_MACHINE_DATA = {
         "29": "Sir Oinkster, Swineston's most revered architect, writes his memoirs — straw cottage to wooden cabin to brick mansion — with a critic named Mr. Lupus sharpening him at every step.",
         "30": "In an occupied village during WWII, three pig siblings run a straw printing press, a stick radio station, and a brick safe house. Oberst Wolff is closing in.",
         "31": "Whispering Pines Theatre, evening. Ivy holds the locket, Basil reads the scroll, Marcellus watches the dark. Act Two begins.",
-        "32": "Inked panels, hand-lettered bubbles. Two pigs argue over blueprints outside the Grok Cafe while a wolf's eye fills the skyline behind them."
+        "32": "Inked panels, hand-lettered bubbles. Two pigs argue over blueprints outside the Grok Cafe while a wolf's eye fills the skyline behind them.",
+        "33": "A recovered case file about three houses. The footnotes contradict the appendix, the appendix contradicts the house, and the wolf is in the margins.",
+        "34": "Three squatter pig brothers refuse the mortgage, the landlord, and the wolf. The narrator is one of them, and he is not sorry.",
+        "35": "The storm surge takes the coast one house at a time. Three pig siblings build for the world that's coming, not the one that's gone.",
+        "36": "The pigs keep waking in each other's houses. The wolf may be a rumor of weather. Nothing resolves; everything tilts.",
+        "37": "Three deceased pigs debate architecture in the afterlife's garden suburbs — with Vitruvius, Socrates, and a wolf held up at the gates.",
+        "38": "Three houses collapse; the paperwork is worse. A claims-adjusting wolf and the surviving pig work out who is liable for the chimney.",
+        "39": "The brick house has stood for four hundred years, grieving. The wolf's wind is treated as a season, and nobody in the village remarks on it.",
+        "40": "Told in permits, insurance claims, and noise complaints: the wolf's letters grow unhinged as the brick house declines to answer."
       },
       texts: {
         "01": "Once upon a time, three little pigs decided to build their own houses. The first pig hastily built a straw house, the second pig a stick house, and the third pig, being diligent, built a brick house. Soon, a big bad wolf came along, wanting to eat the pigs. He blew down the straw house with ease, causing the first pig to run to the stick house. The wolf followed and blew down the stick house, so both pigs ran to the brick house. The wolf attempted to blow down the brick house, but it stood firm. In desperation, the wolf tried entering through the chimney, but the third pig had a boiling pot waiting which scared the wolf away. Hence, the pigs lived safely in the brick house, cherishing the lesson of thorough preparation.",
@@ -134,7 +150,15 @@ window.GENRE_MACHINE_DATA = {
         "29": "An old woman in a faded red coat writes the account of the day she walked into the woods, what met her there, and the sixty years she spent not talking about it.",
         "30": "A girl in a red kerchief carries bread past checkpoints to her grandmother in a besieged city. The officer who waves her through has very good teeth.",
         "31": "Stage right, a path of painted trees. A girl in red enters with a basket. The wolf is already in the bed, and the audience knows it.",
-        "32": "Full-bleed panels of black woods and one screaming red hood. The wolf arrives in a single wordless spread."
+        "32": "Full-bleed panels of black woods and one screaming red hood. The wolf arrives in a single wordless spread.",
+        "33": "Grandmother's cottage has more rooms inside than outside. The path is a footnote, the footnote is hungry, and the hood is Exhibit R.",
+        "34": "Red delivers what she delivers and doesn't ask questions. The wolf in grandmother's bed is the least dishonest thing in the family.",
+        "35": "The woods burned twice and the path is ash. Red carries water to grandmother's cabin past a wolf starved down out of the hills.",
+        "36": "Red walks a path that is sometimes a hallway. Grandmother keeps being someone else's grandmother. The teeth are consistent.",
+        "37": "Red, long dead, retraces the path through an afterlife forest where every lost grandmother keeps a cottage — and the wolf waits at each door to apologize.",
+        "38": "The wolf eats grandmother and inherits her book club, her feuds, and her cholesterol. Red arrives mid-meeting.",
+        "39": "Grandmothers in the village turn into wolves at a certain age; it is considered rude to mention. Red brings cake anyway.",
+        "40": "Told in letters between Red and grandmother — and the increasingly suspicious postscripts written in a different hand."
       },
       texts: {
       }
@@ -176,7 +200,15 @@ window.GENRE_MACHINE_DATA = {
         "29": "Decades later, Goldie writes the memoir nobody asked for: the break-in, the porridge, the trial, and what the Ursine family were actually like.",
         "30": "A blonde evacuee billeted in the countryside lets herself into the Ursine farmhouse. Rationing is on. The porridge is a crime worth hanging for.",
         "31": "A single set: three chairs, three bowls, three beds. Goldilocks enters. The Bears wait in the wings for the whole first act.",
-        "32": "Three-tier panels, one bowl per frame. The last page is a splash: three bears in the doorway, backlit."
+        "32": "Three-tier panels, one bowl per frame. The last page is a splash: three bears in the doorway, backlit.",
+        "33": "The bears' house is a recursion: every room holds three bowls, three chairs, and three smaller rooms. Goldilocks annotates as she descends. The annotations push back.",
+        "34": "Goldilocks breaks in because locks are a polite fiction. The porridge is property, property is theft, and she is hungry either way.",
+        "35": "After the thaw failed, the bears stopped hibernating. Goldilocks breaks in looking for food and finds three rationed bowls and a family as hungry as she is.",
+        "36": "The porridge is too hot, then too cold, then too Tuesday. The chairs remember being trees. Goldilocks has been asleep in the third bed for an hour, or a life.",
+        "37": "Goldilocks, deceased, drifts through the afterlife tasting other people's endings — too hot, too cold — while three bear philosophers debate whether 'just right' exists.",
+        "38": "Goldilocks's estate sues the bears; the bears countersue over the chair. Everyone settles except the porridge.",
+        "39": "The bears' house sets three places every morning by itself, and has for years. The village says a golden-haired girl lives in the walls. She does, and it's fine.",
+        "40": "Reconstructed from the bears' incident report, Goldilocks's unsent apology note, and a chair-repair invoice stamped DISPUTED."
       },
       texts: {
       }
@@ -218,7 +250,15 @@ window.GENRE_MACHINE_DATA = {
         "29": "The former queen, now widowed, writes plainly about the stepmother, the kitchen, the ball, and how little the slipper actually had to do with any of it.",
         "30": "A kitchen maid in a great house on the eve of revolution is dressed for one night at the governor's ball. She leaves a glass shoe on the stairs and the house burns by morning.",
         "31": "Two acts. Act One: the hearth. Act Two: the ball. Between them, a costume change performed in full view of the audience.",
-        "32": "Ash-grey panels give way to one full-color spread at the transformation, then back to grey at the stroke of twelve."
+        "32": "Ash-grey panels give way to one full-color spread at the transformation, then back to grey at the stroke of twelve.",
+        "33": "The ball's guest list, read in order, spells a name. The slipper's footnote reads SIZE REDACTED. Midnight appears twice in the appendix.",
+        "34": "Cinderella scrubs floors by day and burns her stepmother's ledgers by night. The prince is an exit, not a love story, and she takes it with her eyes open.",
+        "35": "The kingdom's last glassmaker fires slippers from storm-melted sand. Cinderella rides to the ball through the flood zone, and midnight is a curfew, not a curse.",
+        "36": "The ball happens every night and has never happened. Cinderella keeps finding one shoe already gone at sunset. The prince remembers her from tomorrow.",
+        "37": "At the afterlife's eternal ball, Cinderella waltzes with every prince history produced, while her godmother argues precedent with the Fates: midnight, as a concept, is void here.",
+        "38": "The slipper fits eleven women and one duke. The prince's committee handles it badly. The pigeons handle the stepsisters, and the palace handles the press.",
+        "39": "Ash from Cinderella's hearth drifts up the chimney every dusk and settles back down as silver. The stepmother sells it. The pumpkin patch keeps a carriage on retainer. No one asks.",
+        "40": "Assembled from the palace guest list, the glazier's invoice for a single slipper, and the stepmother's furious letters to an advice column."
       },
       texts: {
       }

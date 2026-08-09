@@ -6,8 +6,8 @@ genre_id: "18"
 genre_slug: true-crime
 status: drafted
 voice_prompt: "A measured documentary narrator, low and even, with the practiced restraint of true-crime television. Slight vocal fry, weight on dates and names, letting silence do the work."
-voice_id: ""
-audio: ""
+voice_id: "voice_7d794a80"
+audio: "assets/audio/pigs_18_true-crime.wav"
 tags: [genre-machine, true-crime, pigs]
 ---
 
@@ -22,5 +22,5 @@ The footage is from a camcorder, 1994. Three brothers, laughing, breaking ground
 ## Voice design
 
 - **Prompt:** A measured documentary narrator, low and even, with the practiced restraint of true-crime television. Slight vocal fry, weight on dates and names, letting silence do the work.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_7d794a80
+- **Audio file:** assets/audio/pigs_18_true-crime.wav

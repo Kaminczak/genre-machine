@@ -2,12 +2,13 @@
 REM One-time publish of The Genre Machine to GitHub Pages.
 cd /d "%~dp0.."
 
-git init -b main
-git add -A
-git -c user.name="Steve Kaminczak" -c user.email="kaminczak@gmail.com" commit -q -m "The Genre Machine: 4 fairy tales x 32 genres, with designed-voice narration"
+gh repo create genre-machine --public --source=. --remote=origin --description "Four fairy tales x 32 genres. A classroom tool for teaching genre and voice." --push
+if errorlevel 1 goto :done
 
 echo.
-echo ---- tracked files ----
-git ls-files | find /c /v ""
-echo ---- repo size ----
-git count-objects -vH | findstr size-pack
+echo ---- enabling pages ----
+gh api -X POST repos/Kaminczak/genre-machine/pages -f "source[branch]=main" -f "source[path]=/"
+
+:done
+echo.
+gh repo view Kaminczak/genre-machine --json url,visibility,pushedAt

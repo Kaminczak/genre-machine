@@ -6,8 +6,8 @@ genre_id: "29"
 genre_slug: biography
 status: drafted
 voice_prompt: "A reflective, personal voice with lived-in warmth. Conversational, honest, pausing where memory catches."
-voice_id: ""
-audio: ""
+voice_id: "voice_26c128e5"
+audio: "assets/audio/pigs_29_biography.wav"
 tags: [genre-machine, biography, pigs]
 ---
 
@@ -22,5 +22,5 @@ In the bustling town of Swineston, Sir Oinkster, a wise old pig, penned his life
 ## Voice design
 
 - **Prompt:** A reflective, personal voice with lived-in warmth. Conversational, honest, pausing where memory catches.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_26c128e5
+- **Audio file:** assets/audio/pigs_29_biography.wav

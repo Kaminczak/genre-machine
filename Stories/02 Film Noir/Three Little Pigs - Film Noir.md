@@ -6,8 +6,8 @@ genre_id: "02"
 genre_slug: noir
 status: drafted
 voice_prompt: "A world-weary male narrator in a smoke-filled room. Low, dry, clipped delivery with a cigarette rasp. 1940s American detective cadence, wry and tired, every sentence landing like a closing door."
-voice_id: ""
-audio: ""
+voice_id: "voice_d3c641db"
+audio: "assets/audio/pigs_02_noir.wav"
 tags: [genre-machine, noir, pigs]
 ---
 
@@ -22,5 +22,5 @@ The city was three parts rain and one part bad idea. The Pig brothers ran the St
 ## Voice design
 
 - **Prompt:** A world-weary male narrator in a smoke-filled room. Low, dry, clipped delivery with a cigarette rasp. 1940s American detective cadence, wry and tired, every sentence landing like a closing door.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_d3c641db
+- **Audio file:** assets/audio/pigs_02_noir.wav

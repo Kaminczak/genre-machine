@@ -6,8 +6,8 @@ genre_id: "16"
 genre_slug: suburban-mystery
 status: drafted
 voice_prompt: "A polished 1950s broadcast voice, warm and reassuring, mid-Atlantic diction, with an unsettling brightness that never breaks even as the facts turn wrong."
-voice_id: ""
-audio: ""
+voice_id: "voice_facc172e"
+audio: "assets/audio/pigs_16_suburban-mystery.wav"
 tags: [genre-machine, suburban-mystery, pigs]
 ---
 
@@ -22,5 +22,5 @@ Wolfsbane Lane went up in a single season: eleven identical ranch homes, mint, b
 ## Voice design
 
 - **Prompt:** A polished 1950s broadcast voice, warm and reassuring, mid-Atlantic diction, with an unsettling brightness that never breaks even as the facts turn wrong.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_facc172e
+- **Audio file:** assets/audio/pigs_16_suburban-mystery.wav

@@ -6,8 +6,8 @@ genre_id: "30"
 genre_slug: historical-fiction
 status: drafted
 voice_prompt: "A dignified period narrator with formal cadence and restrained emotion. Literary, precise, weight on dates and place names."
-voice_id: ""
-audio: ""
+voice_id: "voice_85e6e698"
+audio: "assets/audio/pigs_30_historical-fiction.wav"
 tags: [genre-machine, historical-fiction, pigs]
 ---
 
@@ -22,5 +22,5 @@ Amidst the turmoil of World War II, in a small occupied village, three pig sibli
 ## Voice design
 
 - **Prompt:** A dignified period narrator with formal cadence and restrained emotion. Literary, precise, weight on dates and place names.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_85e6e698
+- **Audio file:** assets/audio/pigs_30_historical-fiction.wav

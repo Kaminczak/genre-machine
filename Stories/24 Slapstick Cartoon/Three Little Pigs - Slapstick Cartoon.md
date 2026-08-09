@@ -6,8 +6,8 @@ genre_id: "24"
 genre_slug: slapstick
 status: drafted
 voice_prompt: "A high-energy cartoon narrator, elastic and gleeful, hitting every sound effect with obvious joy. Rapid, silly, breathless comic timing."
-voice_id: ""
-audio: ""
+voice_id: "voice_84fd8903"
+audio: "assets/audio/pigs_24_slapstick.wav"
 tags: [genre-machine, slapstick, pigs]
 ---
 
@@ -22,5 +22,5 @@ Bowler hat number one! Straw house! UP in three seconds! DOWN in two! Bowler hat
 ## Voice design
 
 - **Prompt:** A high-energy cartoon narrator, elastic and gleeful, hitting every sound effect with obvious joy. Rapid, silly, breathless comic timing.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_84fd8903
+- **Audio file:** assets/audio/pigs_24_slapstick.wav

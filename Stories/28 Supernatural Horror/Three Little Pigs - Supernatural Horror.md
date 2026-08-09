@@ -6,8 +6,8 @@ genre_id: "28"
 genre_slug: ghost-horror
 status: drafted
 voice_prompt: "A low, unsettled voice that stays too quiet. Careful pacing, breath audible, tension held just under the surface throughout."
-voice_id: ""
-audio: ""
+voice_id: "voice_7ded5956"
+audio: "assets/audio/pigs_28_ghost-horror.wav"
 tags: [genre-machine, ghost-horror, pigs]
 ---
 
@@ -22,5 +22,5 @@ In the fog-enshrouded village of Dread Hollow, three pig siblings sought sanctua
 ## Voice design
 
 - **Prompt:** A low, unsettled voice that stays too quiet. Careful pacing, breath audible, tension held just under the surface throughout.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_7ded5956
+- **Audio file:** assets/audio/pigs_28_ghost-horror.wav

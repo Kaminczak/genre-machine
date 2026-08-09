@@ -6,8 +6,8 @@ genre_id: "11"
 genre_slug: solarpunk
 status: drafted
 voice_prompt: "A warm, unhurried voice with sunlight in it. Gentle, grounded, generous pacing, like someone showing you their garden. Kind rather than sweet."
-voice_id: ""
-audio: ""
+voice_id: "voice_23f3b42a"
+audio: "assets/audio/pigs_11_solarpunk.wav"
 tags: [genre-machine, solarpunk, pigs]
 ---
 
@@ -22,5 +22,5 @@ On the terraced slope above Greenhollow, three pig artisans built with what the 
 ## Voice design
 
 - **Prompt:** A warm, unhurried voice with sunlight in it. Gentle, grounded, generous pacing, like someone showing you their garden. Kind rather than sweet.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_23f3b42a
+- **Audio file:** assets/audio/pigs_11_solarpunk.wav

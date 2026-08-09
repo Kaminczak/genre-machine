@@ -6,8 +6,8 @@ genre_id: "12"
 genre_slug: high-fantasy
 status: drafted
 voice_prompt: "A stately bardic narrator, rich and resonant, with the cadence of a hall-song. Ancient formality, rolling rhythm, gravity on the names."
-voice_id: ""
-audio: ""
+voice_id: "voice_4966b9d8"
+audio: "assets/audio/pigs_12_high-fantasy.wav"
 tags: [genre-machine, high-fantasy, pigs]
 ---
 
@@ -22,5 +22,5 @@ In the vale beneath the Thornwake, three pig brothers each bound a house to a wo
 ## Voice design
 
 - **Prompt:** A stately bardic narrator, rich and resonant, with the cadence of a hall-song. Ancient formality, rolling rhythm, gravity on the names.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_4966b9d8
+- **Audio file:** assets/audio/pigs_12_high-fantasy.wav

@@ -6,8 +6,8 @@ genre_id: "26"
 genre_slug: science-fiction
 status: drafted
 voice_prompt: "A calm, lucid narrator with clean modern diction and quiet wonder. Measured pacing, intelligent, documentary-cool."
-voice_id: ""
-audio: ""
+voice_id: "voice_6c6d7296"
+audio: "assets/audio/pigs_26_science-fiction.wav"
 tags: [genre-machine, science-fiction, pigs]
 ---
 
@@ -22,5 +22,5 @@ In a sprawling metropolis on the planet Swinovia, three pig engineers embarked o
 ## Voice design
 
 - **Prompt:** A calm, lucid narrator with clean modern diction and quiet wonder. Measured pacing, intelligent, documentary-cool.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_6c6d7296
+- **Audio file:** assets/audio/pigs_26_science-fiction.wav

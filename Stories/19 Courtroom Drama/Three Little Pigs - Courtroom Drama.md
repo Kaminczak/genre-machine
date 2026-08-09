@@ -6,8 +6,8 @@ genre_id: "19"
 genre_slug: courtroom
 status: drafted
 voice_prompt: "An authoritative courtroom narrator with formal diction and controlled build, shifting cleanly into the sharper cadence of counsel putting a question to a hostile witness."
-voice_id: ""
-audio: ""
+voice_id: "voice_f7310257"
+audio: "assets/audio/pigs_19_courtroom.wav"
 tags: [genre-machine, courtroom, pigs]
 ---
 
@@ -22,5 +22,5 @@ Case number 3-P-1843. Three plaintiffs, one defendant, four exhibits. Exhibit A:
 ## Voice design
 
 - **Prompt:** An authoritative courtroom narrator with formal diction and controlled build, shifting cleanly into the sharper cadence of counsel putting a question to a hostile witness.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_f7310257
+- **Audio file:** assets/audio/pigs_19_courtroom.wav

@@ -6,8 +6,8 @@ genre_id: "20"
 genre_slug: romance
 status: drafted
 voice_prompt: "A soft, intimate voice with genuine warmth, gentle romantic lilt, unhurried and tender, as if confiding a happy secret."
-voice_id: ""
-audio: ""
+voice_id: "voice_13f772f1"
+audio: "assets/audio/pigs_20_romance.wav"
 tags: [genre-machine, romance, pigs]
 ---
 
@@ -22,5 +22,5 @@ In the picturesque town of Heartsville, three pig siblings embarked on quests fo
 ## Voice design
 
 - **Prompt:** A soft, intimate voice with genuine warmth, gentle romantic lilt, unhurried and tender, as if confiding a happy secret.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_13f772f1
+- **Audio file:** assets/audio/pigs_20_romance.wav

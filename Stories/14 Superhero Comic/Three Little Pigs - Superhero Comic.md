@@ -6,8 +6,8 @@ genre_id: "14"
 genre_slug: superhero
 status: drafted
 voice_prompt: "A booming, theatrical comic-book announcer. Big, punchy, staccato emphasis, relishing every impact. Golden-age radio-serial bombast."
-voice_id: ""
-audio: ""
+voice_id: "voice_bc7c026f"
+audio: "assets/audio/pigs_14_superhero.wav"
 tags: [genre-machine, superhero, pigs]
 ---
 
@@ -22,5 +22,5 @@ THREE BROTHERS. THREE SUITS. ONE VERY BAD DAY FOR THE CITY OF PORKHAVEN. In gold
 ## Voice design
 
 - **Prompt:** A booming, theatrical comic-book announcer. Big, punchy, staccato emphasis, relishing every impact. Golden-age radio-serial bombast.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_bc7c026f
+- **Audio file:** assets/audio/pigs_14_superhero.wav

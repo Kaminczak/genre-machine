@@ -6,8 +6,8 @@ genre_id: "10"
 genre_slug: dystopian
 status: drafted
 voice_prompt: "A flat, institutional male voice reading an approved announcement. Even tempo, no inflection on the horrifying parts, a faint public-address warmth that never reaches the eyes."
-voice_id: ""
-audio: ""
+voice_id: "voice_d4d51a7b"
+audio: "assets/audio/pigs_10_dystopian.wav"
 tags: [genre-machine, dystopian, pigs]
 ---
 
@@ -22,5 +22,5 @@ Citizen 7-Straw was assigned a dwelling of regulation fiber. Citizen 7-Stick rec
 ## Voice design
 
 - **Prompt:** A flat, institutional male voice reading an approved announcement. Even tempo, no inflection on the horrifying parts, a faint public-address warmth that never reaches the eyes.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_d4d51a7b
+- **Audio file:** assets/audio/pigs_10_dystopian.wav

@@ -6,8 +6,8 @@ genre_id: "31"
 genre_slug: stage-drama
 status: drafted
 voice_prompt: "A trained stage actor's voice, resonant and projected, with clear theatrical diction and full commitment to every line reading."
-voice_id: ""
-audio: ""
+voice_id: "voice_bdb80d89"
+audio: "assets/audio/pigs_31_stage-drama.wav"
 tags: [genre-machine, stage-drama, pigs]
 ---
 
@@ -29,5 +29,5 @@ BASIL (raising his head from the scroll): And perhaps our future. Its origins ar
 ## Voice design
 
 - **Prompt:** A trained stage actor's voice, resonant and projected, with clear theatrical diction and full commitment to every line reading.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_bdb80d89
+- **Audio file:** assets/audio/pigs_31_stage-drama.wav

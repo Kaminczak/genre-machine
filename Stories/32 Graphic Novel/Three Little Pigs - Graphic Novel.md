@@ -6,8 +6,8 @@ genre_id: "32"
 genre_slug: graphic-novel
 status: drafted
 voice_prompt: "A punchy, graphic-novel narrator, terse and atmospheric, reading captions with noir-inflected economy and clear beats between panels."
-voice_id: ""
-audio: ""
+voice_id: "voice_6e5483b0"
+audio: "assets/audio/pigs_32_graphic-novel.wav"
 tags: [genre-machine, graphic-novel, pigs]
 ---
 
@@ -28,5 +28,5 @@ CAPTION: EXCITING NEWS
 ## Voice design
 
 - **Prompt:** A punchy, graphic-novel narrator, terse and atmospheric, reading captions with noir-inflected economy and clear beats between panels.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_6e5483b0
+- **Audio file:** assets/audio/pigs_32_graphic-novel.wav

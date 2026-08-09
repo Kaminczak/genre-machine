@@ -6,8 +6,8 @@ genre_id: "17"
 genre_slug: cold-war-spy
 status: drafted
 voice_prompt: "A controlled, quiet male voice with clipped precision and long deliberate pauses. Cold, careful, professionally unemotional, briefing a room that is probably bugged."
-voice_id: ""
-audio: ""
+voice_id: "voice_aaef133f"
+audio: "assets/audio/pigs_17_cold-war-spy.wav"
 tags: [genre-machine, cold-war-spy, pigs]
 ---
 
@@ -22,5 +22,5 @@ Three safehouses. Three sectors. One asset nobody vetted properly. HAYLOFT opera
 ## Voice design
 
 - **Prompt:** A controlled, quiet male voice with clipped precision and long deliberate pauses. Cold, careful, professionally unemotional, briefing a room that is probably bugged.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_aaef133f
+- **Audio file:** assets/audio/pigs_17_cold-war-spy.wav

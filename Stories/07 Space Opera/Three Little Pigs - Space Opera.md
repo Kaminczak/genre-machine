@@ -6,8 +6,8 @@ genre_id: "07"
 genre_slug: space-opera
 status: drafted
 voice_prompt: "A grand, resonant narrator with orchestral gravity. Warm, sweeping, deliberate pacing, the voice of a chronicle read aloud across centuries. Awe without shouting."
-voice_id: ""
-audio: ""
+voice_id: "voice_839572a4"
+audio: "assets/audio/pigs_07_space-opera.wav"
 tags: [genre-machine, space-opera, pigs]
 ---
 
@@ -22,5 +22,5 @@ On the frontier moon of Kepler's Trough, three colonist siblings raised three do
 ## Voice design
 
 - **Prompt:** A grand, resonant narrator with orchestral gravity. Warm, sweeping, deliberate pacing, the voice of a chronicle read aloud across centuries. Awe without shouting.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_839572a4
+- **Audio file:** assets/audio/pigs_07_space-opera.wav

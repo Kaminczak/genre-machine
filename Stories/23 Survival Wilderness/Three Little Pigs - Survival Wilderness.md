@@ -6,8 +6,8 @@ genre_id: "23"
 genre_slug: survival
 status: drafted
 voice_prompt: "A quiet, hardened survivalist voice, close-miked and conserving energy. Short sentences, cold air in the delivery, respect rather than fear."
-voice_id: ""
-audio: ""
+voice_id: "voice_bdbb2e63"
+audio: "assets/audio/pigs_23_survival.wav"
 tags: [genre-machine, survival, pigs]
 ---
 
@@ -22,5 +22,5 @@ Forty below on the Kesnik flats, and three brothers with one night to get it rig
 ## Voice design
 
 - **Prompt:** A quiet, hardened survivalist voice, close-miked and conserving energy. Short sentences, cold air in the delivery, respect rather than fear.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_bdbb2e63
+- **Audio file:** assets/audio/pigs_23_survival.wav

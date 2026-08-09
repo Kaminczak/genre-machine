@@ -251,6 +251,81 @@ body {
 }
 .card.is-logline .card-stub { display: block; }
 
+/* === GENRE NOTES ======================================================= */
+
+.notes {
+  border: 1px solid var(--rule-dim);
+}
+.notes-summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--ui);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.55rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: color .14s;
+}
+.notes-summary::-webkit-details-marker { display: none; }
+.notes-summary::before {
+  content: '+';
+  font-family: var(--type);
+  font-weight: 700;
+  color: var(--green);
+}
+.notes[open] .notes-summary::before { content: '\2212'; }
+.notes-summary:hover { color: var(--green); }
+.notes-summary:focus-visible { outline: 2px solid var(--green); outline-offset: -3px; }
+
+.notes-body {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  background: var(--paper);
+  color: var(--paper-ink);
+  border-top: 1px solid var(--rule-dim);
+}
+.notes-col {
+  padding: clamp(0.9rem, 2vw, 1.3rem) clamp(0.9rem, 2.2vw, 1.5rem);
+}
+.notes-col + .notes-col { border-left: 1px solid rgba(16,16,16,0.18); }
+.notes-col h3 {
+  font-family: var(--ui);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  margin-bottom: 0.7rem;
+}
+.notes-col ul { list-style: none; }
+.notes-col li,
+.notes-col p {
+  font-family: var(--type);
+  font-size: clamp(0.68rem, 1.05vw, 0.8rem);
+  line-height: 1.7;
+}
+.notes-col li { padding-left: 1em; position: relative; margin-bottom: 0.45em; }
+.notes-col li::before {
+  content: '\2022';
+  position: absolute; left: 0;
+  color: var(--green-deep);
+}
+#notes-examples li { font-style: italic; }
+
+@media (max-width: 720px) {
+  .notes-body { grid-template-columns: 1fr; }
+  .notes-col + .notes-col {
+    border-left: 0;
+    border-top: 1px solid rgba(16,16,16,0.18);
+  }
+}
+
 /* === GENRE GRID ======================================================== */
 
 .grid {
@@ -381,6 +456,24 @@ body {
     <p class="card-stub">Logline only — full text not yet written for this pairing</p>
   </section>
 
+  <details class="notes" id="notes">
+    <summary class="notes-summary" id="notes-summary">About this genre</summary>
+    <div class="notes-body">
+      <div class="notes-col">
+        <h3>Hallmarks</h3>
+        <ul id="notes-traits"></ul>
+      </div>
+      <div class="notes-col">
+        <h3>A little history</h3>
+        <p id="notes-history"></p>
+      </div>
+      <div class="notes-col">
+        <h3>Three to try</h3>
+        <ul id="notes-examples"></ul>
+      </div>
+    </div>
+  </details>
+
   <div class="grid" id="grid" role="group" aria-label="Choose a genre"></div>
 
   <p class="tagline">Change the genre &ndash; change the story</p>
@@ -397,6 +490,7 @@ body {
 
 <script src="data/stories.js"></script>
 <script src="data/scripts-generated.js"></script>
+<script src="data/genre-notes.js"></script>
 <script>
 /* ============================================================
    Genre Machine — app logic
@@ -428,6 +522,11 @@ body {
     emptySto: document.getElementById('empty-story'),
     card:     document.getElementById('card'),
     text:     document.getElementById('card-text'),
+    notes:        document.getElementById('notes'),
+    notesSummary: document.getElementById('notes-summary'),
+    notesTraits:  document.getElementById('notes-traits'),
+    notesHistory: document.getElementById('notes-history'),
+    notesExamples: document.getElementById('notes-examples'),
     narrate:  document.getElementById('narrate'),
     shuffle:  document.getElementById('shuffle'),
     audio:    document.getElementById('narration-audio'),
@@ -483,6 +582,8 @@ body {
     el.text.textContent = full || line;
     el.card.classList.toggle('is-logline', !full);
 
+    renderNotes(genre);
+
     el.emptyId.textContent  = genre.id;
     el.emptyGen.textContent = genre.name;
     el.emptySto.textContent = story.title;
@@ -498,6 +599,27 @@ body {
     try {
       history.replaceState(null, '', '#' + story.id + '/' + genre.slug);
     } catch (e) { /* file:// can refuse this; harmless */ }
+  }
+
+  function renderNotes(genre) {
+    var NOTES = window.GENRE_MACHINE_NOTES || {};
+    var n = NOTES[genre.id];
+    el.notes.hidden = !n;
+    if (!n) { return; }
+    el.notesSummary.textContent = 'About ' + genre.name;
+    el.notesTraits.innerHTML = '';
+    n.traits.forEach(function (t) {
+      var li = document.createElement('li');
+      li.textContent = t;
+      el.notesTraits.appendChild(li);
+    });
+    el.notesHistory.textContent = n.history;
+    el.notesExamples.innerHTML = '';
+    n.examples.forEach(function (t) {
+      var li = document.createElement('li');
+      li.textContent = t;
+      el.notesExamples.appendChild(li);
+    });
   }
 
   el.img.addEventListener('load',  function () { el.img.classList.add('is-loaded'); });

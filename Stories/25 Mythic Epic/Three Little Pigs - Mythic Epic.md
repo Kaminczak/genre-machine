@@ -6,8 +6,8 @@ genre_id: "25"
 genre_slug: mythic-epic
 status: drafted
 voice_prompt: "A monumental, ancient narrator with deep resonance and ceremonial pacing. Formal, elevated language delivered like scripture carved in stone."
-voice_id: ""
-audio: ""
+voice_id: "voice_31d98e4f"
+audio: "assets/audio/pigs_25_mythic-epic.wav"
 tags: [genre-machine, mythic-epic, pigs]
 ---
 
@@ -22,5 +22,5 @@ Hear now of the three sons of the Sow-Mother, who were given breath and pride in
 ## Voice design
 
 - **Prompt:** A monumental, ancient narrator with deep resonance and ceremonial pacing. Formal, elevated language delivered like scripture carved in stone.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_31d98e4f
+- **Audio file:** assets/audio/pigs_25_mythic-epic.wav

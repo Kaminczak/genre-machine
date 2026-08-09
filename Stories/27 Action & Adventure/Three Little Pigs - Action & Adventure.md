@@ -6,8 +6,8 @@ genre_id: "27"
 genre_slug: action-adventure
 status: drafted
 voice_prompt: "A driving, energetic narrator with muscular pacing and rising urgency. Confident, cinematic, propulsive without shouting."
-voice_id: ""
-audio: ""
+voice_id: "voice_9d9b81f4"
+audio: "assets/audio/pigs_27_action-adventure.wav"
 tags: [genre-machine, action-adventure, pigs]
 ---
 
@@ -22,5 +22,5 @@ In a world driven by adventure, three daring pigs set out to find ancient treasu
 ## Voice design
 
 - **Prompt:** A driving, energetic narrator with muscular pacing and rising urgency. Confident, cinematic, propulsive without shouting.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_9d9b81f4
+- **Audio file:** assets/audio/pigs_27_action-adventure.wav

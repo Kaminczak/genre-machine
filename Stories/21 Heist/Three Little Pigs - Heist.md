@@ -6,8 +6,8 @@ genre_id: "21"
 genre_slug: heist
 status: drafted
 voice_prompt: "A slick, confident narrator with rhythm and swagger, laying out a plan with relish, tightening into terse urgency when the job goes sideways."
-voice_id: ""
-audio: ""
+voice_id: "voice_06ad53c0"
+audio: "assets/audio/pigs_21_heist.wav"
 tags: [genre-machine, heist, pigs]
 ---
 
@@ -22,5 +22,5 @@ The job was three vaults in one night. Marla drove. Deke handled demolitions. Sy
 ## Voice design
 
 - **Prompt:** A slick, confident narrator with rhythm and swagger, laying out a plan with relish, tightening into terse urgency when the job goes sideways.
-- **Saved voice id:** 
-- **Audio file:** 
+- **Saved voice id:** voice_06ad53c0
+- **Audio file:** assets/audio/pigs_21_heist.wav
