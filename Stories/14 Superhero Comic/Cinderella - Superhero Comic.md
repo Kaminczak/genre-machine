@@ -6,8 +6,8 @@ genre_id: "14"
 genre_slug: superhero
 status: drafted
 voice_prompt: "A booming male announcer with a splash-page cadence, narrating gowns and grappling hooks at full volume."
-voice_id: ""
-audio: ""
+voice_id: "voice_df74647c"
+audio: "assets/audio/cinderella_14_superhero.wav"
 tags: [genre-machine, superhero, cinderella]
 ---
 

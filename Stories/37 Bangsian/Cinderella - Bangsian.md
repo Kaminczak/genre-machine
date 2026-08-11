@@ -6,8 +6,8 @@ genre_id: "37"
 genre_slug: bangsian
 status: drafted
 voice_prompt: "An urbane male afterlife raconteur, twinkling, narrating an eternal ball where midnight has been ruled void."
-voice_id: ""
-audio: ""
+voice_id: "voice_e3721d17"
+audio: "assets/audio/cinderella_37_bangsian.wav"
 tags: [genre-machine, bangsian, cinderella]
 ---
 

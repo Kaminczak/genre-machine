@@ -6,8 +6,8 @@ genre_id: "36"
 genre_slug: slipstream
 status: drafted
 voice_prompt: "A soft, precisely amused narrator, dream-journal calm, for a ball that happens nightly and never happened."
-voice_id: ""
-audio: ""
+voice_id: "voice_c2031a17"
+audio: "assets/audio/cinderella_36_slipstream.wav"
 tags: [genre-machine, slipstream, cinderella]
 ---
 

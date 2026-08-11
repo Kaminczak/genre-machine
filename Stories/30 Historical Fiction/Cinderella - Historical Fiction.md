@@ -6,8 +6,8 @@ genre_id: "30"
 genre_slug: historical-fiction
 status: drafted
 voice_prompt: "A grave female narrator over needle-drop crackle, narrating one gown's worth of grace on the eve of a burning."
-voice_id: ""
-audio: ""
+voice_id: "voice_cd5ef785"
+audio: "assets/audio/cinderella_30_historical-fiction.wav"
 tags: [genre-machine, historical-fiction, cinderella]
 ---
 

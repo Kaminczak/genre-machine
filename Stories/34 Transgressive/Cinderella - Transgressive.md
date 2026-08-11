@@ -6,8 +6,8 @@ genre_id: "34"
 genre_slug: transgressive
 status: drafted
 voice_prompt: "A flat, burning female voice, close and unrepentant, narrating an exit strategy that wore glass shoes."
-voice_id: ""
-audio: ""
+voice_id: "voice_077f5736"
+audio: "assets/audio/cinderella_34_transgressive.wav"
 tags: [genre-machine, transgressive, cinderella]
 ---
 

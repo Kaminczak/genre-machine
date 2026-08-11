@@ -6,8 +6,8 @@ genre_id: "16"
 genre_slug: suburban-mystery
 status: drafted
 voice_prompt: "A poised 1950s female social columnist, honeyed and observant, reporting a country-club scandal between canapes."
-voice_id: ""
-audio: ""
+voice_id: "voice_3f8b76d7"
+audio: "assets/audio/cinderella_16_suburban-mystery.wav"
 tags: [genre-machine, suburban-mystery, cinderella]
 ---
 

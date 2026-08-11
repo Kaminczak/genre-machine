@@ -6,8 +6,8 @@ genre_id: "35"
 genre_slug: climate-fiction
 status: drafted
 voice_prompt: "A weathered, quietly urgent female voice, elegiac and practical, where glass is storm-melted sand and midnight is policy."
-voice_id: ""
-audio: ""
+voice_id: "voice_f3e193b0"
+audio: "assets/audio/cinderella_35_climate-fiction.wav"
 tags: [genre-machine, climate-fiction, cinderella]
 ---
 

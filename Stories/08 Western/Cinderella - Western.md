@@ -6,8 +6,8 @@ genre_id: "08"
 genre_slug: western
 status: drafted
 voice_prompt: "A weathered male trail-boss drawl, unhurried and wry, narrating a governor's ball the way you narrate a cattle drive gone strange."
-voice_id: ""
-audio: ""
+voice_id: "voice_7c6be397"
+audio: "assets/audio/cinderella_08_western.wav"
 tags: [genre-machine, western, cinderella]
 ---
 

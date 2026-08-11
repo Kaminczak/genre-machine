@@ -6,8 +6,8 @@ genre_id: "28"
 genre_slug: ghost-horror
 status: drafted
 voice_prompt: "A hushed female voice with a cold-room stillness, narrating a gift whose price is disclosed at midnight."
-voice_id: ""
-audio: ""
+voice_id: "voice_45658e1a"
+audio: "assets/audio/cinderella_28_ghost-horror.wav"
 tags: [genre-machine, ghost-horror, cinderella]
 ---
 

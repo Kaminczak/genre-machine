@@ -6,8 +6,8 @@ genre_id: "23"
 genre_slug: survival
 status: drafted
 voice_prompt: "A low, steady female voice weathered by altitude, narrating servitude, escape, and one warm night like a route map."
-voice_id: ""
-audio: ""
+voice_id: "voice_a1e537c2"
+audio: "assets/audio/cinderella_23_survival.wav"
 tags: [genre-machine, survival, cinderella]
 ---
 

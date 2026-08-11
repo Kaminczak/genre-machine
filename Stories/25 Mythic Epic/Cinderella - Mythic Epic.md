@@ -6,8 +6,8 @@ genre_id: "25"
 genre_slug: mythic-epic
 status: drafted
 voice_prompt: "A deep female oracle, ceremonial and vast, singing the ash-daughter into the ledger of the gods."
-voice_id: ""
-audio: ""
+voice_id: "voice_a25224d6"
+audio: "assets/audio/cinderella_25_mythic-epic.wav"
 tags: [genre-machine, mythic-epic, cinderella]
 ---
 

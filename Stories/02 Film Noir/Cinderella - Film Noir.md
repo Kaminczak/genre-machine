@@ -6,8 +6,8 @@ genre_id: "02"
 genre_slug: noir
 status: drafted
 voice_prompt: "A tired male gumshoe voice, low and smoke-cured, narrating a missing-persons case where the only evidence is a shoe."
-voice_id: ""
-audio: ""
+voice_id: "voice_8a25ba0e"
+audio: "assets/audio/cinderella_02_noir.wav"
 tags: [genre-machine, noir, cinderella]
 ---
 

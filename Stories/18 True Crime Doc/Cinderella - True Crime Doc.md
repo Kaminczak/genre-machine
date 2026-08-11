@@ -6,8 +6,8 @@ genre_id: "18"
 genre_slug: true-crime
 status: drafted
 voice_prompt: "A measured male documentary narrator, restrained, building the timeline of a vanishing one exhibit at a time."
-voice_id: ""
-audio: ""
+voice_id: "voice_27d34830"
+audio: "assets/audio/cinderella_18_true-crime.wav"
 tags: [genre-machine, true-crime, cinderella]
 ---
 

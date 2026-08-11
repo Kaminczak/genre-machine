@@ -6,8 +6,8 @@ genre_id: "26"
 genre_slug: science-fiction
 status: drafted
 voice_prompt: "A clean, calm female tech-log voice, precise and cool, narrating a fabrication miracle with version numbers."
-voice_id: ""
-audio: ""
+voice_id: "voice_ac49dc2a"
+audio: "assets/audio/cinderella_26_science-fiction.wav"
 tags: [genre-machine, science-fiction, cinderella]
 ---
 

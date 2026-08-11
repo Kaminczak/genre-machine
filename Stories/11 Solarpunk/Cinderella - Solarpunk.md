@@ -6,8 +6,8 @@ genre_id: "11"
 genre_slug: solarpunk
 status: drafted
 voice_prompt: "A warm communal female voice, easy and bright, narrating a festival where the magic is mostly neighbors."
-voice_id: ""
-audio: ""
+voice_id: "voice_9a60c2b3"
+audio: "assets/audio/cinderella_11_solarpunk.wav"
 tags: [genre-machine, solarpunk, cinderella]
 ---
 

@@ -6,8 +6,8 @@ genre_id: "17"
 genre_slug: cold-war-spy
 status: drafted
 voice_prompt: "A quiet male handler's voice, exact and gray, narrating an embassy ball where the shoe is the microphone."
-voice_id: ""
-audio: ""
+voice_id: "voice_6d298477"
+audio: "assets/audio/cinderella_17_cold-war-spy.wav"
 tags: [genre-machine, cold-war-spy, cinderella]
 ---
 

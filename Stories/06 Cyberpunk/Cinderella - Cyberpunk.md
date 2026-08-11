@@ -6,8 +6,8 @@ genre_id: "06"
 genre_slug: cyberpunk
 status: drafted
 voice_prompt: "A flat, chrome-edged female voice, streetwise and quiet, narrating a one-night identity hack with a hard expiry."
-voice_id: ""
-audio: ""
+voice_id: "voice_412bea49"
+audio: "assets/audio/cinderella_06_cyberpunk.wav"
 tags: [genre-machine, cyberpunk, cinderella]
 ---
 

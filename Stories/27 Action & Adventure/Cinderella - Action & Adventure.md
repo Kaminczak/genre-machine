@@ -6,8 +6,8 @@ genre_id: "27"
 genre_slug: action-adventure
 status: drafted
 voice_prompt: "A driving female adventure voice, quick and fearless, narrating wall-scaling in a ballgown as the sport it is."
-voice_id: ""
-audio: ""
+voice_id: "voice_642ad8a6"
+audio: "assets/audio/cinderella_27_action-adventure.wav"
 tags: [genre-machine, action-adventure, cinderella]
 ---
 

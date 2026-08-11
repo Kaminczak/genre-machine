@@ -6,8 +6,8 @@ genre_id: "07"
 genre_slug: space-opera
 status: drafted
 voice_prompt: "A crisp female flight-deck voice with soaring undertones, protocol against wonder, wonder winning by inches."
-voice_id: ""
-audio: ""
+voice_id: "voice_a8cea9dd"
+audio: "assets/audio/cinderella_07_space-opera.wav"
 tags: [genre-machine, space-opera, cinderella]
 ---
 

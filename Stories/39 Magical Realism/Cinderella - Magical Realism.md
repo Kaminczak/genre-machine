@@ -6,8 +6,8 @@ genre_id: "39"
 genre_slug: magical-realism
 status: drafted
 voice_prompt: "A warm, matter-of-fact female storyteller, tender toward miracles treated as chores, unhurried at dusk."
-voice_id: ""
-audio: ""
+voice_id: "voice_d7943e4a"
+audio: "assets/audio/cinderella_39_magical-realism.wav"
 tags: [genre-machine, magical-realism, cinderella]
 ---
 

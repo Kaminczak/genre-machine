@@ -6,8 +6,8 @@ genre_id: "01"
 genre_slug: original
 status: drafted
 voice_prompt: "A gentle, wonder-filled female storyteller with a hearthside warmth, letting the magic land softly, kind even to the stepsisters."
-voice_id: ""
-audio: ""
+voice_id: "voice_04c9f1e0"
+audio: "assets/audio/cinderella_01_original.wav"
 tags: [genre-machine, original, cinderella]
 ---
 

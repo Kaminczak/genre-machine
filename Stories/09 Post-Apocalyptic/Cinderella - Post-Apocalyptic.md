@@ -6,8 +6,8 @@ genre_id: "09"
 genre_slug: post-apocalyptic
 status: drafted
 voice_prompt: "A dry, wind-burned female voice, hoarse and unsentimental, where finery is salvage and midnight is a curfew with teeth."
-voice_id: ""
-audio: ""
+voice_id: "voice_203d6afe"
+audio: "assets/audio/cinderella_09_post-apocalyptic.wav"
 tags: [genre-machine, post-apocalyptic, cinderella]
 ---
 

@@ -6,8 +6,8 @@ genre_id: "22"
 genre_slug: detective
 status: drafted
 voice_prompt: "A sharp female sleuth voice, brisk and delighted, working backward from a shoe to a person to a motive."
-voice_id: ""
-audio: ""
+voice_id: "voice_6a04c2de"
+audio: "assets/audio/cinderella_22_detective.wav"
 tags: [genre-machine, detective, cinderella]
 ---
 

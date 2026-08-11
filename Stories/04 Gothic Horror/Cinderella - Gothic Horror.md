@@ -6,8 +6,8 @@ genre_id: "04"
 genre_slug: gothic
 status: drafted
 voice_prompt: "A pale, precise female voice, velvet over iron, narrating cellar damp and candlelit inheritance with unblinking calm."
-voice_id: ""
-audio: ""
+voice_id: "voice_cfc002fc"
+audio: "assets/audio/cinderella_04_gothic.wav"
 tags: [genre-machine, gothic, cinderella]
 ---
 

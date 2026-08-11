@@ -6,8 +6,8 @@ genre_id: "29"
 genre_slug: biography
 status: drafted
 voice_prompt: "A composed older female voice, plain and unhurried, correcting the record about the slipper with mild amusement."
-voice_id: ""
-audio: ""
+voice_id: "voice_5eb849ef"
+audio: "assets/audio/cinderella_29_biography.wav"
 tags: [genre-machine, biography, cinderella]
 ---
 

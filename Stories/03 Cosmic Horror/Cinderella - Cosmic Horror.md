@@ -6,8 +6,8 @@ genre_id: "03"
 genre_slug: cosmic-horror
 status: drafted
 voice_prompt: "A slow, unsettled male narrator, reverent and wrong-footed, describing a godmother whose kindness arrives from a direction that does not exist."
-voice_id: ""
-audio: ""
+voice_id: "voice_00ce0f98"
+audio: "assets/audio/cinderella_03_cosmic-horror.wav"
 tags: [genre-machine, cosmic-horror, cinderella]
 ---
 

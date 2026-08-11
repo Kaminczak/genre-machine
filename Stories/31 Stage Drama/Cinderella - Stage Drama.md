@@ -6,8 +6,8 @@ genre_id: "31"
 genre_slug: stage-drama
 status: drafted
 voice_prompt: "A projected female stage voice, articulate and warm, narrating a costume change performed in full view."
-voice_id: ""
-audio: ""
+voice_id: "voice_7325dff3"
+audio: "assets/audio/cinderella_31_stage-drama.wav"
 tags: [genre-machine, stage-drama, cinderella]
 ---
 

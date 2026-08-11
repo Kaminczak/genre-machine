@@ -6,8 +6,8 @@ genre_id: "12"
 genre_slug: high-fantasy
 status: drafted
 voice_prompt: "A resonant female court-bard, formal and shining, giving equal weight to enchantment and its terms and conditions."
-voice_id: ""
-audio: ""
+voice_id: "voice_66b7e0c7"
+audio: "assets/audio/cinderella_12_high-fantasy.wav"
 tags: [genre-machine, high-fantasy, cinderella]
 ---
 

@@ -6,8 +6,8 @@ genre_id: "24"
 genre_slug: slapstick
 status: drafted
 voice_prompt: "A manic male cartoon announcer, rubber-limbed and loud, narrating transformations with sound effects included."
-voice_id: ""
-audio: ""
+voice_id: "voice_d6368706"
+audio: "assets/audio/cinderella_24_slapstick.wav"
 tags: [genre-machine, slapstick, cinderella]
 ---
 

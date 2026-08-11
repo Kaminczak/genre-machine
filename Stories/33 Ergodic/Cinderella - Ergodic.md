@@ -6,8 +6,8 @@ genre_id: "33"
 genre_slug: ergodic
 status: drafted
 voice_prompt: "A dry male archivist voice, footnote-fluent, reading a guest list that spells something it should not."
-voice_id: ""
-audio: ""
+voice_id: "voice_1b248384"
+audio: "assets/audio/cinderella_33_ergodic.wav"
 tags: [genre-machine, ergodic, cinderella]
 ---
 

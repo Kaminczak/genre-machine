@@ -6,8 +6,8 @@ genre_id: "40"
 genre_slug: epistolary
 status: drafted
 voice_prompt: "A prim male clerk assembling a file, officious and exact, with the stepmother's letters read at full indignation."
-voice_id: ""
-audio: ""
+voice_id: "voice_78625839"
+audio: "assets/audio/cinderella_40_epistolary.wav"
 tags: [genre-machine, epistolary, cinderella]
 ---
 

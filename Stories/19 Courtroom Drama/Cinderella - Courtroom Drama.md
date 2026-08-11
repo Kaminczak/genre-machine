@@ -6,8 +6,8 @@ genre_id: "19"
 genre_slug: courtroom
 status: drafted
 voice_prompt: "An even female court clerk, formal and clear, reading probate, grievance, and one glass exhibit into the record."
-voice_id: ""
-audio: ""
+voice_id: "voice_fff0d4c5"
+audio: "assets/audio/cinderella_19_courtroom.wav"
 tags: [genre-machine, courtroom, cinderella]
 ---
 

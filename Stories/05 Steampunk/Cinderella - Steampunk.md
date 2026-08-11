@@ -6,8 +6,8 @@ genre_id: "05"
 genre_slug: steampunk
 status: drafted
 voice_prompt: "A bright female engineer's voice, quick and delighted, narrating corsetry, cogwork, and a pumpkin of considerable horsepower."
-voice_id: ""
-audio: ""
+voice_id: "voice_9c03c8de"
+audio: "assets/audio/cinderella_05_steampunk.wav"
 tags: [genre-machine, steampunk, cinderella]
 ---
 

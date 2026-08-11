@@ -6,8 +6,8 @@ genre_id: "13"
 genre_slug: anime
 status: drafted
 voice_prompt: "An earnest, sparkling female narrator, all heart, treating a school festival like destiny because it is."
-voice_id: ""
-audio: ""
+voice_id: "voice_55f8af32"
+audio: "assets/audio/cinderella_13_anime.wav"
 tags: [genre-machine, anime, cinderella]
 ---
 

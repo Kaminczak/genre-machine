@@ -6,8 +6,8 @@ genre_id: "20"
 genre_slug: romance
 status: drafted
 voice_prompt: "A tender male romantic voice, warm and slightly awed, narrating one night that refused to stay one night."
-voice_id: ""
-audio: ""
+voice_id: "voice_3f6c734e"
+audio: "assets/audio/cinderella_20_romance.wav"
 tags: [genre-machine, romance, cinderella]
 ---
 

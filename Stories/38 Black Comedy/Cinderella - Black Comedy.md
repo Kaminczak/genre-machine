@@ -6,8 +6,8 @@ genre_id: "38"
 genre_slug: black-comedy
 status: drafted
 voice_prompt: "A deadpan female narrator, dry as vermouth, reading a glass-slipper fiasco like a shareholder letter."
-voice_id: ""
-audio: ""
+voice_id: "voice_8ca68134"
+audio: "assets/audio/cinderella_38_black-comedy.wav"
 tags: [genre-machine, black-comedy, cinderella]
 ---
 

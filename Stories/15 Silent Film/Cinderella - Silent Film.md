@@ -6,8 +6,8 @@ genre_id: "15"
 genre_slug: silent-film
 status: drafted
 voice_prompt: "A jaunty male accompanist voice for title cards, winking and brisk, letting the piano do the weeping."
-voice_id: ""
-audio: ""
+voice_id: "voice_bd5b88f1"
+audio: "assets/audio/cinderella_15_silent-film.wav"
 tags: [genre-machine, silent-film, cinderella]
 ---
 

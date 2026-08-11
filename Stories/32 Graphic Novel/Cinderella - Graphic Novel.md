@@ -6,8 +6,8 @@ genre_id: "32"
 genre_slug: graphic-novel
 status: drafted
 voice_prompt: "A moody male caption voice, ink-dark and spare, letting one color panel carry the whole transformation."
-voice_id: ""
-audio: ""
+voice_id: "voice_989434f3"
+audio: "assets/audio/cinderella_32_graphic-novel.wav"
 tags: [genre-machine, graphic-novel, cinderella]
 ---
 

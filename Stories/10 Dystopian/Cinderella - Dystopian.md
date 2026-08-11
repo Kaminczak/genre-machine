@@ -6,8 +6,8 @@ genre_id: "10"
 genre_slug: dystopian
 status: drafted
 voice_prompt: "A courteous, dead-even male state announcer, reading an elevation and its revocation with identical warmth."
-voice_id: ""
-audio: ""
+voice_id: "voice_a135ffd9"
+audio: "assets/audio/cinderella_10_dystopian.wav"
 tags: [genre-machine, dystopian, cinderella]
 ---
 

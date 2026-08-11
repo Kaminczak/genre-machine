@@ -6,8 +6,8 @@ genre_id: "21"
 genre_slug: heist
 status: drafted
 voice_prompt: "A sly male caper voice, velvet and amused, walking the crew through a palace job with a midnight hard-out."
-voice_id: ""
-audio: ""
+voice_id: "voice_c9001ce3"
+audio: "assets/audio/cinderella_21_heist.wav"
 tags: [genre-machine, heist, cinderella]
 ---
 
