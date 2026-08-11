@@ -6,8 +6,8 @@ genre_id: "23"
 genre_slug: survival
 status: drafted
 voice_prompt: "A low, frost-burned male voice, calm as deep snow, respectful of bears, weather, and the arithmetic of shelter."
-voice_id: ""
-audio: ""
+voice_id: "voice_70c280f9"
+audio: "assets/audio/goldilocks_23_survival.wav"
 tags: [genre-machine, survival, goldilocks]
 ---
 

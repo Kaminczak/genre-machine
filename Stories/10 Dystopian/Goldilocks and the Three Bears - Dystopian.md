@@ -6,8 +6,8 @@ genre_id: "10"
 genre_slug: dystopian
 status: drafted
 voice_prompt: "A flat, courteous male functionary voice reading a violation report, pleasantness calibrated to exactly the level that precedes a knock at your door."
-voice_id: ""
-audio: ""
+voice_id: "voice_6afb7b5a"
+audio: "assets/audio/goldilocks_10_dystopian.wav"
 tags: [genre-machine, dystopian, goldilocks]
 ---
 

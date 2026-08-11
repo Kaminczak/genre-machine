@@ -6,8 +6,8 @@ genre_id: "31"
 genre_slug: stage-drama
 status: drafted
 voice_prompt: "A projected male stage actor, articulate and wry, giving the wings and the audience equal billing."
-voice_id: ""
-audio: ""
+voice_id: "voice_939403dd"
+audio: "assets/audio/goldilocks_31_stage-drama.wav"
 tags: [genre-machine, stage-drama, goldilocks]
 ---
 

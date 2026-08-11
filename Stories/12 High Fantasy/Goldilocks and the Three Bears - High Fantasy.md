@@ -6,8 +6,8 @@ genre_id: "12"
 genre_slug: high-fantasy
 status: drafted
 voice_prompt: "A rolling male bard with mead-hall resonance, relishing oaths, thrones, and the poor judgment of golden-haired trespassers."
-voice_id: ""
-audio: ""
+voice_id: "voice_9da8540a"
+audio: "assets/audio/goldilocks_12_high-fantasy.wav"
 tags: [genre-machine, high-fantasy, goldilocks]
 ---
 

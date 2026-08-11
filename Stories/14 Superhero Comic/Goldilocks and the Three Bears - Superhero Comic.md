@@ -6,8 +6,8 @@ genre_id: "14"
 genre_slug: superhero
 status: drafted
 voice_prompt: "A booming male comic-book announcer, punching every third word, narrating a safehouse infiltration like a title fight."
-voice_id: ""
-audio: ""
+voice_id: "voice_9ff6e22d"
+audio: "assets/audio/goldilocks_14_superhero.wav"
 tags: [genre-machine, superhero, goldilocks]
 ---
 

@@ -6,8 +6,8 @@ genre_id: "38"
 genre_slug: black-comedy
 status: drafted
 voice_prompt: "A deadpan female narrator, bone-dry, reading litigation over a chair with the gravity of a war memorial."
-voice_id: ""
-audio: ""
+voice_id: "voice_2eb910e5"
+audio: "assets/audio/goldilocks_38_black-comedy.wav"
 tags: [genre-machine, black-comedy, goldilocks]
 ---
 

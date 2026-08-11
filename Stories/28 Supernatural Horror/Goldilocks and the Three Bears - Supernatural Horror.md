@@ -6,8 +6,8 @@ genre_id: "28"
 genre_slug: ghost-horror
 status: drafted
 voice_prompt: "A low female whisper with a chill in it, close to the ear, narrating rooms that remember being lived in by the dead."
-voice_id: ""
-audio: ""
+voice_id: "voice_848c2c08"
+audio: "assets/audio/goldilocks_28_ghost-horror.wav"
 tags: [genre-machine, ghost-horror, goldilocks]
 ---
 

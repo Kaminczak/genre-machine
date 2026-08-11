@@ -6,8 +6,8 @@ genre_id: "30"
 genre_slug: historical-fiction
 status: drafted
 voice_prompt: "A grave female narrator over radio crackle, wartime-quiet, where a bowl of porridge is worth exactly what it costs."
-voice_id: ""
-audio: ""
+voice_id: "voice_ef5789a9"
+audio: "assets/audio/goldilocks_30_historical-fiction.wav"
 tags: [genre-machine, historical-fiction, goldilocks]
 ---
 

@@ -6,8 +6,8 @@ genre_id: "32"
 genre_slug: graphic-novel
 status: drafted
 voice_prompt: "A moody male voice like ink and vinyl, terse captions with long breaths between panels."
-voice_id: ""
-audio: ""
+voice_id: "voice_812e9b09"
+audio: "assets/audio/goldilocks_32_graphic-novel.wav"
 tags: [genre-machine, graphic-novel, goldilocks]
 ---
 

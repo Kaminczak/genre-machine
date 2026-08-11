@@ -6,8 +6,8 @@ genre_id: "20"
 genre_slug: romance
 status: drafted
 voice_prompt: "A soft male romantic lead voice, warm and a little undone, narrating a storm, a stranger, and a table set for three that fed four."
-voice_id: ""
-audio: ""
+voice_id: "voice_f2a68233"
+audio: "assets/audio/goldilocks_20_romance.wav"
 tags: [genre-machine, romance, goldilocks]
 ---
 

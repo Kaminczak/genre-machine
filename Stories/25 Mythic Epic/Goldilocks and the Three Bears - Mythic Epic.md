@@ -6,8 +6,8 @@ genre_id: "25"
 genre_slug: mythic-epic
 status: drafted
 voice_prompt: "A solemn female oracle, ceremonial and vast, intoning trespass and grove-law as things older than names."
-voice_id: ""
-audio: ""
+voice_id: "voice_1654eb81"
+audio: "assets/audio/goldilocks_25_mythic-epic.wav"
 tags: [genre-machine, mythic-epic, goldilocks]
 ---
 

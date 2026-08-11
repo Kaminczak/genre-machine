@@ -6,8 +6,8 @@ genre_id: "19"
 genre_slug: courtroom
 status: drafted
 voice_prompt: "An impartial female court clerk, formal and metronomic, reading charges of trespass and porridge in the first degree."
-voice_id: ""
-audio: ""
+voice_id: "voice_4c6834b1"
+audio: "assets/audio/goldilocks_19_courtroom.wav"
 tags: [genre-machine, courtroom, goldilocks]
 ---
 

@@ -6,8 +6,8 @@ genre_id: "06"
 genre_slug: cyberpunk
 status: drafted
 voice_prompt: "A terse female infiltrator voice with a synthetic edge, debriefing flat and fast, contempt for amateurs leaking through the compression."
-voice_id: ""
-audio: ""
+voice_id: "voice_833479e1"
+audio: "assets/audio/goldilocks_06_cyberpunk.wav"
 tags: [genre-machine, cyberpunk, goldilocks]
 ---
 

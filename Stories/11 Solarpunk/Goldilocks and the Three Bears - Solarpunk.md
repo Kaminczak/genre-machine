@@ -6,8 +6,8 @@ genre_id: "11"
 genre_slug: solarpunk
 status: drafted
 voice_prompt: "A warm, unhurried male host with soil in his laugh, narrating hospitality like a recipe everyone should already know."
-voice_id: ""
-audio: ""
+voice_id: "voice_94427766"
+audio: "assets/audio/goldilocks_11_solarpunk.wav"
 tags: [genre-machine, solarpunk, goldilocks]
 ---
 

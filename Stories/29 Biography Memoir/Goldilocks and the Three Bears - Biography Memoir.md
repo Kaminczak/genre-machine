@@ -6,8 +6,8 @@ genre_id: "29"
 genre_slug: biography
 status: drafted
 voice_prompt: "A wry older female voice, dry and unrepentant, setting the record straight about the porridge once and for all."
-voice_id: ""
-audio: ""
+voice_id: "voice_7fc4e37d"
+audio: "assets/audio/goldilocks_29_biography.wav"
 tags: [genre-machine, biography, goldilocks]
 ---
 

@@ -6,8 +6,8 @@ genre_id: "26"
 genre_slug: science-fiction
 status: drafted
 voice_prompt: "A calm female station-AI adjacent voice, clinical and clean, logging anomalies with growing, politely suppressed interest."
-voice_id: ""
-audio: ""
+voice_id: "voice_94101cb2"
+audio: "assets/audio/goldilocks_26_science-fiction.wav"
 tags: [genre-machine, science-fiction, goldilocks]
 ---
 

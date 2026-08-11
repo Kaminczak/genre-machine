@@ -6,8 +6,8 @@ genre_id: "09"
 genre_slug: post-apocalyptic
 status: drafted
 voice_prompt: "A hoarse, economical female survivor voice, counting calories in every sentence, too tired for fear and too smart for hope."
-voice_id: ""
-audio: ""
+voice_id: "voice_7be6a223"
+audio: "assets/audio/goldilocks_09_post-apocalyptic.wav"
 tags: [genre-machine, post-apocalyptic, goldilocks]
 ---
 

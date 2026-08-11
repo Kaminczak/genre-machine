@@ -6,8 +6,8 @@ genre_id: "37"
 genre_slug: bangsian
 status: drafted
 voice_prompt: "An urbane male classics professor, twinkling and ironic, moderating a philosophical dispute among bears over sherry."
-voice_id: ""
-audio: ""
+voice_id: "voice_799a5862"
+audio: "assets/audio/goldilocks_37_bangsian.wav"
 tags: [genre-machine, bangsian, goldilocks]
 ---
 

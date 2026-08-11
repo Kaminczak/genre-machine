@@ -6,8 +6,8 @@ genre_id: "35"
 genre_slug: climate-fiction
 status: drafted
 voice_prompt: "A weathered female voice, factual and grieving, narrating hunger shared across species lines in a warming wood."
-voice_id: ""
-audio: ""
+voice_id: "voice_8221f4a2"
+audio: "assets/audio/goldilocks_35_climate-fiction.wav"
 tags: [genre-machine, climate-fiction, goldilocks]
 ---
 

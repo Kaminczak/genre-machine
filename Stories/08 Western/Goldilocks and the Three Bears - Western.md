@@ -6,8 +6,8 @@ genre_id: "08"
 genre_slug: western
 status: drafted
 voice_prompt: "A slow male campfire drawl, sun-cracked and amused, telling it like he watched the whole thing from the porch with beans of his own."
-voice_id: ""
-audio: ""
+voice_id: "voice_5d4891a4"
+audio: "assets/audio/goldilocks_08_western.wav"
 tags: [genre-machine, western, goldilocks]
 ---
 

@@ -6,8 +6,8 @@ genre_id: "15"
 genre_slug: silent-film
 status: drafted
 voice_prompt: "A jaunty male carnival barker for title cards, mugging audibly, pausing for the piano and the audience's gasp."
-voice_id: ""
-audio: ""
+voice_id: "voice_df635f8b"
+audio: "assets/audio/goldilocks_15_silent-film.wav"
 tags: [genre-machine, silent-film, goldilocks]
 ---
 

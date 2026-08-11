@@ -6,8 +6,8 @@ genre_id: "21"
 genre_slug: heist
 status: drafted
 voice_prompt: "A sly female caper voice, quick and delighted, walking you through three security tiers like a wine list."
-voice_id: ""
-audio: ""
+voice_id: "voice_3cc3b1a6"
+audio: "assets/audio/goldilocks_21_heist.wav"
 tags: [genre-machine, heist, goldilocks]
 ---
 

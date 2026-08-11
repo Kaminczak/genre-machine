@@ -6,8 +6,8 @@ genre_id: "17"
 genre_slug: cold-war-spy
 status: drafted
 voice_prompt: "A quiet, clipped male case-officer voice, reading an after-action report he has already decided to shred."
-voice_id: ""
-audio: ""
+voice_id: "voice_2fa2c76f"
+audio: "assets/audio/goldilocks_17_cold-war-spy.wav"
 tags: [genre-machine, cold-war-spy, goldilocks]
 ---
 

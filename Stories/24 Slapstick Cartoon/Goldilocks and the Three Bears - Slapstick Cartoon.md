@@ -6,8 +6,8 @@ genre_id: "24"
 genre_slug: slapstick
 status: drafted
 voice_prompt: "A zany male cartoon announcer, elastic and explosive, escalating from whisper to air-horn inside single sentences."
-voice_id: ""
-audio: ""
+voice_id: "voice_b19d8c0b"
+audio: "assets/audio/goldilocks_24_slapstick.wav"
 tags: [genre-machine, slapstick, goldilocks]
 ---
 

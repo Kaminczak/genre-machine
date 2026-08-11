@@ -6,8 +6,8 @@ genre_id: "18"
 genre_slug: true-crime
 status: drafted
 voice_prompt: "A restrained male documentary narrator, low and factual, letting the half-eaten porridge do the accusing."
-voice_id: ""
-audio: ""
+voice_id: "voice_f1453675"
+audio: "assets/audio/goldilocks_18_true-crime.wav"
 tags: [genre-machine, true-crime, goldilocks]
 ---
 

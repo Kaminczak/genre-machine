@@ -6,8 +6,8 @@ genre_id: "36"
 genre_slug: slipstream
 status: drafted
 voice_prompt: "A soft, precisely amused narrator reading like a dream journal, calm about Tuesdays that behave like temperatures."
-voice_id: ""
-audio: ""
+voice_id: "voice_f56826f8"
+audio: "assets/audio/goldilocks_36_slipstream.wav"
 tags: [genre-machine, slipstream, goldilocks]
 ---
 

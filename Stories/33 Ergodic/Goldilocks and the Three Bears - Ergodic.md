@@ -6,8 +6,8 @@ genre_id: "33"
 genre_slug: ergodic
 status: drafted
 voice_prompt: "A dry male archivist reading a recursive site report, footnotes audibly nested, composure eroding by the paragraph."
-voice_id: ""
-audio: ""
+voice_id: "voice_2266731a"
+audio: "assets/audio/goldilocks_33_ergodic.wav"
 tags: [genre-machine, ergodic, goldilocks]
 ---
 

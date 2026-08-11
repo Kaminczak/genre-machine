@@ -6,8 +6,8 @@ genre_id: "34"
 genre_slug: transgressive
 status: drafted
 voice_prompt: "A flat, defiant female voice, close-mic'd, explaining property theory with her mouth full and zero apology."
-voice_id: ""
-audio: ""
+voice_id: "voice_71c9d71b"
+audio: "assets/audio/goldilocks_34_transgressive.wav"
 tags: [genre-machine, transgressive, goldilocks]
 ---
 

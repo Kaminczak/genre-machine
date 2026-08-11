@@ -6,8 +6,8 @@ genre_id: "40"
 genre_slug: epistolary
 status: drafted
 voice_prompt: "A prim male clerk reading exhibits into the record, officious and precise, the word DISPUTED given its full ceremony."
-voice_id: ""
-audio: ""
+voice_id: "voice_557c8593"
+audio: "assets/audio/goldilocks_40_epistolary.wav"
 tags: [genre-machine, epistolary, goldilocks]
 ---
 

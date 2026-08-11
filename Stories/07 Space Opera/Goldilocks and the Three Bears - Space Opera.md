@@ -6,8 +6,8 @@ genre_id: "07"
 genre_slug: space-opera
 status: drafted
 voice_prompt: "A steady female ship-log voice with static at the edges, protocol-calm, wonder and alarm rationed in equal measure."
-voice_id: ""
-audio: ""
+voice_id: "voice_d97a9243"
+audio: "assets/audio/goldilocks_07_space-opera.wav"
 tags: [genre-machine, space-opera, goldilocks]
 ---
 

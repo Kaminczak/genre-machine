@@ -6,8 +6,8 @@ genre_id: "13"
 genre_slug: anime
 status: drafted
 voice_prompt: "A breathless young female narrator, sparkling and overcommitted, treating a housing mix-up as the season finale it clearly is."
-voice_id: ""
-audio: ""
+voice_id: "voice_8fe4b4d3"
+audio: "assets/audio/goldilocks_13_anime.wav"
 tags: [genre-machine, anime, goldilocks]
 ---
 

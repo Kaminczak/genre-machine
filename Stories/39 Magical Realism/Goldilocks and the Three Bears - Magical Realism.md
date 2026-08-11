@@ -6,8 +6,8 @@ genre_id: "39"
 genre_slug: magical-realism
 status: drafted
 voice_prompt: "A warm, matter-of-fact female storyteller, tender and unhurried, for whom a girl living in the walls is simply a household feature."
-voice_id: ""
-audio: ""
+voice_id: "voice_eee573b8"
+audio: "assets/audio/goldilocks_39_magical-realism.wav"
 tags: [genre-machine, magical-realism, goldilocks]
 ---
 

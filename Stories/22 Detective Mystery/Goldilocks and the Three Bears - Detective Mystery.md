@@ -6,8 +6,8 @@ genre_id: "22"
 genre_slug: detective
 status: drafted
 voice_prompt: "A sharp young female sleuth, rapid and precise, narrating deductions with a magnifying glass practically audible."
-voice_id: ""
-audio: ""
+voice_id: "voice_071da23d"
+audio: "assets/audio/goldilocks_22_detective.wav"
 tags: [genre-machine, detective, goldilocks]
 ---
 

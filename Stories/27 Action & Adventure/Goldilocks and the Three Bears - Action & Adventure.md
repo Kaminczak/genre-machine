@@ -6,8 +6,8 @@ genre_id: "27"
 genre_slug: action-adventure
 status: drafted
 voice_prompt: "A driving male adventure narrator, pulpy and urgent, narrating tracks in the snow like a countdown."
-voice_id: ""
-audio: ""
+voice_id: "voice_4f138a9c"
+audio: "assets/audio/goldilocks_27_action-adventure.wav"
 tags: [genre-machine, action-adventure, goldilocks]
 ---
 

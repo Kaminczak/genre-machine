@@ -6,8 +6,8 @@ genre_id: "16"
 genre_slug: suburban-mystery
 status: drafted
 voice_prompt: "A bright 1950s female radio hostess, casserole-warm on top, freon-cold underneath, every pleasantry a fitted lid."
-voice_id: ""
-audio: ""
+voice_id: "voice_3cec2ab0"
+audio: "assets/audio/goldilocks_16_suburban-mystery.wav"
 tags: [genre-machine, suburban-mystery, goldilocks]
 ---
 
