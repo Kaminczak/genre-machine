@@ -18,14 +18,15 @@
    ============================================================ */
 
 :root {
-  --black:        #000100;
-  --paper:        #e4e5e9;
-  --paper-ink:    #101010;
-  --rule:         #ffffff;
-  --rule-dim:     rgba(255,255,255,0.34);
-  --green:        #34eb34;
-  --green-light:  #9cff9c;
-  --green-deep:   #0d3f0d;
+  --black:        #262017;    /* dark sepia ink (text / rules) */
+  --paper:        #ece2cc;    /* aged cream page */
+  --paper-deep:   #e2d5b8;    /* deeper panel cream */
+  --paper-ink:    #2a2419;
+  --rule:         #2a2419;
+  --rule-dim:     rgba(42,36,25,0.30);
+  --green:        #2f7d46;    /* muted forest green accent */
+  --green-light:  #4faf63;
+  --green-deep:   #123a20;
   --ui:           'Poppins', system-ui, -apple-system, sans-serif;
   --type:         'Courier Prime', 'Courier New', monospace;
   --stage:        1120px;
@@ -33,11 +34,12 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { background: var(--black); }
+html { background: #d8caab; }
 
 body {
-  background: var(--black);
-  color: #fff;
+  background:
+    radial-gradient(130% 90% at 50% -10%, #f3ebd7 0%, #ece2cc 55%, #ddd0b2 100%);
+  color: var(--paper-ink);
   font-family: var(--ui);
   min-height: 100vh;
   display: flex;
@@ -53,6 +55,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: clamp(0.7rem, 1.6vw, 1.1rem);
+  position: relative;
+  padding: clamp(1rem, 2.2vw, 1.6rem);
+  background: var(--paper);
+  border: 2px solid var(--green-deep);
+  box-shadow:
+    0 0 0 4px var(--paper),
+    0 0 0 5px rgba(18,58,32,0.45),
+    0 10px 40px rgba(60,45,20,0.25);
 }
 
 /* === MASTHEAD ========================================================== */
@@ -70,7 +80,7 @@ body {
   font-size: clamp(0.95rem, 1.9vw, 1.3rem);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--paper-ink);
 }
 .wordmark em {
   font-style: normal;
@@ -89,18 +99,18 @@ body {
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--green-deep);
   background: transparent;
-  border: 1px solid var(--rule-dim);
+  border: 1px solid var(--green-deep);
   padding: 0.42rem 0.8rem;
   cursor: pointer;
   transition: border-color .14s, color .14s, background .14s;
 }
-.tool:hover:not(:disabled) { border-color: var(--green); color: var(--green); }
+.tool:hover:not(:disabled) { background: var(--green-deep); color: var(--paper); }
 .tool:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 .tool:disabled { opacity: 0.4; cursor: default; }
-.tool[data-state="busy"] { color: var(--green); border-color: var(--green); }
-.tool[data-state="playing"] { color: var(--black); background: var(--green); border-color: var(--green); }
+.tool[data-state="busy"] { color: var(--paper); background: var(--green); border-color: var(--green); }
+.tool[data-state="playing"] { color: var(--paper); background: var(--green); border-color: var(--green); }
 
 /* === STORY SELECTOR ==================================================== */
 
@@ -116,7 +126,7 @@ body {
   background: transparent;
   border: 0;
   border-right: 1px solid var(--rule);
-  color: #fff;
+  color: var(--paper-ink);
   font-family: var(--ui);
   font-size: clamp(0.6rem, 1.15vw, 0.76rem);
   font-weight: 500;
@@ -264,7 +274,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--paper-ink);
   padding: 0.55rem 0.9rem;
   display: flex;
   align-items: center;
@@ -328,6 +338,30 @@ body {
 
 /* === GENRE GRID ======================================================== */
 
+.book-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.2rem 0 0.4rem;
+}
+.book-page[hidden] { display: none; }
+.book-page img {
+  width: auto;
+  max-width: 100%;
+  max-height: 82vh;
+  border: 1px solid var(--green-deep);
+  box-shadow: 0 8px 32px rgba(60,45,20,0.32);
+  background: var(--paper);
+}
+.book-page figcaption {
+  font-family: var(--ui);
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  color: var(--green-deep);
+  text-align: center;
+}
+
 .base-label {
   font-family: var(--ui);
   font-size: 0.58rem;
@@ -356,15 +390,15 @@ body {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--paper);
   background: var(--green-deep);
-  border: 1px solid var(--green);
+  border: 1px solid var(--green-deep);
   padding: 0.75rem 1rem;
   transition: background .14s, color .14s;
 }
-.base-cell:hover { background: var(--green); color: var(--black); }
+.base-cell:hover { background: var(--green); color: var(--paper); }
 .base-cell:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-.base-cell[aria-pressed="true"] { background: var(--green); color: var(--black); }
+.base-cell[aria-pressed="true"] { background: var(--green); color: var(--paper); }
 
 .grid {
   display: grid;
@@ -376,7 +410,7 @@ body {
 .cell {
   appearance: none;
   background: transparent;
-  color: #fff;
+  color: var(--paper-ink);
   border: 0;
   border-right: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
@@ -455,7 +489,7 @@ body {
   gap: 0.4rem;
   z-index: 40;
 }
-.corner .tool { background: var(--black); }
+.corner .tool { background: var(--paper); }
 
 .overlay {
   position: fixed;
@@ -520,7 +554,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--paper);
   background: var(--green-deep);
   display: inline-block;
   padding: 0.3rem 0.7rem;
@@ -660,6 +694,11 @@ body {
     <p class="card-stub">Logline only — full text not yet written for this pairing</p>
   </section>
 
+  <figure class="book-page" id="book-page" hidden>
+    <img id="book-img" alt="A page from the original storybook">
+    <figcaption>The tale as first printed &mdash; use <strong>&#9654; Narrate</strong> to hear it read aloud.</figcaption>
+  </figure>
+
   <details class="notes" id="notes">
     <summary class="notes-summary" id="notes-summary">About this genre</summary>
     <div class="notes-body">
@@ -685,10 +724,7 @@ body {
   <p class="tagline">Change the genre &ndash; change the story</p>
 
   <p class="colophon">
-    <span id="colophon-count"></span><br>
-    <span class="dot">&bull;</span> marks a pairing with full prose written.
-    Narration needs Voice Creator Pro on port 8100 and this page served over http
-    (browsers block file:// pages from calling local APIs).
+    <span id="colophon-count"></span>
   </p>
 
   <audio id="narration-audio" hidden></audio>
@@ -819,6 +855,8 @@ body {
     baseRow:  document.getElementById('base-row'),
     plate:    document.getElementById('plate'),
     img:      document.getElementById('plate-img'),
+    bookPage: document.getElementById('book-page'),
+    bookImg:  document.getElementById('book-img'),
     emptyId:  document.getElementById('empty-id'),
     emptyGen: document.getElementById('empty-genre'),
     emptySto: document.getElementById('empty-story'),
@@ -896,10 +934,19 @@ body {
     el.emptyGen.textContent = genre.name;
     el.emptySto.textContent = story.title;
 
+    // "Original" (id 41) shows a full antique book page in place of the plate + card
+    var isBook = (genre.id === '41');
+    el.plate.hidden = isBook;
+    el.card.hidden = isBook;
+    el.bookPage.hidden = !isBook;
+    if (isBook) {
+      el.bookImg.src = 'assets/images/book_' + story.id + '.webp';
+    }
+
     el.img.classList.remove('is-loaded');
     el.plate.classList.remove('is-empty');
     el.img.alt = genre.name + ' retelling of ' + story.title;
-    el.img.src = imagePath(story, genre);
+    if (!isBook) { el.img.src = imagePath(story, genre); }
 
     stopNarration();
     if (typeof syncMusic === 'function') { syncMusic(); }

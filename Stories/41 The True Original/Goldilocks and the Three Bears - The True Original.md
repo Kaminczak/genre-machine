@@ -6,7 +6,7 @@ genre_id: "41"
 genre_slug: true-original
 status: drafted
 voice_prompt: "A grave, antique storyteller's voice, like a Victorian reading the true old tale aloud by firelight -- measured and slightly severe, unflinching at the dark parts, with the cadence of a printed page."
-voice_id: "voice_bbc4058a"
+voice_id: "voice_696c7ce9"
 audio: "assets/audio/goldilocks_41_true-original.wav"
 tags: [genre-machine, true-original, goldilocks]
 ---
@@ -17,7 +17,7 @@ tags: [genre-machine, true-original, goldilocks]
 
 ## Script
 
-Once upon a time there were three Bears who lived in a house in the wood: a Little Wee Bear, a Middle Bear, and a Great Huge Bear. One morning they made their porridge, and while it cooled they walked out. Now a little old Woman came to the house. She peeped in at the window, and looked in at the keyhole, and finding no one home, she lifted the latch and walked in. She tasted the porridge: the Great Bear's too hot, the Middle Bear's too cold, and the Little Wee Bear's just right, which she ate all up. She sat in the three chairs, and broke the little one. She went upstairs and lay in the beds, and fell fast asleep in the Little Wee Bear's. Home came the Bears. "SOMEBODY HAS BEEN AT MY PORRIDGE!" they cried in three dreadful voices. They found the old Woman asleep, and she started up, and jumped out of the window; and whether she broke her neck in the fall, or ran into the wood and was lost, or was taken up by the constable, nobody can tell. But the three Bears never saw anything more of her.
+Once upon a time there were Three Bears, who lived together in a house of their own, in a wood. And they had each a bowl for their porridge: a little bowl for the Little Wee Bear, a middle-sized bowl for the Middle Bear, and a great bowl for the Great Huge Bear. One day they made their porridge, and walked out into the wood while it cooled. And a little old Woman came to the house. She could not have been a good, honest old Woman; for she looked in at the window, and then she lifted the latch and walked in. She tasted the porridge of the Great Huge Bear, and that was too hot; and the Middle Bear's, too cold; but the Little Wee Bear's was neither too hot nor too cold, and she ate it all up. And she sat in the chairs, and broke the little one; and she lay upon the beds, and fell asleep in the Little Wee Bear's. Then the Three Bears came home. "SOMEBODY HAS BEEN AT MY PORRIDGE!" And the little old Woman started up; and out of the window she jumped; and whether she broke her neck in the fall, or ran into the wood and was lost, or was taken up by the constable, nobody can tell. But the Three Bears never saw anything more of her.
 
 ## Voice design
 

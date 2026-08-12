@@ -53,7 +53,8 @@ URL = ("https://generativelanguage.googleapis.com/v1beta/models/"
 def generate(prompt, tries=4):
     body = json.dumps({
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"responseModalities": ["IMAGE"]},
+        "generationConfig": {"responseModalities": ["IMAGE"],
+                             "imageConfig": {"aspectRatio": "16:9"}},
     }).encode()
     for attempt in range(tries):
         try:
@@ -85,11 +86,14 @@ def generate(prompt, tries=4):
 
 
 def crop_to_site(raw, dst_webp):
+    # Contain (never crop): fit the whole image inside 720x412, letterbox with
+    # black. With 16:9 input the bars are ~0, but this guarantees no cut edges.
     im = Image.open(io.BytesIO(raw)).convert("RGB")
-    s = max(OUT_W / im.width, OUT_H / im.height)
-    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
-    l, t = (im.width - OUT_W) // 2, (im.height - OUT_H) // 2
-    im.crop((l, t, l + OUT_W, t + OUT_H)).save(dst_webp, "WEBP", quality=88)
+    s = min(OUT_W / im.width, OUT_H / im.height)
+    im = im.resize((max(1, round(im.width * s)), max(1, round(im.height * s))), Image.LANCZOS)
+    canvas = Image.new("RGB", (OUT_W, OUT_H), (0, 0, 0))
+    canvas.paste(im, ((OUT_W - im.width) // 2, (OUT_H - im.height) // 2))
+    canvas.save(dst_webp, "WEBP", quality=88)
 
 
 def main():
