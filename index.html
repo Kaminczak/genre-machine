@@ -731,6 +731,40 @@ html[data-skin="light"] .tagline { color: var(--green-deep); text-shadow: none; 
 html[data-skin="light"] .colophon { color: rgba(20,24,32,0.5); }
 html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.12); }
 
+/* === READ-IT-TO-ME (prominent narrate) ================================= */
+.base-slot { display: flex; gap: 0.5rem; flex: 1 1 auto; }
+.read-aloud { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 0 0 auto; }
+.read-btn {
+  width: 46px; height: 46px; border-radius: 50%;
+  appearance: none; cursor: pointer;
+  background: var(--green-deep); border: 1px solid var(--green);
+  color: var(--ink-on);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px 0 rgba(120,220,130,0.25);
+  transition: background .14s, transform .1s;
+}
+.read-btn svg { width: 22px; height: 22px; }
+.read-btn:hover:not(:disabled) { background: var(--green); }
+.read-btn:active { transform: scale(0.94); }
+.read-btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.read-btn:disabled { opacity: 0.6; cursor: default; }
+.read-btn[data-state="playing"] { background: var(--green); animation: readpulse 1.5s ease-in-out infinite; }
+@keyframes readpulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(70,180,85,0.55), 0 2px 6px rgba(0,0,0,0.5); }
+  50%     { box-shadow: 0 0 0 8px rgba(70,180,85,0), 0 2px 6px rgba(0,0,0,0.5); }
+}
+@media (prefers-reduced-motion: reduce) { .read-btn[data-state="playing"] { animation: none; } }
+.read-label {
+  font-family: var(--ui); font-size: 0.5rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--green); white-space: nowrap;
+}
+
+/* === ORIGINS VIDEO (opens over the image) ============================== */
+.plate-video { position: absolute; inset: 0; z-index: 5; background: #000; }
+.plate-video[hidden] { display: none; }
+.plate-video iframe { width: 100%; height: 100%; border: 0; display: block; }
+
 /* Cross-dissolve the era swap so parchment <-> black eases instead of snapping.
    Only active for the ~0.6s after a dial click, so normal hovers stay snappy. */
 @media (prefers-reduced-motion: no-preference) {
@@ -769,6 +803,7 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
 
   <figure class="plate" id="plate">
     <img id="plate-img" alt="">
+    <div class="plate-video" id="plate-video" hidden></div>
     <div class="plate-empty" aria-hidden="true">
       <span class="plate-empty-id" id="empty-id">01</span>
       <span class="plate-empty-genre" id="empty-genre">Original Fairy Tale</span>
@@ -801,7 +836,7 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   </details>
 
   <p class="base-label">The tale itself &mdash; then choose a lens below</p>
-  <div class="base-row" id="base-row" role="group" aria-label="Base version and display mode">
+  <div class="base-row" id="base-row" role="group" aria-label="Base version, display mode, and narration">
     <div class="mode-switch">
       <button class="mode-btn" id="mode-toggle" type="button" role="switch" aria-checked="true"
               aria-label="Toggle light or dark mode" title="Light / dark">
@@ -809,6 +844,17 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
         <span class="mode-ic" aria-hidden="true">&#9790;</span>
         <span class="mode-knob" aria-hidden="true"></span>
       </button>
+    </div>
+    <div class="base-slot" id="base-slot"></div>
+    <div class="read-aloud">
+      <button class="read-btn" id="read-aloud" type="button"
+              aria-label="Read this version of the story aloud" title="Hear it read aloud">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3z"/>
+          <path d="M19 11a1 1 0 1 0-2 0 5 5 0 0 1-10 0 1 1 0 1 0-2 0 7 7 0 0 0 6 6.92V21H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-3.08A7 7 0 0 0 19 11z"/>
+        </svg>
+      </button>
+      <span class="read-label" id="read-label">Read it to me</span>
     </div>
   </div>
   <div class="grid" id="grid" role="group" aria-label="Choose a genre"></div>
@@ -826,6 +872,7 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
 </div>
 
 <div class="corner">
+  <button class="tool" id="open-video" type="button">&#9654; Origin story</button>
   <button class="tool" id="open-manual" type="button">How It Works</button>
   <button class="tool" id="open-instructions" type="button">? Instructions</button>
   <button class="tool" id="open-lesson" type="button">Lesson Plan &amp; TEKS</button>
@@ -946,9 +993,13 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   var el = {
     strip:    document.getElementById('story-strip'),
     grid:     document.getElementById('grid'),
-    baseRow:  document.getElementById('base-row'),
+    baseRow:  document.getElementById('base-slot'),
     plate:    document.getElementById('plate'),
     img:      document.getElementById('plate-img'),
+    plateVideo: document.getElementById('plate-video'),
+    videoBtn:   document.getElementById('open-video'),
+    readBtn:    document.getElementById('read-aloud'),
+    readLabel:  document.getElementById('read-label'),
     emptyId:  document.getElementById('empty-id'),
     emptyGen: document.getElementById('empty-genre'),
     emptySto: document.getElementById('empty-story'),
@@ -1002,6 +1053,7 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   }
 
   function render() {
+    if (typeof hideVideo === 'function') { hideVideo(); }
     var story = state.story, genre = state.genre;
     var full  = story.texts && story.texts[genre.id];
     if (state.lang === 'es' && ES[story.id] && ES[story.id][genre.id]) {
@@ -1187,6 +1239,21 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
     if (mode) { el.narrate.setAttribute('data-state', mode); }
     else      { el.narrate.removeAttribute('data-state'); }
     el.narrate.disabled = !!disabled;
+
+    // Mirror onto the prominent "Read it to me" button.
+    if (el.readBtn) {
+      if (mode) { el.readBtn.setAttribute('data-state', mode); }
+      else      { el.readBtn.removeAttribute('data-state'); }
+      el.readBtn.disabled = !!disabled;
+    }
+    if (el.readLabel) {
+      var short = 'Read it to me';
+      if (mode === 'busy') { short = 'Loading…'; }
+      else if (mode === 'playing') { short = 'Stop'; }
+      else if (/coming/i.test(label)) { short = 'Coming soon'; }
+      else if (/offline/i.test(label)) { short = 'Voice offline'; }
+      el.readLabel.textContent = short;
+    }
   }
 
   function stopNarration() {
@@ -1201,7 +1268,55 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
     narrate();
   });
 
+  if (el.readBtn) {
+    el.readBtn.addEventListener('click', function () {
+      if (narrating) { stopNarration(); return; }
+      narrate();
+    });
+  }
+
   el.audio.addEventListener('ended', stopNarration);
+
+  /* ---------- origins video (opens over the picture area) ---------- */
+  var VIDEO_ID = {
+    pigs:       '-QlZSYbCyNM',
+    red:        'hBR7HwqG6Y4',
+    goldilocks: 'w4ZKi8c6mtU',
+    cinderella: 'X7ukx3SBa1c'
+  };
+
+  function hideVideo() {
+    if (!el.plateVideo) { return; }
+    el.plateVideo.innerHTML = '';
+    el.plateVideo.hidden = true;
+    if (el.videoBtn) {
+      el.videoBtn.removeAttribute('data-state');
+      el.videoBtn.textContent = '▶ Origin story';
+    }
+  }
+
+  function showVideo() {
+    var id = VIDEO_ID[state.story.id];
+    if (!id || !el.plateVideo) { return; }
+    stopNarration();
+    var ma = document.getElementById('music-audio');
+    if (ma) { try { ma.pause(); } catch (e) {} }
+    el.plateVideo.innerHTML =
+      '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1&rel=0" title="The origins of ' + state.story.title +
+      '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    el.plateVideo.hidden = false;
+    if (el.videoBtn) {
+      el.videoBtn.setAttribute('data-state', 'playing');
+      el.videoBtn.textContent = '■ Close video';
+    }
+  }
+
+  if (el.videoBtn) {
+    el.videoBtn.addEventListener('click', function () {
+      if (el.plateVideo.hidden) { showVideo(); } else { hideVideo(); }
+    });
+  }
 
   /* The API lazily loads its model. Kick the load and poll so the user gets
      "Loading voice…" instead of a two-minute silent stall on first play. */
