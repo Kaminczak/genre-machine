@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
@@ -28,6 +28,7 @@
   --green:        #46b455;    /* mid phosphor accent */
   --green-light:  #64de6f;    /* bright phosphor glow */
   --green-deep:   #3fa64d;    /* terminal green — fills, borders, headings */
+  --page:         #0a0a0b;    /* outer page behind the stage */
   --ui:           'Poppins', system-ui, -apple-system, sans-serif;
   --type:         'Courier Prime', 'Courier New', monospace;
   --stage:        1120px;
@@ -35,11 +36,10 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { background: #050506; }
+html { background: var(--page); }
 
 body {
-  background:
-    radial-gradient(130% 90% at 50% -10%, #141416 0%, #0a0a0b 55%, #050506 100%);
+  background: var(--page);
   color: var(--paper-ink);
   font-family: var(--ui);
   min-height: 100vh;
@@ -716,11 +716,10 @@ html[data-skin="past"] {
   --black: #262017; --paper: #ece2cc; --paper-deep: #e2d5b8; --paper-ink: #2a2419;
   --ink-on: #ece2cc; --rule: #2a2419; --rule-dim: rgba(42,36,25,0.30);
   --green: #2f7d46; --green-light: #4faf63; --green-deep: #123a20;
-  background: #d8caab;
+  --page: #e3d7bd;
+  --type: 'IM Fell English', 'Iowan Old Style', Georgia, serif;
 }
-html[data-skin="past"] body {
-  background: radial-gradient(130% 90% at 50% -10%, #f3ebd7 0%, #ece2cc 55%, #ddd0b2 100%);
-}
+html[data-skin="past"] .card-text { font-size: clamp(0.9rem, 1.5vw, 1.12rem); line-height: 1.7; }
 html[data-skin="past"] .stage {
   box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px rgba(18,58,32,0.45), 0 10px 40px rgba(60,45,20,0.25);
 }
@@ -749,11 +748,10 @@ html[data-skin="present"] {
   --black: #14171c; --paper: #ffffff; --paper-deep: #f3f5f8; --paper-ink: #1b1e24;
   --ink-on: #ffffff; --rule: #e3e6ec; --rule-dim: rgba(20,24,32,0.10);
   --green: #12a150; --green-light: #16c25f; --green-deep: #0e7a3d;
-  background: #eceef2;
+  --page: #eef1f5;
+  --type: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
-html[data-skin="present"] body {
-  background: radial-gradient(130% 90% at 50% -10%, #ffffff 0%, #eef1f5 55%, #e4e8ee 100%);
-}
+html[data-skin="present"] .card-text { font-size: clamp(0.85rem, 1.4vw, 1.05rem); line-height: 1.7; }
 html[data-skin="present"] .stage {
   border: 1px solid var(--rule);
   box-shadow: 0 1px 2px rgba(20,24,32,0.05), 0 14px 44px rgba(20,24,32,0.10);
@@ -782,6 +780,16 @@ html[data-skin="present"] .base-cell[aria-pressed="true"] {
 }
 html[data-skin="present"] .tagline { color: var(--green-deep); text-shadow: none; }
 html[data-skin="present"] .colophon { color: rgba(20,24,32,0.5); }
+
+/* Cross-dissolve the era swap so parchment <-> black eases instead of snapping.
+   Only active for the ~0.6s after a dial click, so normal hovers stay snappy. */
+@media (prefers-reduced-motion: no-preference) {
+  html.skin-anim, html.skin-anim body, html.skin-anim * {
+    transition: background-color .55s ease, color .55s ease,
+                border-color .55s ease, box-shadow .55s ease,
+                fill .55s ease, stroke .55s ease !important;
+  }
+}
 
 .sr-only {
   position: absolute; width: 1px; height: 1px;
@@ -1403,10 +1411,17 @@ html[data-skin="present"] .colophon { color: rgba(20,24,32,0.5); }
   var ERA_ANGLE = { past: -52, present: 0, future: 52 };
   var eraOpts = Array.prototype.slice.call(document.querySelectorAll('.tense-opt'));
   var eraNeedle = document.getElementById('tense-needle');
+  var skinAnimT;
 
   function setEra(era, persist) {
     if (!ERA_ANGLE.hasOwnProperty(era)) { era = 'future'; }
-    document.documentElement.setAttribute('data-skin', era);
+    var root = document.documentElement;
+    if (persist) {
+      root.classList.add('skin-anim');
+      clearTimeout(skinAnimT);
+      skinAnimT = setTimeout(function () { root.classList.remove('skin-anim'); }, 620);
+    }
+    root.setAttribute('data-skin', era);
     if (eraNeedle) { eraNeedle.style.transform = 'rotate(' + ERA_ANGLE[era] + 'deg)'; }
     eraOpts.forEach(function (b) {
       b.setAttribute('aria-checked', b.getAttribute('data-era') === era ? 'true' : 'false');
