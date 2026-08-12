@@ -405,5 +405,15 @@ window.GENRE_MACHINE_NOTES = {
     ],
     history: "One of the novel's oldest forms: Samuel Richardson's Pamela (1740) helped invent the English novel as a stack of letters, and Dracula (1897) proved documents could do horror. Email, transcripts, and group chats keep reinventing it for every new medium.",
     examples: ["Dracula", "The Color Purple", "Frankenstein"]
+  },
+  "41": {
+    traits: [
+      "The authentic public-domain source, before the nursery softened it",
+      "Darker outcomes: the wolf is boiled and eaten, eyes are pecked out, villains truly punished",
+      "Formal, older diction, close to how the tale was first printed",
+      "Presented as an antique engraved storybook page"
+    ],
+    history: "These are the earliest widely printed versions: the Brothers Grimm's Kinder- und Hausmaerchen (1812) for Red Riding Hood and Cinderella, Joseph Jacobs's English Fairy Tales (1890) for the Three Little Pigs, and Robert Southey's The Doctor (1837) for the Three Bears. Each is grimmer than the version you grew up with, and each is old enough to be free of copyright.",
+    examples: ["Grimms' Kinder- und Hausmaerchen (1812)", "Joseph Jacobs, English Fairy Tales (1890)", "Robert Southey, The Doctor (1837)"]
   }
 };

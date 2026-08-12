@@ -9,7 +9,8 @@
 
 window.GENRE_MACHINE_DATA = {
   genres: [
-    { id: "01", slug: "original",           name: "Original Fairy Tale" },
+    { id: "01", slug: "original",           name: "Modern Version" },
+    { id: "41", slug: "true-original",        name: "The True Original" },
     { id: "02", slug: "noir",               name: "Film Noir" },
     { id: "03", slug: "cosmic-horror",      name: "Cosmic Horror" },
     { id: "04", slug: "gothic",             name: "Gothic Horror" },
@@ -57,6 +58,7 @@ window.GENRE_MACHINE_DATA = {
       lever_position: 1,
       lever_label: "I",
       loglines: {
+        "41": "The wolf eats the first two pigs whole; the third boils the wolf alive and eats him for supper. Joseph Jacobs, 1890 -- the true original.",
         "01": "Three pig brothers build houses of straw, sticks, and brick as a hot-breathed wolf hunts them through the woods.",
         "02": "Three pig brothers run a smoky speakeasy. A wolf detective in a fedora circles, looking for the hideout no bullet can crack.",
         "03": "Three pigs huddle in shrines of straw, bone, and basalt. The wolf is no animal — it is a hunger between stars.",
@@ -119,6 +121,7 @@ window.GENRE_MACHINE_DATA = {
       lever_position: 2,
       lever_label: "II",
       loglines: {
+        "41": "The wolf swallows grandmother and Red-Cap whole; a huntsman cuts them out alive and fills him with stones. Grimm, unsoftened.",
         "01": "A girl in a red hood crosses the woods with cakes for grandmother. The wolf reaches the cottage first and dresses in nightclothes.",
         "02": "A redhead in a crimson trench coat slips through fog to a tenement. A wolf in a gray suit is already inside, wearing grandmother's spectacles.",
         "03": "A girl in a blood-red cloak walks the petrified forest. Grandmother is already there, smiling with too many teeth.",
@@ -169,6 +172,7 @@ window.GENRE_MACHINE_DATA = {
       lever_position: 3,
       lever_label: "III",
       loglines: {
+        "41": "It was never a golden-haired girl -- a nasty old woman breaks in on the three bears and leaps from the window. Robert Southey, 1837.",
         "01": "A golden-haired girl wanders into a cottage with three bowls of porridge, three chairs, three beds. The bears come home.",
         "02": "A platinum blonde breaks into a smoke-stained townhouse — a coffee too hot, a chair that snaps, a bed too soft. Three bears in fedoras get home early.",
         "03": "A pale girl crosses the threshold of a cabin where three of everything sits — yet a fourth chair, fourth bowl, fourth bed wait. The bears are not bears.",
@@ -219,6 +223,7 @@ window.GENRE_MACHINE_DATA = {
       lever_position: 4,
       lever_label: "IV",
       loglines: {
+        "41": "A hazel tree, a wishing bird, stepsisters who cut off toe and heel, and doves that peck out their eyes. Grimm's Aschenputtel.",
         "01": "A scullery maid is transformed by her fairy godmother. She loses a glass slipper at the prince's ball at midnight.",
         "02": "A jazz-club hatcheck girl is transformed for one night by a chain-smoking godmother. She loses a glass heel as the clock strikes twelve.",
         "03": "A ragged servant girl is transformed by an entity that called itself her godmother. She leaves behind a slipper of bone-glass.",

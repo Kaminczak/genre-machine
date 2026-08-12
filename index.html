@@ -328,6 +328,44 @@ body {
 
 /* === GENRE GRID ======================================================== */
 
+.base-label {
+  font-family: var(--ui);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  opacity: 0.8;
+  margin: 0 0 0.35rem;
+  text-align: center;
+}
+.base-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+}
+.base-cell {
+  flex: 1 1 0;
+  max-width: 24rem;
+  appearance: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: var(--ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--green-deep);
+  border: 1px solid var(--green);
+  padding: 0.75rem 1rem;
+  transition: background .14s, color .14s;
+}
+.base-cell:hover { background: var(--green); color: var(--black); }
+.base-cell:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.base-cell[aria-pressed="true"] { background: var(--green); color: var(--black); }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -640,6 +678,8 @@ body {
     </div>
   </details>
 
+  <p class="base-label">The tale itself &mdash; then choose a lens below</p>
+  <div class="base-row" id="base-row" role="group" aria-label="Choose the base version"></div>
   <div class="grid" id="grid" role="group" aria-label="Choose a genre"></div>
 
   <p class="tagline">Change the genre &ndash; change the story</p>
@@ -776,6 +816,7 @@ body {
   var el = {
     strip:    document.getElementById('story-strip'),
     grid:     document.getElementById('grid'),
+    baseRow:  document.getElementById('base-row'),
     plate:    document.getElementById('plate'),
     img:      document.getElementById('plate-img'),
     emptyId:  document.getElementById('empty-id'),
@@ -811,15 +852,17 @@ body {
     el.strip.appendChild(b);
   });
 
+  var BASE_IDS = { '01': true, '41': true };  // the two source versions live above the grid
   DATA.genres.forEach(function (genre) {
+    var isBase = BASE_IDS[genre.id];
     var b = document.createElement('button');
     b.type = 'button';
-    b.className = 'cell';
+    b.className = isBase ? 'base-cell' : 'cell';
     b.textContent = genre.name;
     b.setAttribute('aria-pressed', 'false');
     b.addEventListener('click', function () { select(state.story, genre); });
     genre._btn = b;
-    el.grid.appendChild(b);
+    (isBase ? el.baseRow : el.grid).appendChild(b);
   });
 
   /* ---------- rendering ---------- */
