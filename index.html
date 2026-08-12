@@ -227,10 +227,14 @@ body {
   background: var(--paper);
   color: var(--paper-ink);
   padding: clamp(1rem, 2.4vw, 1.6rem) clamp(1rem, 2.6vw, 1.9rem);
-  min-height: clamp(9rem, 20vw, 13rem);
+  /* Fixed-height readout so the genre grid below never shifts when the text
+     length changes between versions/genres. Longer passages scroll in place. */
+  height: clamp(12rem, 24vw, 16rem);
+  overflow-y: auto;
+  scrollbar-gutter: stable;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: safe center;
 }
 
 .card-text {
