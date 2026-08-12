@@ -467,6 +467,61 @@ body {
   margin-bottom: 0.5em;
 }
 .sheet ul, .sheet ol { padding-left: 1.3em; }
+
+/* --- Owner's-manual skin for the "How It Works" sheet --- */
+.sheet.manual {
+  background:
+    repeating-linear-gradient(var(--paper), var(--paper) 27px, rgba(13,63,13,0.05) 28px),
+    var(--paper);
+  border: 2px solid var(--green-deep);
+  box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px rgba(13,63,13,0.35);
+}
+.manual-plate {
+  font-family: var(--ui);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--green-deep);
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  margin-bottom: 0.9rem;
+}
+.sheet.manual h2 {
+  font-family: var(--type);
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  border-bottom: 3px double var(--green-deep);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+.sheet.manual h3 {
+  font-family: var(--ui);
+  color: var(--paper-ink);
+  border-left: 3px solid var(--green);
+  padding-left: 0.6rem;
+  font-size: 0.64rem;
+}
+.manual-lede {
+  font-style: italic;
+  font-size: clamp(0.8rem, 1.3vw, 0.95rem) !important;
+  border-top: 1px solid rgba(16,16,16,0.2);
+  border-bottom: 1px solid rgba(16,16,16,0.2);
+  padding: 0.7rem 0;
+  margin-bottom: 0.6rem;
+}
+.manual-fig {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto 1rem;
+  border: 1px solid var(--green-deep);
+  padding: 4px;
+  background: #fff;
+}
 .sheet table {
   width: 100%;
   border-collapse: collapse;
@@ -601,8 +656,34 @@ body {
 </div>
 
 <div class="corner">
+  <button class="tool" id="open-manual" type="button">How It Works</button>
   <button class="tool" id="open-instructions" type="button">? Instructions</button>
   <button class="tool" id="open-lesson" type="button">Lesson Plan &amp; TEKS</button>
+</div>
+
+<div class="overlay" id="sheet-manual" role="dialog" aria-modal="true" aria-labelledby="manual-title">
+  <div class="sheet manual">
+    <button class="sheet-close" type="button" data-close>✕ Close</button>
+    <div class="manual-plate">THE GENRE MACHINE &mdash; MODEL I&ndash;IV &nbsp;&bull;&nbsp; OWNER'S MANUAL</div>
+    <h2 id="manual-title">Theory of Operation</h2>
+    <img class="manual-fig" id="manual-fig" src="assets/images/manual-diagram.webp" alt="Cutaway diagram of the Genre Machine" hidden />
+    <p class="manual-lede">A single story goes in. Forty different stories come out. Nothing is added and nothing is removed &mdash; only the <em>lens</em> is changed. Here is how that works, and why it teaches.</p>
+
+    <h3>&sect;1 &nbsp; The Constant</h3>
+    <p>Every machine needs a fixed point. Ours is the <strong>story</strong>. Load any of the four tales and its bones never move: the same characters want the same things, meet the same trouble, arrive at the same turn. The pigs still build; the wolf still comes. This is the part you already know by heart &mdash; and that is precisely the point.</p>
+
+    <h3>&sect;2 &nbsp; The Variable</h3>
+    <p>Around that fixed story, everything else is a <strong>lens you can swap</strong>: the <em>diction</em> (which words), the <em>syntax</em> (how the sentences are built), the <em>voice</em> (who is telling it, and how), the imagery, the music, even the medium. Turn the dial from Fairy Tale to Film Noir and not one plot point moves &mdash; yet the story becomes unrecognizable. What changed was never the <em>what</em>. It was the <em>how</em>.</p>
+
+    <h3>&sect;3 &nbsp; Why It Works</h3>
+    <p>When the content is already familiar, your attention is freed to watch the craft. You are not spending effort on <em>what happens</em> &mdash; you know what happens &mdash; so you can finally see <em>how a genre makes meaning</em>: the clipped sentences of noir, the invocations of epic, the stage directions of drama, the case-file dread of the ergodic. The known story becomes a handrail.</p>
+
+    <h3>&sect;4 &nbsp; The Bridge</h3>
+    <p>This is the whole design. New knowledge holds best when it is anchored to something you already own. The Genre Machine ties every new idea &mdash; a literary device, a genre convention, a register of voice &mdash; to a tale you have known since childhood. Old knowledge on one bank, new knowledge on the other, and the familiar story laid across the gap like a bridge you can actually walk.</p>
+
+    <h3>&sect;5 &nbsp; Operating Note</h3>
+    <p>Read one tale in two very different genres, back to back, and ask the machine's central question: <strong>what survived the trip, and what did the lens replace?</strong> Everything that stayed is the story. Everything that changed is the genre &mdash; showing you, in plain sight, exactly how it works.</p>
+  </div>
 </div>
 
 <div class="overlay" id="sheet-instructions" role="dialog" aria-modal="true" aria-labelledby="instructions-title">
@@ -829,8 +910,15 @@ body {
       }
     });
   }
+  bindSheet('open-manual', 'sheet-manual');
   bindSheet('open-instructions', 'sheet-instructions');
   bindSheet('open-lesson', 'sheet-lesson');
+
+  // Show the manual diagram only once it actually loads (added later via Gemini).
+  (function () {
+    var fig = document.getElementById('manual-fig');
+    if (fig) { fig.addEventListener('load', function () { fig.hidden = false; }); }
+  }());
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
