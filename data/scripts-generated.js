@@ -218,7 +218,8 @@
     "37": "assets/audio/cinderella_37_bangsian.wav",
     "38": "assets/audio/cinderella_38_black-comedy.wav",
     "39": "assets/audio/cinderella_39_magical-realism.wav",
-    "40": "assets/audio/cinderella_40_epistolary.wav"
+    "40": "assets/audio/cinderella_40_epistolary.wav",
+    "41": "assets/audio/cinderella_41_true-original.wav"
   },
   "goldilocks": {
     "01": "assets/audio/goldilocks_01_original.wav",
@@ -260,7 +261,8 @@
     "37": "assets/audio/goldilocks_37_bangsian.wav",
     "38": "assets/audio/goldilocks_38_black-comedy.wav",
     "39": "assets/audio/goldilocks_39_magical-realism.wav",
-    "40": "assets/audio/goldilocks_40_epistolary.wav"
+    "40": "assets/audio/goldilocks_40_epistolary.wav",
+    "41": "assets/audio/goldilocks_41_true-original.wav"
   },
   "red": {
     "01": "assets/audio/red_01_original.wav",
@@ -302,7 +304,8 @@
     "37": "assets/audio/red_37_bangsian.wav",
     "38": "assets/audio/red_38_black-comedy.wav",
     "39": "assets/audio/red_39_magical-realism.wav",
-    "40": "assets/audio/red_40_epistolary.wav"
+    "40": "assets/audio/red_40_epistolary.wav",
+    "41": "assets/audio/red_41_true-original.wav"
   },
   "pigs": {
     "01": "assets/audio/pigs_01_original.wav",
@@ -344,7 +347,8 @@
     "37": "assets/audio/pigs_37_bangsian.wav",
     "38": "assets/audio/pigs_38_black-comedy.wav",
     "39": "assets/audio/pigs_39_magical-realism.wav",
-    "40": "assets/audio/pigs_40_epistolary.wav"
+    "40": "assets/audio/pigs_40_epistolary.wav",
+    "41": "assets/audio/pigs_41_true-original.wav"
   }
 };
   D.stories.forEach(function (s) {

@@ -6,8 +6,8 @@ genre_id: "41"
 genre_slug: true-original
 status: drafted
 voice_prompt: "A grave, antique storyteller's voice, like a Victorian reading the true old tale aloud by firelight -- measured and slightly severe, unflinching at the dark parts, with the cadence of a printed page."
-voice_id: ""
-audio: ""
+voice_id: "voice_bbc4058a"
+audio: "assets/audio/goldilocks_41_true-original.wav"
 tags: [genre-machine, true-original, goldilocks]
 ---
 
