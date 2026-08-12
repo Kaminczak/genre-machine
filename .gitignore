@@ -13,3 +13,9 @@ __pycache__/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Kept private: the generation pipeline (prompts + scripts) and the raw source
+# scripts. The live site doesn't need these; they are the reusable "how it's
+# made" and stay out of the public repo. Content still ships via data/ + assets/.
+tools/
+Stories/
