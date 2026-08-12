@@ -9,8 +9,8 @@
 
 window.GENRE_MACHINE_DATA = {
   genres: [
-    { id: "01", slug: "original",           name: "Modern Story" },
-    { id: "41", slug: "true-original",        name: "Original" },
+    { id: "01", slug: "original",           name: "Modern English" },
+    { id: "41", slug: "true-original",        name: "Historical Origin" },
     { id: "02", slug: "noir",               name: "Film Noir" },
     { id: "03", slug: "cosmic-horror",      name: "Cosmic Horror" },
     { id: "04", slug: "gothic",             name: "Gothic Horror" },
