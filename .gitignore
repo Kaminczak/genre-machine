@@ -6,6 +6,11 @@ Genre Machine.pdf
 assets/audio/Music/[0-9].mp3
 assets/audio/Music/[0-9][0-9].mp3
 
+# Narration masters are large WAVs; the site ships compressed MP3 instead.
+# WAVs stay on disk as the high-quality source, just out of the repo.
+assets/audio/*.wav
+assets/audio/es/*.wav
+
 # Local tooling noise
 .claude/
 __pycache__/
