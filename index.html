@@ -385,7 +385,7 @@ body {
   margin-bottom: 0.9rem;
 }
 .base-cell {
-  flex: 1 1 0;
+  flex: 1 1 15rem;
   max-width: 24rem;
   appearance: none;
   cursor: pointer;
@@ -732,7 +732,7 @@ html[data-skin="light"] .colophon { color: rgba(20,24,32,0.5); }
 html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.12); }
 
 /* === READ-IT-TO-ME (prominent narrate) ================================= */
-.base-slot { display: flex; gap: 0.5rem; flex: 1 1 auto; }
+.base-slot { display: flex; gap: 0.5rem; flex: 0 1 auto; }
 .read-aloud { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 0 0 auto; }
 .read-btn {
   width: 46px; height: 46px; border-radius: 50%;
@@ -850,11 +850,14 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
       <button class="read-btn" id="read-aloud" type="button"
               aria-label="Read this version of the story aloud" title="Hear it read aloud">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3z"/>
-          <path d="M19 11a1 1 0 1 0-2 0 5 5 0 0 1-10 0 1 1 0 1 0-2 0 7 7 0 0 0 6 6.92V21H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-3.08A7 7 0 0 0 19 11z"/>
+          <circle cx="8" cy="6.4" r="3.6"/>
+          <path d="M1.8 20.9c0-3.6 2.8-6.2 6.2-6.2 1.5 0 2.9.5 4 1.3v4.9H1.8z"/>
+          <rect x="15.2" y="9" width="3.4" height="6.6" rx="1.7"/>
+          <path d="M13.7 13.9a3.2 3.2 0 0 0 6.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M16.9 17v2.4M14.9 20h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </button>
-      <span class="read-label" id="read-label">Read it to me</span>
+      <span class="read-label" id="read-label">Read Aloud</span>
     </div>
   </div>
   <div class="grid" id="grid" role="group" aria-label="Choose a genre"></div>
@@ -1247,7 +1250,7 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
       el.readBtn.disabled = !!disabled;
     }
     if (el.readLabel) {
-      var short = 'Read it to me';
+      var short = 'Read Aloud';
       if (mode === 'busy') { short = 'Loading…'; }
       else if (mode === 'playing') { short = 'Stop'; }
       else if (/coming/i.test(label)) { short = 'Coming soon'; }
