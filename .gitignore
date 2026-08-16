@@ -11,6 +11,14 @@ assets/audio/Music/[0-9][0-9].mp3
 assets/audio/*.wav
 assets/audio/es/*.wav
 
+# Downloads dump that landed inside the repo — contains personal documents
+# (CVs, legal/medical PDFs) and huge model files. NEVER commit or publish.
+assets/images2/
+
+# Generated bundle for the claude.ai/design project (rebuild with
+# tools/build_design_bundle.py) — the sheets themselves are committed.
+build/
+
 # Local tooling noise
 .claude/
 __pycache__/

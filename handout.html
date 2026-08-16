@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Genre Machine — Lesson Handout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/sheet.css">
+<style>
+  /* --- handout-only layout --- */
+  .lede {
+    font-size: 12px;
+    line-height: 1.3;
+    color: var(--slate);
+    margin: 0;
+    border-left: 4px solid var(--teal);
+    background: var(--tint);
+    padding: 5px 10px;
+  }
+  .lede b { color: var(--ink); }
+
+  .vocab {
+    columns: 3;
+    column-gap: 0.28in;
+    column-rule: 1px solid var(--edge);
+    margin: 0;
+  }
+  .vocab div {
+    break-inside: avoid;
+    font-size: 10.2px;
+    line-height: 1.22;
+    color: var(--slate);
+    margin-bottom: 4px;
+  }
+  .vocab b {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 11px;
+    color: var(--ink);
+  }
+  .vocab i {
+    font-style: italic;
+    color: var(--amber-dark);
+  }
+
+  .matrix { flex: 1; }
+  .matrix col.el { width: 1.32in; }
+  .matrix tbody td:first-of-type { background: #fbfbfa; }
+</style>
+</head>
+<body>
+
+<div class="chrome">
+  <button type="button" onclick="window.print()">Print this handout</button>
+  <a href="activity.html">Go to the activity sheet &rarr;</a>
+  <a href="index.html">Back to the machine</a>
+  <p class="hint">One landscape page. Print single-sided, or back-to-back with the activity sheet.</p>
+</div>
+
+<section class="sheet">
+
+  <div class="masthead">
+    <div class="brand">
+      <div class="marks">
+        <svg width="45" height="45" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <path d="M50 8l6.2 2.1 4.4-4.8 5.2 3.9 5.7-2.9 3.6 5.5 6.4-.6 1.6 6.3 6.2 1.8-.6 6.4 5.4 3.5-2.8 5.8 3.9 5.1-4.7 4.4 2 6.2-6 2.3v6.4l-6.3 1.1-2 6.1-6.4-.4-3.7 5.3-5.9-2.5-5 4-5.1-3.9-5.8 2.6-3.8-5.2-6.4.5-2.1-6.1-6.3-1V63l-6-2.2 1.9-6.2-4.8-4.3 3.8-5.2-2.9-5.7 5.3-3.6-.7-6.4 6.2-1.9 1.5-6.3 6.4.5 3.5-5.6 5.8 2.8L43.7 10z" stroke="#1e293b" stroke-width="3.5" stroke-linejoin="round"/>
+          <circle cx="50" cy="50" r="17" stroke="#d97706" stroke-width="4"/>
+          <circle cx="50" cy="50" r="5" fill="#1e293b"/>
+        </svg>
+        <svg width="26" height="26" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <path d="M50 10l8 3 6-5 6 6-3 8 8 6-3 8h-9l-3 8-8-3-6 6-6-6-8 3-3-8h-9l-3-8 8-6-3-8 6-6 6 5z" stroke="#0f4c5c" stroke-width="4" stroke-linejoin="round"/>
+          <circle cx="50" cy="46" r="9" stroke="#0f4c5c" stroke-width="4"/>
+        </svg>
+      </div>
+      <div>
+        <h1>The Genre Machine: Operator's Handout</h1>
+        <div class="strip">Feed in one story &middot; Turn the dial &middot; Print a new world</div>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="field"><span>Name</span><i style="width:2in"></i></div>
+      <div class="field"><span>Date</span><i style="width:1in"></i></div>
+      <div class="field"><span>Class</span><i style="width:1in"></i></div>
+    </div>
+  </div>
+
+  <p class="lede"><b>The plot never changes.</b> Three pigs, three houses, one wolf, every single time. When the content is already familiar, your attention is freed to watch the craft &mdash; so you stop asking <i>what happens</i> and start seeing <b>how a genre makes meaning</b>. Everything that survives the trip is the story. Everything that changed is the genre.</p>
+
+  <div class="head">
+    <span class="tag teal">Part 1</span>
+    <h2>Operator's Vocabulary</h2>
+    <span class="note">The dials the machine actually turns</span>
+  </div>
+
+  <div class="vocab">
+    <div><b>Genre</b> &mdash; a family of stories that share conventions a reader learns to recognize, and a writer learns to use.</div>
+    <div><b>Convention</b> &mdash; an expected feature of a genre: the noir voiceover, the epic invocation, the case file's stamped headers.</div>
+    <div><b>Plot</b> &mdash; what happens: the story's events, in order. <i>The machine holds this still.</i></div>
+    <div><b>Tone</b> &mdash; the attitude a story takes toward its own events: playful, grim, clinical, reverent.</div>
+    <div><b>Voice</b> &mdash; who is telling the story, and how they sound doing it.</div>
+    <div><b>Perspective</b> &mdash; the vantage point the story is told from: omniscient, third&#8209;limited, first person.</div>
+    <div><b>Diction</b> &mdash; word choice, and the formality it signals. <i>Dame</i> and <i>madam</i> name the same person.</div>
+    <div><b>Syntax</b> &mdash; how sentences are built: their length, rhythm, and order. Noir clips. Gothic winds.</div>
+    <div><b>Aesthetic</b> &mdash; the look and feel of a work; its whole visual and emotional style.</div>
+    <div><b>Motif</b> &mdash; an image or object that recurs until it carries meaning &mdash; the three houses.</div>
+    <div><b>Trope</b> &mdash; a familiar figure or device a genre reuses &mdash; the predator, the regime, the curse.</div>
+    <div><b>Stakes</b> &mdash; what stands to be lost, and how badly. Genre decides what counts as a threat.</div>
+    <div><b>Synthesized</b> &mdash; combined from separate parts into one new whole. <i>The machine's final step.</i></div>
+  </div>
+
+  <div class="head">
+    <span class="tag amber">Part 2</span>
+    <h2>Worked Example: The Three Little Pigs</h2>
+    <span class="note">Same plot, three lenses &mdash; read across a row and watch one element change</span>
+  </div>
+
+  <table class="matrix">
+    <colgroup><col class="el"><col><col><col></colgroup>
+    <thead>
+      <tr>
+        <th>Element</th>
+        <th>Base Story &mdash; Modern English</th>
+        <th>Dystopian Transformation</th>
+        <th>Gothic Horror Transformation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Tone<em>attitude toward events</em></th>
+        <td><b>Lighthearted &amp; didactic</b>Playful, cautious, built to teach a clear lesson about hard work.</td>
+        <td><b>Oppressive &amp; cynical</b>Hopeless atmosphere highlighting a brutal, unforgiving social system.</td>
+        <td><b>Macabre &amp; dread&#8209;induced</b>Grim, ominous, obsessed with psychological terror and decay.</td>
+      </tr>
+      <tr>
+        <th>Perspective<em>who is watching</em></th>
+        <td><b>Third&#8209;person omniscient</b>A detached fairytale narrator tracking every character objectively.</td>
+        <td><b>Third&#8209;person limited</b>Trapped in the panic of the lowest&#8209;ranking pig fleeing state terror.</td>
+        <td><b>First&#8209;person subjective</b>The final pig, losing his sanity inside the walls.</td>
+      </tr>
+      <tr>
+        <th>Aesthetic<em>look and feel</em></th>
+        <td><b>Rustic &amp; simple</b>Countryside, pastoral landscapes, basic building materials.</td>
+        <td><b>Industrial &amp; brutalist</b>Gray concrete, surveillance tech, smog, stark utilitarian design.</td>
+        <td><b>Decadent &amp; morbid</b>Shadowy ruins, rotting wood, skeletal remains, eternal twilight.</td>
+      </tr>
+      <tr>
+        <th>Syntax<em>how sentences run</em></th>
+        <td><b>Short &amp; rhythmic</b>Repetition a child can follow: <i>I'll huff and I'll puff.</i></td>
+        <td><b>Staccato &amp; fragmented</b>Sharp, urgent sentences reflecting panic and mechanical control.</td>
+        <td><b>Convoluted &amp; periodic</b>Long winding sentences that build suspense and mimic claustrophobia.</td>
+      </tr>
+      <tr>
+        <th>Diction<em>word choice</em></th>
+        <td><b>Folksy &amp; accessible</b>Basic verbs, clear adjectives, comforting traditional vocabulary.</td>
+        <td><b>Clinical &amp; bureaucratic</b>Cold technical words: <i>containment, efficiency, subversion.</i></td>
+        <td><b>Archaic &amp; visceral</b>Grave, emotive words: <i>viscera, torment, shroud, grotesque.</i></td>
+      </tr>
+      <tr>
+        <th>The Wolf<em>trope &mdash; the threat</em></th>
+        <td><b>The natural predator</b>A cartoonish villain acting on plain physical hunger.</td>
+        <td><b>The totalitarian regime</b>An inescapable state apparatus hunting down dissidents.</td>
+        <td><b>The ancestral curse</b>A demonic, shapeshifting entity punishing the bloodline.</td>
+      </tr>
+      <tr>
+        <th>The Houses<em>motif &mdash; the symbol</em></th>
+        <td><b>Levels of effort</b>Literal symbols of laziness against preparation and work ethic.</td>
+        <td><b>Classes of a caste system</b>Slums of straw and wood crushed by the iron fist of the state.</td>
+        <td><b>The illusion of safety</b>The brick house becomes a tomb that traps the protagonist inside.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+</body>
+</html>

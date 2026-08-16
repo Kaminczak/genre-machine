@@ -35,6 +35,12 @@ vocabulary and starts being a tool they can use in their own writing.
   still loglines only. Students fill them.
 - **Hear the difference.** The narrated cells make tone audible for students who
   do not catch it on the page.
+- **Print the two sheets.** The *Lesson Handout* gives students the vocabulary
+  and one fully worked example — *The Three Little Pigs* through three lenses.
+  The *Genre Activity* then hands them a fable the machine deliberately does not
+  carry, *The Tortoise and the Hare*, and asks them to run the transformation
+  themselves: seven elements shifted into two genres of their choosing, and a
+  redrawn book cover. Both print on one landscape page.
 
 ## How it works
 
@@ -44,6 +50,8 @@ and it runs.
 | Path | What it holds |
 |---|---|
 | `index.html` | The whole app: markup, styles hook-up, and app logic |
+| `handout.html` | Printable reference sheet: vocabulary and a worked example |
+| `activity.html` | Printable student activity: remix *The Tortoise and the Hare* |
 | `data/stories.js` | Stories, genres, and loglines for all 128 cells |
 | `Stories/` | One markdown file per story x genre — where the writing happens |
 | `data/scripts-generated.js` | Generated: merges the markdown scripts over `stories.js` |

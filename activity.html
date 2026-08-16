@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Genre Machine — Genre Activity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/sheet.css">
+<style>
+  /* --- activity-only layout --- */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--tint);
+    border: 1.5px solid var(--edge);
+    border-radius: 999px;
+    padding: 7px 15px;
+  }
+  .controls > span {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    white-space: nowrap;
+  }
+  .dials { flex: 1; display: flex; gap: 12px; }
+  .dial {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 5px 16px;
+  }
+  .dial b {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .dial .locked {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--teal);
+    white-space: nowrap;
+  }
+  .dial i { flex: 1; border-bottom: 1.5px dotted var(--rule); height: 15px; }
+  .dial.remix { background: var(--amber-tint); border-color: var(--amber); }
+  .dial.remix b { color: var(--amber-dark); }
+  .dial.remix i { border-bottom-color: #d1a265; }
+
+  .main { display: flex; gap: 0.2in; flex: 1; min-height: 0; }
+  .col-left { width: 4.8in; display: flex; flex-direction: column; gap: 6px; min-height: 0; }
+  .col-right { flex: 1; display: flex; flex-direction: column; gap: 6px; min-height: 0; }
+
+  .shift { flex: 1; }
+  .shift col.el { width: 1.2in; }
+  .shift tbody th { font-size: 11px; padding: 4px 6px; }
+  .shift tbody td { height: 0.6in; }
+
+  .canvas {
+    flex: 1;
+    border: 2px solid var(--ink);
+    border-radius: 5px;
+    padding: 7px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-height: 0;
+  }
+  .canvas .say { font-size: 11px; line-height: 1.25; color: var(--slate); }
+  .canvas .say b { color: var(--ink); }
+  .canvas .frame {
+    flex: 1;
+    display: flex;
+    gap: 7px;
+    min-height: 0;
+  }
+  .canvas .draw {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .canvas .draw img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+  .example { width: 1.12in; display: flex; flex-direction: column; gap: 3px; }
+  .example img { width: 100%; border: 1px solid var(--edge); }
+  .example span {
+    font-size: 8.5px;
+    line-height: 1.2;
+    color: var(--muted);
+    text-align: center;
+  }
+  .example b {
+    display: block;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 8.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+  }
+
+  .check {
+    margin-top: auto;
+    border-top: 1px solid var(--edge);
+    padding-top: 5px;
+  }
+  .check b {
+    display: block;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 8.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 3px;
+  }
+  .check div {
+    font-size: 9px;
+    line-height: 1.25;
+    color: var(--slate);
+    margin-bottom: 3px;
+  }
+  .check div::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border: 1px solid var(--ink);
+    margin-right: 4px;
+  }
+
+  .craft {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    border-top: 2px solid var(--ink);
+    padding-top: 7px;
+  }
+  .craft p { margin: 0; font-size: 11.5px; line-height: 1.25; width: 3.1in; }
+  .craft p b { font-family: 'Space Grotesk', system-ui, sans-serif; }
+  .craft i { flex: 1; border-bottom: 1.5px solid var(--rule); height: 17px; }
+</style>
+</head>
+<body>
+
+<div class="chrome">
+  <button type="button" onclick="window.print()">Print this activity</button>
+  <a href="handout.html">&larr; Go to the lesson handout</a>
+  <a href="index.html">Back to the machine</a>
+  <p class="hint">One landscape page. The machine has no Tortoise and Hare &mdash; that transformation is the student's to build.</p>
+</div>
+
+<section class="sheet">
+
+  <div class="masthead">
+    <div class="brand">
+      <div class="marks">
+        <svg width="46" height="46" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <path d="M50 8l6.2 2.1 4.4-4.8 5.2 3.9 5.7-2.9 3.6 5.5 6.4-.6 1.6 6.3 6.2 1.8-.6 6.4 5.4 3.5-2.8 5.8 3.9 5.1-4.7 4.4 2 6.2-6 2.3v6.4l-6.3 1.1-2 6.1-6.4-.4-3.7 5.3-5.9-2.5-5 4-5.1-3.9-5.8 2.6-3.8-5.2-6.4.5-2.1-6.1-6.3-1V63l-6-2.2 1.9-6.2-4.8-4.3 3.8-5.2-2.9-5.7 5.3-3.6-.7-6.4 6.2-1.9 1.5-6.3 6.4.5 3.5-5.6 5.8 2.8L43.7 10z" stroke="#1e293b" stroke-width="3.5" stroke-linejoin="round"/>
+          <circle cx="50" cy="50" r="17" stroke="#d97706" stroke-width="4"/>
+          <circle cx="50" cy="50" r="5" fill="#1e293b"/>
+        </svg>
+        <svg width="27" height="27" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <path d="M50 10l8 3 6-5 6 6-3 8 8 6-3 8h-9l-3 8-8-3-6 6-6-6-8 3-3-8h-9l-3-8 8-6-3-8 6-6 6 5z" stroke="#0f4c5c" stroke-width="4" stroke-linejoin="round"/>
+          <circle cx="50" cy="46" r="9" stroke="#0f4c5c" stroke-width="4"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Genre Activity: Run the Machine</h1>
+        <div class="strip">Hold the plot still &middot; Turn the dial &middot; Show your work</div>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="field"><span>Name</span><i style="width:1.9in"></i></div>
+      <div class="field"><span>Date</span><i style="width:0.95in"></i></div>
+      <div class="field"><span>Class</span><i style="width:0.95in"></i></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <span>Machine Controls</span>
+    <div class="dials">
+      <div class="dial">
+        <b>Anchor Tale</b>
+        <span class="locked">The Tortoise and the Hare</span>
+      </div>
+      <div class="dial remix"><b>Remix Genre 1</b><i></i></div>
+      <div class="dial remix"><b>Remix Genre 2</b><i></i></div>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <div class="col-left">
+      <div class="head">
+        <span class="tag teal">Part 1</span>
+        <h2>Element Shift</h2>
+        <span class="note">Same race, same winner &mdash; everything else is yours</span>
+      </div>
+      <table class="shift">
+        <colgroup><col class="el"><col><col></colgroup>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Remix Genre 1</th>
+            <th>Remix Genre 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>Tone<em>attitude toward events</em></th><td></td><td></td></tr>
+          <tr><th>Perspective<em>who is watching</em></th><td></td><td></td></tr>
+          <tr><th>Aesthetic<em>look and feel</em></th><td></td><td></td></tr>
+          <tr><th>Syntax<em>how sentences run</em></th><td></td><td></td></tr>
+          <tr><th>Diction<em>word choice</em></th><td></td><td></td></tr>
+          <tr><th>The Rival<em>trope &mdash; the threat</em></th><td></td><td></td></tr>
+          <tr><th>The Race<em>motif &mdash; the symbol</em></th><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-right">
+      <div class="head">
+        <span class="tag amber">Part 2</span>
+        <h2>Draw the Remix</h2>
+      </div>
+      <div class="canvas">
+        <p class="say"><b>Letter your new title</b> across the top band and <b>draw the new cover scene</b> inside the circle. Every mark should belong to Remix Genre 1.</p>
+        <div class="frame">
+          <div class="draw">
+            <img src="assets/images/cover-blank.webp" alt="Blank ornate book cover to draw on">
+          </div>
+          <div class="example">
+            <b>The original</b>
+            <img src="assets/images/cover-tortoise.webp" alt="The original Tortoise and the Hare cover: a bright forest starting line">
+            <span>A bright forest, a friendly race, classic fable stakes.</span>
+            <div class="check">
+              <b>Cover check</b>
+              <div>A retitled book</div>
+              <div>A new setting</div>
+              <div>A new mood</div>
+              <div>One object only your genre would put there</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="craft">
+    <p><b>Craft note.</b> In one sentence: what survived the trip, and what did the lens replace?</p>
+    <i></i>
+  </div>
+
+</section>
+
+</body>
+</html>
