@@ -381,6 +381,8 @@ body {
 .base-row {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
   margin-bottom: 0.9rem;
 }
@@ -498,18 +500,13 @@ body {
 
 /* === CORNER BUTTONS & SHEETS =========================================== */
 
-.corner {
-  position: fixed;
-  right: clamp(0.6rem, 2vw, 1.2rem);
-  bottom: clamp(0.6rem, 2vw, 1.2rem);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.4rem;
-  z-index: 40;
-}
-.corner .tool { background: var(--paper); }
-.corner a.tool { text-decoration: none; display: block; text-align: center; }
+/* Manual / instructions / lesson-plan buttons live inline in the base row:
+   two stacked on the far left, one on the far right. */
+.base-tools { display: flex; flex-direction: column; gap: 0.35rem; flex: 0 0 auto; align-self: center; }
+.base-tools-left { margin-right: 0.9rem; }
+.base-tools-right { margin-left: 0.9rem; }
+.base-tools .tool { font-size: 0.55rem; padding: 0.34rem 0.6rem; white-space: nowrap; }
+.base-tools a.tool { text-decoration: none; text-align: center; display: block; }
 
 .overlay {
   position: fixed;
@@ -675,7 +672,7 @@ body {
 }
 
 /* === LIGHT / DARK SWITCH =============================================== */
-.mode-switch { display: flex; align-items: center; flex: 0 0 auto; }
+.mode-switch { display: flex; align-items: center; flex: 0 0 auto; margin-right: 0.9rem; }
 .mode-btn {
   position: relative; appearance: none; cursor: pointer;
   width: 60px; height: 28px; border-radius: 999px;
@@ -760,6 +757,19 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--green); white-space: nowrap;
 }
+/* Two matched circular controls: Read Aloud (mic) + Music (note) */
+.voice-ctls { display: flex; align-items: flex-start; gap: 0.7rem; margin-left: 0.9rem; flex: 0 0 auto; }
+.voice-ctls .read-aloud { margin-left: 0; }
+/* Music button "on" state (green fill) when music is toggled on */
+#read-music[aria-pressed="true"] {
+  background: var(--green);
+  box-shadow: 0 0 0 2px rgba(70,180,85,0.55), 0 2px 6px rgba(0,0,0,0.5),
+              inset 0 1px 0 rgba(120,220,130,0.25);
+}
+/* Music icon swaps with state: crossed-out note when off, plain note when on */
+#read-music .ic-note-on { display: none; }
+#read-music[aria-pressed="true"] .ic-note-on { display: block; }
+#read-music[aria-pressed="true"] .ic-note-off { display: none; }
 
 /* === ORIGINS VIDEO (opens over the image) ============================== */
 .plate-video { position: absolute; inset: 0; z-index: 5; background: #000; }
@@ -838,6 +848,10 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
 
   <p class="base-label">The tale itself &mdash; then choose a lens below</p>
   <div class="base-row" id="base-row" role="group" aria-label="Base version, display mode, and narration">
+    <div class="base-tools base-tools-left">
+      <button class="tool" id="open-manual" type="button">How It Works</button>
+      <button class="tool" id="open-instructions" type="button">Instructions</button>
+    </div>
     <div class="mode-switch">
       <button class="mode-btn" id="mode-toggle" type="button" role="switch" aria-checked="true"
               aria-label="Toggle light or dark mode" title="Light / dark">
@@ -847,18 +861,56 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
       </button>
     </div>
     <div class="base-slot" id="base-slot"></div>
-    <div class="read-aloud">
-      <button class="read-btn" id="read-aloud" type="button"
-              aria-label="Read this version of the story aloud" title="Hear it read aloud">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <circle cx="8" cy="6.4" r="3.6"/>
-          <path d="M1.8 20.9c0-3.6 2.8-6.2 6.2-6.2 1.5 0 2.9.5 4 1.3v4.9H1.8z"/>
-          <rect x="15.2" y="9" width="3.4" height="6.6" rx="1.7"/>
-          <path d="M13.7 13.9a3.2 3.2 0 0 0 6.4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M16.9 17v2.4M14.9 20h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <span class="read-label" id="read-label">Read Aloud</span>
+    <div class="voice-ctls">
+      <div class="read-aloud">
+        <button class="read-btn" id="open-video" type="button"
+                aria-label="Play a short video about this tale's origins" title="Origin story video">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M2.5 5h19v14h-19z M4.2 6.5h2.3v1.7H4.2z M8.2 6.5h2.3v1.7H8.2z M12.2 6.5h2.3v1.7h-2.3z M16.2 6.5h2.3v1.7h-2.3z M4.2 15.8h2.3v1.7H4.2z M8.2 15.8h2.3v1.7H8.2z M12.2 15.8h2.3v1.7h-2.3z M16.2 15.8h2.3v1.7h-2.3z M10.3 9.3l5 2.7-5 2.7z"/>
+          </svg>
+        </button>
+        <span class="read-label" id="video-label">Origin Story</span>
+      </div>
+      <div class="read-aloud">
+        <button class="read-btn" id="read-aloud" type="button"
+                aria-label="Read this version of the story aloud" title="Hear it read aloud">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 21H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h7l4 4v5"/>
+            <path d="M13 3v4h4"/>
+            <line x1="8" y1="10" x2="13.5" y2="10"/>
+            <line x1="8" y1="13" x2="12" y2="13"/>
+            <line x1="8" y1="16" x2="11" y2="16"/>
+            <path d="M17.5 13l-2.5 2h-1.5v3H15l2.5 2z" fill="currentColor" stroke="none"/>
+            <path d="M19.3 14.3a3.6 3.6 0 0 1 0 5.4"/>
+          </svg>
+        </button>
+        <span class="read-label" id="read-label">Read Aloud</span>
+      </div>
+      <div class="read-aloud">
+        <button class="read-btn" id="read-music" type="button" aria-pressed="false"
+                aria-label="Turn background music on or off" title="Music on / off">
+          <svg class="ic-note-on" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M9 17.5V5l10-2v11" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="6.4" cy="17.5" r="2.7"/>
+            <circle cx="16.4" cy="15.5" r="2.7"/>
+          </svg>
+          <svg class="ic-note-off" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M10.8 18.7V8.2l8.2-1.6v9.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="8.6" cy="18.7" r="2.3"/>
+            <circle cx="16.8" cy="16" r="2.3"/>
+            <circle cx="6.3" cy="5.8" r="3.3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <line x1="4" y1="3.5" x2="8.6" y2="8.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <span class="read-label" id="music-label">Music</span>
+      </div>
+    </div>
+    <div class="base-tools base-tools-right">
+      <button class="tool" id="open-lesson" type="button">Lesson Plan &amp; TEKS</button>
+      <a class="tool" href="handout.html" target="_blank" rel="noopener"
+         title="Printable vocabulary page: the words for what a genre changes">Lesson Handout</a>
+      <a class="tool" href="activity.html" target="_blank" rel="noopener"
+         title="Printable activity: read one genre, finish one, build one">Genre Activity</a>
     </div>
   </div>
   <div class="grid" id="grid" role="group" aria-label="Choose a genre"></div>
@@ -875,30 +927,21 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   <audio id="music-audio" hidden loop></audio>
 </div>
 
-<div class="corner">
-  <button class="tool" id="open-video" type="button">&#9654; Origin story</button>
-  <button class="tool" id="open-manual" type="button">How It Works</button>
-  <button class="tool" id="open-instructions" type="button">? Instructions</button>
-  <button class="tool" id="open-lesson" type="button">Lesson Plan &amp; TEKS</button>
-  <a class="tool" href="handout.html" target="_blank" rel="noopener"
-     title="Printable vocabulary page: the words for what a genre changes">Lesson Handout</a>
-  <a class="tool" href="activity.html" target="_blank" rel="noopener"
-     title="Printable activity: read one genre, finish one, build one">Genre Activity</a>
-</div>
-
 <div class="overlay" id="sheet-manual" role="dialog" aria-modal="true" aria-labelledby="manual-title">
   <div class="sheet manual">
     <button class="sheet-close" type="button" data-close>✕ Close</button>
     <div class="manual-plate">THE GENRE MACHINE &mdash; MODEL I&ndash;IV &nbsp;&bull;&nbsp; OWNER'S MANUAL</div>
     <h2 id="manual-title">Theory of Operation</h2>
-    <img class="manual-fig" id="manual-fig" src="assets/images/manual-diagram.webp" alt="Cutaway diagram of the Genre Machine" hidden />
+    <video class="manual-fig" id="manual-fig" src="assets/images/manual-diagram.mp4"
+           poster="assets/images/manual-diagram.webp" loop muted playsinline preload="metadata"
+           aria-label="Animated cutaway diagram of the Genre Machine"></video>
     <p class="manual-lede">A single story goes in. Forty different stories come out. Nothing is added and nothing is removed &mdash; only the <em>lens</em> is changed. Here is how that works, and why it teaches.</p>
 
     <h3>&sect;1 &nbsp; The Constant</h3>
     <p>Every machine needs a fixed point. Ours is the <strong>story</strong>. Load any of the four tales and its bones never move: the same characters want the same things, meet the same trouble, arrive at the same turn. The pigs still build; the wolf still comes. This is the part you already know by heart &mdash; and that is precisely the point.</p>
 
     <h3>&sect;2 &nbsp; The Variable</h3>
-    <p>Around that fixed story, everything else is a <strong>lens you can swap</strong>. This machine carries four: a <em>Genre &amp; Plot</em> lens (the world the tale is reset in), a <em>Syntax</em> lens (how the sentences are built and the words chosen), a <em>Voice</em> lens (who narrates, and how they sound), and an <em>Image</em> lens (how the scene is drawn). Turn from Fairy Tale to Film Noir and not one plot point moves &mdash; yet the story becomes unrecognizable. What changed was never the <em>what</em>. It was the <em>how</em>.</p>
+    <p>Around that fixed story, everything else is a <strong>lens you can swap</strong>. This machine carries four on one rail: <em>Plot</em> (the world and events the tale is reset into), <em>Syntax</em> (how the sentences are built and the words chosen), <em>Voice</em> (who narrates, and how they sound), and <em>Aesthetic</em> (how the scene looks and feels). Behind them sits the <em>Synthesized Genre</em> chamber, where the four settings combine into one retelling. Turn from Fairy Tale to Film Noir and not one plot point moves &mdash; yet the story becomes unrecognizable. What changed was never the <em>what</em>. It was the <em>how</em>.</p>
 
     <h3>&sect;3 &nbsp; Why It Works</h3>
     <p>When the content is already familiar, your attention is freed to watch the craft. You are not spending effort on <em>what happens</em> &mdash; you know what happens &mdash; so you can finally see <em>how a genre makes meaning</em>: the clipped sentences of noir, the invocations of epic, the stage directions of drama, the case-file dread of the ergodic. The known story becomes a handrail.</p>
@@ -908,6 +951,16 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
 
     <h3>&sect;5 &nbsp; Operating Note</h3>
     <p>Read one tale in two very different genres, back to back, and ask the machine's central question: <strong>what survived the trip, and what did the lens replace?</strong> Everything that stayed is the story. Everything that changed is the genre &mdash; showing you, in plain sight, exactly how it works.</p>
+
+    <h3>&sect;6 &nbsp; Operator's Vocabulary</h3>
+    <ul>
+      <li><strong>Plot</strong> &mdash; what happens: the story's events, in order.</li>
+      <li><strong>Syntax</strong> &mdash; how sentences are built and which words get chosen. Noir says <em>dame</em> in five clipped words; epic says <em>hero</em> in a rolling invocation.</li>
+      <li><strong>Voice</strong> &mdash; who is telling the story, and how they sound doing it: formal, casual, clipped, grand.</li>
+      <li><strong>Aesthetic</strong> &mdash; the look and feel of a work; its whole visual and emotional style.</li>
+      <li><strong>Synthesized</strong> &mdash; combined from separate parts into one new whole. The machine's final step.</li>
+      <li><strong>Genre</strong> &mdash; a family of stories that share conventions a reader learns to recognize &mdash; and an author learns to use.</li>
+    </ul>
   </div>
 </div>
 
@@ -922,7 +975,8 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
       <li><strong>Genre grid</strong> (bottom): pick the genre. A green dot marks a pairing with full prose behind it.</li>
       <li><strong>&#9654; Narrate</strong>: hear the story read aloud in a voice designed for that genre &mdash; a noir gumshoe, a courtroom clerk, a mythic bard.</li>
       <li><strong>&#9834; Music</strong>: loop an instrumental theme matched to the genre. It layers under narration &mdash; use both, or either alone.</li>
-      <li><strong>Espa&ntilde;ol</strong>: switch the story text to Spanish. Narration stays in English &mdash; try reading along in one language while listening in the other.</li>
+      <li><strong>Espa&ntilde;ol</strong>: switch the story text to Spanish &mdash; Read Aloud follows, narrating the Spanish version. All four tales are covered. Try the same scene in both languages, back to back, and watch what translation keeps and what it trades away.</li>
+      <li><strong>Origin Story</strong>: a short video on the tale's real-world origins, played right over the illustration.</li>
       <li><strong>About this genre</strong> (below the story): the genre's hallmarks, a short history, and three landmark books to try.</li>
       <li><strong>Shuffle</strong>: random story, random genre.</li>
       <li><strong>Lesson Handout</strong> and <strong>Genre Activity</strong>: two printable pages &mdash; one to read, one to fill in. Each opens in a new tab with a print button.</li>
@@ -1148,14 +1202,32 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   bindSheet('open-instructions', 'sheet-instructions');
   bindSheet('open-lesson', 'sheet-lesson');
 
-  // Show the manual diagram only once it actually loads (added later via Gemini).
+  // The manual figure is a cinemagraph. It runs (looped) only while the
+  // sheet is open. Its machine-hum audio plays only when background music
+  // is off, so the two never clash; the open click satisfies the browser's
+  // gesture requirement for unmuted playback.
   (function () {
-    var fig = document.getElementById('manual-fig');
-    if (fig) { fig.addEventListener('load', function () { fig.hidden = false; }); }
+    var vid = document.getElementById('manual-fig');
+    var overlay = document.getElementById('sheet-manual');
+    if (!vid || !overlay) { return; }
+    document.getElementById('open-manual').addEventListener('click', function () {
+      var musicPlaying =
+        document.getElementById('music').getAttribute('aria-pressed') === 'true';
+      vid.muted = musicPlaying;
+      vid.play().catch(function () {});
+    });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay || e.target.hasAttribute('data-close')) {
+        vid.pause();
+        vid.muted = true;
+      }
+    });
   }());
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
+      var mv = document.getElementById('manual-fig');
+      if (mv && mv.tagName === 'VIDEO') { mv.pause(); mv.muted = true; }
       document.querySelectorAll('.overlay.open').forEach(function (o) {
         o.classList.remove('open');
       });
@@ -1165,6 +1237,7 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   /* ---------- music toggle ---------- */
 
   var elMusic = document.getElementById('music');
+  var elReadMusic = document.getElementById('read-music');
   var musicAudio = document.getElementById('music-audio');
   musicAudio.volume = 0.32;
   var musicOn = false;
@@ -1182,6 +1255,7 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
       musicAudio.pause();
       musicAudio.removeAttribute('src');
       elMusic.removeAttribute('data-state');
+      if (elReadMusic) { elReadMusic.removeAttribute('data-state'); }
       return;
     }
     var url = musicUrl();
@@ -1189,8 +1263,10 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
     musicAudio.src = url;
     musicAudio.play().then(function () {
       elMusic.setAttribute('data-state', 'playing');
+      if (elReadMusic) { elReadMusic.setAttribute('data-state', 'playing'); }
     }).catch(function () {
       elMusic.removeAttribute('data-state');
+      if (elReadMusic) { elReadMusic.removeAttribute('data-state'); }
     });
   }
 
@@ -1201,8 +1277,13 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   elMusic.addEventListener('click', function () {
     musicOn = !musicOn;
     elMusic.setAttribute('aria-pressed', String(musicOn));
+    if (elReadMusic) { elReadMusic.setAttribute('aria-pressed', String(musicOn)); }
     syncMusic();
   });
+
+  if (elReadMusic) {
+    elReadMusic.addEventListener('click', function () { elMusic.click(); });
+  }
 
   /* ---------- language toggle ---------- */
 
@@ -1300,7 +1381,8 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
     el.plateVideo.hidden = true;
     if (el.videoBtn) {
       el.videoBtn.removeAttribute('data-state');
-      el.videoBtn.textContent = '▶ Origin story';
+      var vl = document.getElementById('video-label');
+      if (vl) { vl.textContent = 'Origin Story'; }
     }
   }
 
@@ -1317,7 +1399,8 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
     el.plateVideo.hidden = false;
     if (el.videoBtn) {
       el.videoBtn.setAttribute('data-state', 'playing');
-      el.videoBtn.textContent = '■ Close video';
+      var vl = document.getElementById('video-label');
+      if (vl) { vl.textContent = 'Close Video'; }
     }
   }
 
