@@ -113,6 +113,10 @@ body {
 .tool[data-state="busy"] { color: var(--ink-on); background: var(--green); border-color: var(--green); }
 .tool[data-state="playing"] { color: var(--ink-on); background: var(--green); border-color: var(--green); }
 
+/* the grid's one dead socket */
+.egg-cell { opacity: 0.38; }
+.egg-cell:hover { opacity: 0.7; background: rgba(95,214,106,0.05); }
+
 /* === STORY SELECTOR ==================================================== */
 
 .story-strip {
@@ -1110,6 +1114,17 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
     (isBase ? el.baseRow : el.grid).appendChild(b);
   });
 
+  /* The one empty socket in the grid. It does not explain itself. */
+  (function () {
+    var egg = document.createElement('button');
+    egg.type = 'button';
+    egg.className = 'cell egg-cell';
+    egg.setAttribute('aria-label', 'An empty lens socket');
+    egg.innerHTML = '&nbsp;';
+    egg.addEventListener('click', playEgg);
+    el.grid.appendChild(egg);
+  })();
+
   /* ---------- rendering ---------- */
 
   function imagePath(story, genre) {
@@ -1403,6 +1418,19 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
       var vl = document.getElementById('video-label');
       if (vl) { vl.textContent = 'Close Video'; }
     }
+  }
+
+  function playEgg() {
+    if (!el.plateVideo) { return; }
+    stopNarration();
+    el.plateVideo.innerHTML =
+      '<video src="assets/images/egg-hare.mp4" autoplay muted playsinline ' +
+      'style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    el.plateVideo.hidden = false;
+    var v = el.plateVideo.querySelector('video');
+    v.addEventListener('ended', hideVideo);
+    v.addEventListener('click', hideVideo);
+    try { el.plate.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
   }
 
   if (el.videoBtn) {
