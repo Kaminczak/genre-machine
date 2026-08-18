@@ -3,71 +3,135 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Genre Machine — Words for What Changed</title>
+<title>The Genre Machine — Handout</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Catamaran:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/sheet.css">
 <style>
-  /* --- handout-only layout --- */
-  .lede {
-    font-size: 13.5px;
-    line-height: 1.38;
-    color: var(--slate);
-    margin: 0;
-    border-left: 4px solid var(--teal);
-    background: var(--tint);
-    padding: 6px 11px;
-  }
-  .lede b { color: var(--ink); }
+  /* --- info-handout layout ---
+     Catamaran for functional labels (matches the Canva worksheet chips),
+     EB Garamond italic for anything that names a machine part, Inter for
+     body text. Black and white; photocopies clean. */
 
-  .words {
-    columns: 2;
-    column-gap: 0.34in;
-    column-rule: 1px solid var(--edge);
-    margin: 0;
-    flex: 1;
-  }
+  .sheet { gap: 0.12in; background: #fdf3dd; }
+  .sheet, .sheet * { --ink-sepia: #2b2013; }
 
-  .words h2 {
-    break-after: avoid;
+  .masthead { border-bottom: 2px solid #2b2013; padding-bottom: 0.07in; align-items: flex-end; }
+  h1.title {
     font-family: 'EB Garamond', Georgia, serif;
-    font-style: italic;
-    font-size: 16.5px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: #fff;
-    background: #111;
-    border-radius: 3px;
-    padding: 3px 10px;
-    margin: 0 0 7px;
+    font-style: italic; font-weight: 600;
+    font-size: 30px; letter-spacing: 0.01em;
+    margin: 0; color: #2b2013;
   }
-  .grp:not(:first-child) h2 { margin-top: 14px; }
-  .words h2.amber { background: #111; }
-  .words h2 span {
-    font-family: 'Source Sans 3', system-ui, sans-serif;
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: 0;
-    opacity: 0.85;
+  .title-note {
+    font-family: 'Catamaran', system-ui, sans-serif;
+    font-weight: 600; font-size: 10.5px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: #444; margin-top: 0;
   }
 
-  .grp { break-inside: avoid; }
+  /* --- the diagram with live-type labels over blank art --- */
+  .intro-row { display: flex; gap: 0.18in; align-items: stretch; }
+  .intro {
+    flex: 1; min-width: 0;
+    border: 1.5px solid #2b2013; background: #fffaf0;
+    padding: 10px 13px;
+    display: flex; flex-direction: column;
+  }
+  .intro h2 {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic; font-weight: 600;
+    font-size: 20px; color: #2b2013;
+    margin: 0 0 5px;
+  }
+  .intro p {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 12.6px; line-height: 1.58; color: #222;
+    margin: 0 0 8px;
+  }
+  .intro p:last-child { margin-bottom: 0; }
+  .intro p.machine {
+    margin-top: auto;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic; font-size: 15.5px; line-height: 1.55;
+    color: #2b2013;
+    border-top: 1px solid #d9c9a6; padding-top: 8px;
+  }
+  .fig {
+    position: relative;
+    width: 6.9in; margin: 0;
+    flex: none;
+  }
+  .fig img { width: 100%; display: block; border: 1.5px solid #2b2013; }
+  .fig .lbl {
+    position: absolute; transform: translateX(-50%);
+    text-align: center; line-height: 1.06; white-space: nowrap;
+  }
+  .fig .flow {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic; font-weight: 600;
+    font-size: 14.5px; color: #222;
+  }
+  .fig .lens {
+    font-family: 'Catamaran', system-ui, sans-serif;
+    font-weight: 800; font-size: 9.5px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: #111;
+  }
+  .fig .lens .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #2b2013; color: #fdf3dd;
+    font-size: 9.5px; font-weight: 800;
+    margin-bottom: 2px;
+  }
 
-  .words p {
-    break-inside: avoid;
-    margin: 0 0 9px;
-    font-size: 13.8px;
-    line-height: 1.42;
-    color: var(--slate);
+  /* --- explanations + glossary row --- */
+  .below { display: flex; gap: 0.18in; flex: 1; min-height: 0; }
+
+  .elements {
+    flex: 1; display: grid;
+    grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+    gap: 0.12in;
   }
-  .words b {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-weight: 700;
-    color: var(--ink);
-    border-bottom: 2px solid var(--amber);
+  .el { border: 1.5px solid #2b2013; background: #fffaf0; padding: 8px 11px 9px; }
+  .el h2 {
+    display: flex; align-items: center; gap: 7px;
+    font-family: 'Catamaran', system-ui, sans-serif;
+    font-weight: 800; font-size: 13.5px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: #2b2013; margin: 0 0 4px;
   }
-  .words i { font-style: italic; }
+  .el h2 .num {
+    flex: none; display: inline-flex; align-items: center; justify-content: center;
+    width: 19px; height: 19px; border-radius: 50%;
+    background: #111; color: #fff; font-size: 11.5px;
+  }
+  .el p {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 11px; line-height: 1.45; color: #222; margin: 0;
+  }
+  .el b { font-weight: 700; }
+
+  .glossary {
+    width: 2.62in; flex: none;
+    border: 1.5px solid #2b2013; background: #f7ecd2;
+    padding: 9px 12px 10px;
+  }
+  .glossary h2 {
+    font-family: 'Catamaran', system-ui, sans-serif;
+    font-weight: 800; font-size: 12.5px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: #2b2013; margin: 0 0 5px;
+    padding-bottom: 3px; border-bottom: 1.5px solid #2b2013;
+  }
+  .glossary p {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 10.2px; line-height: 1.4; color: #222;
+    margin: 0 0 3.2px;
+  }
+  .glossary b { font-weight: 700; }
 </style>
 </head>
 <body>
@@ -76,81 +140,62 @@
   <button type="button" onclick="window.print()">Print this handout</button>
   <a href="activity.html">Go to the activity sheet &rarr;</a>
   <a href="index.html">Back to the machine</a>
-  <p class="hint">One landscape page. Four things change; these are the words for all of them.</p>
+  <p class="hint">One landscape page. The machine up top, what each lens means below, and a word guide in the corner.</p>
 </div>
 
 <section class="sheet">
 
   <div class="masthead">
-    <div class="brand">
-      <div class="marks">
-        <svg width="45" height="45" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-          <path d="M50 8l6.2 2.1 4.4-4.8 5.2 3.9 5.7-2.9 3.6 5.5 6.4-.6 1.6 6.3 6.2 1.8-.6 6.4 5.4 3.5-2.8 5.8 3.9 5.1-4.7 4.4 2 6.2-6 2.3v6.4l-6.3 1.1-2 6.1-6.4-.4-3.7 5.3-5.9-2.5-5 4-5.1-3.9-5.8 2.6-3.8-5.2-6.4.5-2.1-6.1-6.3-1V63l-6-2.2 1.9-6.2-4.8-4.3 3.8-5.2-2.9-5.7 5.3-3.6-.7-6.4 6.2-1.9 1.5-6.3 6.4.5 3.5-5.6 5.8 2.8L43.7 10z" stroke="#1e293b" stroke-width="3.5" stroke-linejoin="round"/>
-          <circle cx="50" cy="50" r="17" stroke="#d97706" stroke-width="4"/>
-          <circle cx="50" cy="50" r="5" fill="#1e293b"/>
-        </svg>
-        <svg width="26" height="26" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-          <path d="M50 10l8 3 6-5 6 6-3 8 8 6-3 8h-9l-3 8-8-3-6 6-6-6-8 3-3-8h-9l-3-8 8-6-3-8 6-6 6 5z" stroke="#0f4c5c" stroke-width="4" stroke-linejoin="round"/>
-          <circle cx="50" cy="46" r="9" stroke="#0f4c5c" stroke-width="4"/>
-        </svg>
-      </div>
-      <div>
-        <h1 style="font-family:'EB Garamond',Georgia,serif;font-style:italic;font-weight:600;letter-spacing:0.01em">Words for What Changed</h1>
-        <div class="strip">Feed in one story &middot; Turn the dial &middot; Print a new world</div>
-      </div>
+    <div>
+      <h1 class="title">The Genre Machine</h1>
+      <div class="title-note">Feed in one story &middot; turn the lenses &middot; print a new world</div>
     </div>
   </div>
 
-  <p class="lede">Read the same tale twice &mdash; once as itself, once through a genre &mdash; and you will notice things changing. <b>You already saw it. These are just the words for what you saw</b>, sorted into the four places a change can happen.</p>
+  <div class="intro-row">
+    <div class="intro">
+      <h2>What is genre &mdash; and why does it exist?</h2>
+      <p>A <b>genre</b> is a family of stories that keep the same promises: how the story should sound, what counts as danger, what an ending is allowed to feel like. Genre exists because those promises are useful &mdash; readers use them to know what they are picking up, and writers use these shared settings, tones, character traits, and language styles to build a world fast, or to surprise you by breaking a promise on purpose.</p>
+      <p class="machine">Now imagine placing a familiar story into a machine built around those four promises &mdash; a machine that will shape it, recolor it, revise it, and spit out the same story, but&hellip; different. That is the machine on the right: every lens is a promise you can turn.</p>
+    </div>
+    <div class="fig">
+      <img src="assets/images/machine-schematic-final.webp"
+           alt="Fig. 1, The Genre Machine: a story input rides a conveyor through four interchangeable lenses — Setting/World Building, Tone/Atmosphere, Character Traits/Motivation, Language/Syntax — into the synthesizing machine and out as the retold tale.">
+    </div>
+  </div>
 
-  <div class="words">
+  <div class="below">
+    <div class="elements">
+      <div class="el">
+        <h2><span class="num">1</span>Setting / World Building</h2>
+        <p>Where and when the story happens, and everything you can see there: how people dress, the light, the weather. That whole visual surface is the <b>aesthetic</b>, and an image that keeps returning until it means something is a <b>motif</b>.</p>
+      </div>
+      <div class="el">
+        <h2><span class="num">2</span>Tone &amp; Atmosphere</h2>
+        <p>The feeling the story gives off, and the attitude it takes toward its own events &mdash; playful, grim, clinical, reverent. The genre also sets the <b>stakes</b>: what stands to be lost, from a scraped knee in slapstick to a soul in cosmic horror.</p>
+      </div>
+      <div class="el">
+        <h2><span class="num">3</span>Character Traits</h2>
+        <p>Who the people are, and what drives them &mdash; their <b>motivation</b>. Each genre also picks where the teller stands (the <b>perspective</b>) and reaches for familiar figures like the predator, the regime, or the curse (each one a <b>trope</b>).</p>
+      </div>
+      <div class="el">
+        <h2><span class="num">4</span>Language / Syntax</h2>
+        <p>How the story sounds when it talks. The teller's <b>voice</b>, the words it picks and how formal they are (<b>diction</b>), and how the sentences are built &mdash; short and hard, or long and winding (<b>syntax</b>).</p>
+      </div>
+    </div>
 
-    <section class="grp">
-    <h2>First, two words that hold still <span>&mdash; the frame</span></h2>
-
-    <p>Every story shows up wearing a costume, and the costume tells you before you read a word what kind of trouble to expect and how you are meant to feel about it. That whole set of promises is the story's <b>genre</b>.</p>
-
-    <p>Three pigs, three houses, one wolf, one chimney. Those events happen in that order no matter which lens you put on them. What happens, in order, is the <b>plot</b> &mdash; and in this machine the plot is the one thing that never moves.</p>
-    </section>
-
-    <section class="grp">
-    <h2 class="amber">1 &middot; Tone and Atmosphere</h2>
-
-    <p>Two versions can describe the exact same wolf and feel nothing alike &mdash; one nudges you to laugh at him, the other makes you check the locks. That attitude a story takes toward its own events is its <b>tone</b>.</p>
-
-    <p>Genre also decides what counts as a threat and how bad losing is allowed to be. A scraped knee in slapstick; a soul in cosmic horror; a career in a courtroom drama. What stands to be lost is the <b>stakes</b>.</p>
-
-    <p>The voiceover in noir. <i>Once upon a time.</i> The stamped header on a case file. Readers come expecting these and the genre hands them over. Each expected feature is a <b>convention</b>.</p>
-    </section>
-
-    <section class="grp">
-    <h2 class="amber">2 &middot; Setting / World Building</h2>
-
-    <p>Whenever the story changes, everything you can <i>see</i> changes with it: how the characters are dressed, the way the trees are drawn, whether the sky is warm gold or the color of wet concrete. All of that visual surface, taken together, is the <b>aesthetic</b>.</p>
-
-    <p>Some images keep coming back until they stop being just images and start meaning something &mdash; the three houses turn into effort, or class, or safety that was never real. A picture that repeats until it carries meaning is a <b>motif</b>.</p>
-    </section>
-
-    <section class="grp">
-    <h2 class="amber">3 &middot; Character Traits</h2>
-
-    <p>Ask what a character actually wants and why they keep going. In the fable the hare runs for bragging rights; drop him into a survival story and he is running to stay alive. What drives a character is their <b>motivation</b>.</p>
-
-    <p>Ask, too, where the teller is standing. Floating above everyone and knowing everything, locked inside one panicking character, or speaking as <i>I</i> from the middle of it. That vantage point is the <b>perspective</b>.</p>
-
-    <p>Every genre keeps a stock of familiar figures it reaches for: the hungry predator, the faceless government, the ancient family curse. When a story pulls one off the shelf, you are looking at a <b>trope</b>.</p>
-    </section>
-
-    <section class="grp">
-    <h2 class="amber">4 &middot; Language / Syntax</h2>
-
-    <p>Somebody is always doing the telling, and you can hear them: tired and clipped in noir, grand and formal in a myth, chatty in a comedy. How that teller sounds is the story's <b>voice</b>.</p>
-
-    <p>Noir calls her a dame. A courtroom transcript calls her the witness. A myth calls her the maiden. Same woman every time &mdash; only the words moved. Word choice, and how formal it sounds, is <b>diction</b>.</p>
-
-    <p>Some versions come at you in short, hard sentences. Others wind for half a page before they let you go. How sentences get built &mdash; their length, their rhythm, the order things arrive in &mdash; is <b>syntax</b>.</p>
-    </section>
-
+    <div class="glossary">
+      <h2>Words you might not know</h2>
+      <p><b>aesthetic</b> &mdash; the whole look and feel</p>
+      <p><b>diction</b> &mdash; word choice, and its formality</p>
+      <p><b>motif</b> &mdash; an image that repeats to mean</p>
+      <p><b>motivation</b> &mdash; what a character wants</p>
+      <p><b>perspective</b> &mdash; where the story is told from</p>
+      <p><b>stakes</b> &mdash; what stands to be lost</p>
+      <p><b>syntax</b> &mdash; how sentences are built</p>
+      <p><b>trope</b> &mdash; a figure a genre reuses</p>
+      <p><b>voice</b> &mdash; how the teller sounds</p>
+    </div>
   </div>
 
 </section>

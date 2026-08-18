@@ -14,7 +14,7 @@
      for anything that names a lens, Source Sans for what students read
      fast. Black on white so it photocopies clean. */
 
-  .sheet { gap: 0.1in; }
+  .sheet { gap: 0.1in; background: #fdf3dd; }
 
   .masthead { border-bottom-width: 2px; padding-bottom: 0.08in; }
 
@@ -25,7 +25,7 @@
     font-size: 30px;
     letter-spacing: 0.01em;
     margin: 0;
-    color: #111;
+    color: #2b2013;
   }
   .title-note {
     font-family: 'EB Garamond', Georgia, serif;
@@ -41,10 +41,10 @@
     align-items: stretch;
   }
   .diagram {
-    width: 5.3in;
+    width: 5.55in;
     flex: none;
-    border: 1.5px solid #111;
-    background: #fdfaf3;
+    border: 1.5px solid #2b2013;
+    background: #fdf3dd;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,13 +60,21 @@
     min-width: 0;
   }
   .instructions .box {
-    border: 1.5px solid #111;
+    border: 1.5px solid #2b2013;
     padding: 8px 11px;
-    font-size: 13px;
-    line-height: 1.42;
+    font-size: 12px;
+    line-height: 1.38;
     color: #222;
   }
   .instructions .box b { font-weight: 700; }
+  .instructions .box ol {
+    margin: 0; padding-left: 17px;
+  }
+  .instructions .box ol li {
+    margin-bottom: 3px;
+    padding-left: 2px;
+  }
+  .instructions .box ol li:last-child { margin-bottom: 0; }
   .instructions .box .head {
     display: block;
     font-family: 'EB Garamond', Georgia, serif;
@@ -80,13 +88,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 1.5px solid #111;
-    background: #f6f4ee;
+    border: 1.5px solid #2b2013;
+    background: #f7ecd2;
     padding: 7px 11px;
   }
   .instructions .story img {
-    height: 1.05in;
-    border: 1px solid #999;
+    height: 1.15in;
+    border: 1px solid #b9a27a;
     flex: none;
   }
   .instructions .story div {
@@ -106,11 +114,12 @@
   .grid { flex: 1; }
   .grid col.el { width: 1.28in; }
 
-  .grid th, .grid td { border-color: #111; }
+  .grid th, .grid td { border-color: #2b2013; }
 
   .grid thead th {
-    background: #111;
-    color: #fff;
+    background: #f2e7cd;
+    border-bottom: 2.5px solid #2b2013;
+    color: #2b2013;
     font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-weight: 600;
@@ -126,17 +135,31 @@
     font-weight: 400;
     font-size: 9.5px;
     letter-spacing: 0.02em;
-    opacity: 0.8;
+    color: #6b5b40;
     margin-top: 1px;
   }
-  .grid thead th .fill {
-    display: inline-block;
-    min-width: 1.25in;
-    border-bottom: 1.2px solid rgba(255,255,255,0.85);
+  .gcell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 0.52in;
+  }
+  .gcell .gv {
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11.5px;
+    letter-spacing: 0.01em;
+    color: #222;
+    padding-bottom: 1px;
+  }
+  .gcell .gv.line {
+    width: 78%;
+    border-bottom: 1.3px solid #2b2013;
   }
 
   .grid tbody th {
-    background: #f1efe9;
+    background: #f2e7cd;
     font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-weight: 600;
@@ -145,7 +168,7 @@
     text-transform: none;
     letter-spacing: 0;
     padding: 5px 9px;
-    color: #111;
+    color: #2b2013;
   }
   .grid tbody th em {
     display: block;
@@ -162,16 +185,17 @@
     line-height: 1.38;
     vertical-align: top;
     padding: 6px 8px;
+    background: #fffaf0;
   }
-  .grid tbody td.model { background: #f8f7f3; color: #222; }
-  .grid tbody tr { height: 0.86in; }
+  .grid tbody td.model { background: #fffaf0; color: #222; }
+  .grid tbody tr { height: 0.78in; }
 </style>
 </head>
 <body>
 
 <div class="chrome">
   <button type="button" onclick="window.print()">Print this activity</button>
-  <a href="handout.html">&larr; Vocabulary page</a>
+  <a href="handout.html">&larr; Handout</a>
   <a href="index.html">Back to the machine</a>
   <p class="hint">One landscape page. The example is done; students run two genres of their own through the four lenses.</p>
 </div>
@@ -192,16 +216,20 @@
 
   <div class="diagram-row">
     <div class="diagram">
-      <img src="assets/images/machine-diagram-lenses.webp"
+      <img src="assets/images/machine-schematic-final.webp"
            alt="Fig. 1, The Genre Machine: an original tale passes through four lenses — Tone/Atmosphere, Setting/World Building, Character Traits/Motivation, Language/Syntax — into a synthesized genre and out as the retold tale.">
     </div>
     <div class="instructions">
       <div class="box">
         <span class="head">Instructions</span>
-        Use the Genre Machine to study <b>two new genres</b>. For each one, describe the changes that transform the original story &mdash; one sentence or two per lens, the way the example does it.
+        <ol>
+          <li><b>Explore.</b> Run <b>each story</b> through <b>at least 5 or 6 genres</b> on the Genre Machine &mdash; watch how the setting, tone, characters, and language react.</li>
+          <li><b>Choose.</b> Pick the <b>two</b> genres that surprised you most.</li>
+          <li><b>Analyze.</b> Fill in the chart for your two &mdash; 1&ndash;2 sentences per lens, the way the example does it.</li>
+        </ol>
       </div>
       <div class="story">
-        <img src="assets/images/cover-tortoise.webp" alt="The Tortoise and the Hare, the original tale">
+        <img src="assets/images/cover-tortoise-sepia.webp" alt="The Tortoise and the Hare, the original tale">
         <div>
           <span class="tale">The Tortoise &amp; the Hare</span>
           The story itself never changes: the hare brags, the hare naps, the tortoise keeps walking, the tortoise wins. Everything else is yours to transform.
@@ -214,19 +242,13 @@
     <colgroup><col class="el"><col><col><col></colgroup>
     <thead>
       <tr>
-        <th style="background:#f1efe9"></th>
-        <th>Example &middot; Wilderness / Survival</th>
-        <th>Genre 1 &middot; <span class="fill"></span></th>
-        <th>Genre 2 &middot; <span class="fill"></span></th>
+        <th style="text-align:left;vertical-align:middle"><span style="font-weight:600">The Lenses</span><em>(describe each shift)</em></th>
+        <th><div class="gcell"><span>Example Genre</span><span class="gv">Wilderness / Survival</span></div></th>
+        <th><div class="gcell"><span>Genre 1</span><span class="gv line">&nbsp;</span></div></th>
+        <th><div class="gcell"><span>Genre 2</span><span class="gv line">&nbsp;</span></div></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>Tone &amp;<br>Atmosphere</th>
-        <td class="model">The playful, fable-like tone shifts into a stark, high-stakes survival struggle where death and freezing temperatures replace cartoon whimsy.</td>
-        <td></td>
-        <td></td>
-      </tr>
       <tr>
         <th>Setting /<br>World Building</th>
         <td class="model">The sunny forest path becomes a frozen wilderness above the treeline &mdash; gray sky, deep snowdrifts, wind-scoured pines, and a finish line that means shelter.</td>
@@ -234,7 +256,13 @@
         <td></td>
       </tr>
       <tr>
-        <th>Character Traits<em>&amp; motivation</em></th>
+        <th>Tone &amp;<br>Atmosphere</th>
+        <td class="model">The playful, fable-like tone shifts into a stark, high-stakes survival struggle where death and freezing temperatures replace cartoon whimsy.</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>Character Traits<br>&amp; Motivation</th>
         <td class="model">The hare and the tortoise become humanized wilderness survivors and rivals, defined by physical endurance, practical labor, and instinct rather than anthropomorphic silliness.</td>
         <td></td>
         <td></td>
