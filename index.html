@@ -1402,16 +1402,28 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
     }
   }
 
+  function showEmbed(id) {
+    el.plateVideo.innerHTML =
+      '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1&rel=0" title="The origins of ' + state.story.title +
+      '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  }
+
   function showVideo() {
     var id = VIDEO_ID[state.story.id];
     if (!id || !el.plateVideo) { return; }
     stopNarration();
     var ma = document.getElementById('music-audio');
     if (ma) { try { ma.pause(); } catch (e) {} }
+    /* Classroom copies may exist locally (assets/video/ is never published);
+       if the file is missing - as on the hosted site - fall back to YouTube. */
+    var local = 'assets/video/origin_' + state.story.id + '.mp4';
     el.plateVideo.innerHTML =
-      '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
-      '?autoplay=1&rel=0" title="The origins of ' + state.story.title +
-      '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+      '<video src="' + local + '" autoplay playsinline controls ' +
+      'style="width:100%;height:100%;object-fit:contain;background:#000"></video>';
+    var v = el.plateVideo.querySelector('video');
+    v.addEventListener('error', function () { showEmbed(id); });
+    v.addEventListener('ended', hideVideo);
     el.plateVideo.hidden = false;
     if (el.videoBtn) {
       el.videoBtn.setAttribute('data-state', 'playing');

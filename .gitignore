@@ -11,6 +11,11 @@ assets/audio/Music/[0-9][0-9].mp3
 assets/audio/*.wav
 assets/audio/es/*.wav
 
+# Origin-story videos: local classroom copies of OTHER CREATORS' YouTube
+# videos. Played locally when present; the hosted site uses YouTube embeds.
+# NEVER commit or publish these - they are not ours to redistribute.
+assets/video/
+
 # Downloads dump that landed inside the repo — contains personal documents
 # (CVs, legal/medical PDFs) and huge model files. NEVER commit or publish.
 assets/images2/
