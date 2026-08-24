@@ -2,7 +2,7 @@
 
 **[Open the live version →](https://kaminczak.github.io/genre-machine/)**
 
-Four fairy tales. Thirty-two genres. One grid.
+Four fairy tales. Forty genres. One grid.
 
 Pick a story, pick a genre, and read what happens when *The Three Little Pigs*
 is retold as film noir, cosmic horror, a courtroom transcript, or a 1950s
@@ -31,10 +31,12 @@ vocabulary and starts being a tool they can use in their own writing.
   quietly delete?
 - **Predict before revealing.** Give students the logline for a cell and have them
   draft the opening line, then compare against the version here.
-- **Write the missing cell.** Ninety-six of the one hundred twenty-eight cells are
-  still loglines only. Students fill them.
-- **Hear the difference.** The narrated cells make tone audible for students who
-  do not catch it on the page.
+- **Write it yourself first.** Give students a cell's logline and have them draft
+  their own version before revealing the machine's — then argue about whose
+  genre moves are stronger.
+- **Hear the difference.** Every cell is narrated in a voice designed for its
+  genre — in English and in Spanish — making tone audible for students who do
+  not catch it on the page.
 - **Print the two sheets.** The *Handout* explains what genre is and walks the
   machine's four lenses — Setting / World Building, Tone & Atmosphere, Character
   Traits & Motivation, Language / Syntax — with a word wall for the terms inside
@@ -54,7 +56,7 @@ and it runs.
 | `index.html` | The whole app: markup, styles hook-up, and app logic |
 | `handout.html` | Printable handout: what genre is, the four lenses, a word wall |
 | `activity.html` | Printable activity: shift *The Tortoise and the Hare* through the lenses |
-| `data/stories.js` | Stories, genres, and loglines for all 128 cells |
+| `data/stories.js` | Stories, genres, and loglines for all 164 cells |
 | `Stories/` | One markdown file per story x genre — where the writing happens |
 | `data/scripts-generated.js` | Generated: merges the markdown scripts over `stories.js` |
 | `tools/sync_scripts.py` | Reads `Stories/` and regenerates the file above |
@@ -93,9 +95,10 @@ page from calling a local API.
 
 ## Status
 
-- All 32 genres of **The Three Little Pigs** are written.
-- Little Red Riding Hood, Goldilocks, and Cinderella are scaffolded with loglines.
-- 12 illustrations and 3 narrations rendered so far.
+Complete. All four tales are written across all forty genres — 164 cells with
+full prose, an illustration for every cell, and narration in both English and
+Spanish for every cell. Two printable classroom sheets (the Handout and the
+Create a Genre activity) ship alongside the machine.
 
 ## Credits
 

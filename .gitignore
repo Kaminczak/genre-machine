@@ -32,6 +32,11 @@ Thumbs.db
 desktop.ini
 .DS_Store
 
+# The illustration prompt sheet and the old deck link are part of the
+# private pipeline too, not the public site.
+prompts.csv
+v1.md
+
 # Kept private: the generation pipeline (prompts + scripts) and the raw source
 # scripts. The live site doesn't need these; they are the reusable "how it's
 # made" and stay out of the public repo. Content still ships via data/ + assets/.
