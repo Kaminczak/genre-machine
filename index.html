@@ -564,6 +564,13 @@ html[data-skin="light"] .tagline-math { color: var(--green-deep); }
   color: var(--green-deep);
   margin: 1.2rem 0 0.5rem;
 }
+/* Links inside the overlay sheets: browser-default blue vanishes on the
+   dark panel, so they take the terminal green like everything else. */
+.sheet a { color: var(--green-light); text-decoration: underline; text-underline-offset: 2px; }
+.sheet a:hover { color: #ffffff; }
+html[data-skin="light"] .sheet a { color: var(--green-deep); }
+html[data-skin="light"] .sheet a:hover { color: var(--green); }
+
 .sheet p, .sheet li {
   font-family: var(--type);
   font-size: clamp(0.72rem, 1.1vw, 0.84rem);
