@@ -506,7 +506,7 @@ html[data-skin="light"] .tagline-math { color: var(--green-deep); }
   text-align: center;
   font-family: var(--type);
   font-size: 0.66rem;
-  color: rgba(255,255,255,0.32);
+  color: rgba(255,255,255,0.55);
   line-height: 1.7;
 }
 .colophon .dot { color: var(--green); opacity: .7; }
@@ -952,7 +952,6 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   <p class="tagline-math" id="tagline-math"></p>
 
   <p class="colophon">
-    <span id="colophon-count"></span><br>
     &copy; 2026 <a href="#" id="open-author" title="About the operator">Steve Kaminczak</a> &middot;
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY&#8209;NC&#8209;SA 4.0</a>
   </p>
@@ -1127,7 +1126,6 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
     narrate:  document.getElementById('narrate'),
     shuffle:  document.getElementById('shuffle'),
     audio:    document.getElementById('narration-audio'),
-    count:    document.getElementById('colophon-count')
   };
 
   var state = { story: DATA.stories[0], genre: DATA.genres[0], lang: 'en' };
@@ -1621,13 +1619,10 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
     if (g) { state.genre = g; }
   }
 
-  var written = DATA.stories.reduce(function (n, s) {
+  var _unused_written = DATA.stories.reduce(function (n, s) {
     return n + Object.keys(s.texts || {}).length;
   }, 0);
   var total = DATA.stories.length * DATA.genres.length;
-  el.count.textContent =
-    DATA.stories.length + ' stories × ' + DATA.genres.length + ' genres = ' +
-    total + ' pairings — ' + written + ' with full prose so far.';
   var tm = document.getElementById('tagline-math');
   if (tm) {
     tm.textContent = DATA.stories.length + ' tales × ' + DATA.genres.length +
