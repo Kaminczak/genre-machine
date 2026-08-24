@@ -6,8 +6,9 @@ Four fairy tales. Forty genres. One grid.
 
 Pick a story, pick a genre, and read what happens when *The Three Little Pigs*
 is retold as film noir, cosmic horror, a courtroom transcript, or a 1950s
-suburban mystery. Some cells are narrated aloud in a voice designed for that
-genre — a weathered cowhand for the Western, a whisper for the cosmic horror.
+suburban mystery. Every cell is narrated aloud in a voice designed for that
+genre — a weathered cowhand for the Western, a whisper for the cosmic horror —
+in English and in Spanish.
 
 Built as a classroom tool for teaching genre, voice, and craft.
 
@@ -31,9 +32,6 @@ vocabulary and starts being a tool they can use in their own writing.
   quietly delete?
 - **Predict before revealing.** Give students the logline for a cell and have them
   draft the opening line, then compare against the version here.
-- **Write it yourself first.** Give students a cell's logline and have them draft
-  their own version before revealing the machine's — then argue about whose
-  genre moves are stronger.
 - **Hear the difference.** Every cell is narrated in a voice designed for its
   genre — in English and in Spanish — making tone audible for students who do
   not catch it on the page.
@@ -76,9 +74,8 @@ python tools/narrate.py 01 08 03   # narrate three genres of The Three Little Pi
 python tools/sync_scripts.py       # push markdown edits into the site
 ```
 
-The hosted copy has no access to a local API, so it plays the pre-rendered files
-and shows *Narration coming soon* for cells that do not have one yet. Run it
-locally with the API up and any cell can be generated on demand.
+The hosted copy has no access to a local API, so it plays the pre-rendered
+files — which now cover every cell in both languages.
 
 ## Running it locally
 
@@ -102,4 +99,4 @@ Create a Genre activity) ship alongside the machine.
 
 ## Credits
 
-Written and built by Steve Kaminczak. Illustration prompts in `prompts.csv`.
+Written and built by Steve Kaminczak.
