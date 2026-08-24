@@ -491,6 +491,17 @@ body {
   text-transform: uppercase;
 }
 
+.tagline-math {
+  text-align: center;
+  font-family: var(--type);
+  font-weight: 400;
+  font-size: clamp(0.62rem, 1.3vw, 0.8rem);
+  letter-spacing: 0.18em;
+  color: var(--green);
+  margin-top: -0.35rem;
+}
+html[data-skin="light"] .tagline-math { color: var(--green-deep); }
+
 .colophon {
   text-align: center;
   font-family: var(--type);
@@ -730,7 +741,18 @@ html[data-skin="light"] .base-cell[aria-pressed="true"] {
   color: #ffffff; background: var(--green); border-color: var(--green);
 }
 html[data-skin="light"] .tagline { color: var(--green-deep); text-shadow: none; }
-html[data-skin="light"] .colophon { color: rgba(20,24,32,0.5); }
+html[data-skin="light"] .tagline-math {
+  text-align: center;
+  font-family: var(--type);
+  font-weight: 400;
+  font-size: clamp(0.62rem, 1.3vw, 0.8rem);
+  letter-spacing: 0.18em;
+  color: var(--green);
+  margin-top: -0.35rem;
+}
+html[data-skin="light"] .tagline-math { color: var(--green-deep); }
+
+.colophon { color: rgba(20,24,32,0.5); }
 html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.12); }
 
 /* === READ-IT-TO-ME (prominent narrate) ================================= */
@@ -920,10 +942,11 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   <div class="grid" id="grid" role="group" aria-label="Choose a genre"></div>
 
   <p class="tagline">Change the genre &ndash; change the story</p>
+  <p class="tagline-math" id="tagline-math"></p>
 
   <p class="colophon">
     <span id="colophon-count"></span><br>
-    &copy; 2026 Steve Kaminczak &middot;
+    &copy; 2026 <a href="#" id="open-author" title="About the operator">Steve Kaminczak</a> &middot;
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY&#8209;NC&#8209;SA 4.0</a>
   </p>
 
@@ -1030,6 +1053,20 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
       <tr><td>110.36(b)(10)(A)</td><td>Compose literary texts using genre characteristics and craft</td><td>The genre-swap retelling</td></tr>
     </table>
     <p>English II (&sect;110.37) mirrors these strand numbers at greater text complexity. For grade 8, the parallel standards live in &sect;110.24.</p>
+  </div>
+</div>
+
+<div class="overlay" id="sheet-author" role="dialog" aria-modal="true" aria-labelledby="author-title">
+  <div class="sheet">
+    <button class="sheet-close" type="button" data-close>✕ Close</button>
+    <h2 id="author-title">About the Operator</h2>
+    <!-- Future: replace this intro with the AI-voiced video of Steve explaining
+         the constant/bridge idea; keep the CV link below it. -->
+    <p><strong>Steve Kaminczak</strong> is an English teacher in Houston, Texas, and the builder of this machine &mdash; the writing, the forty genres, the narration in two languages, the schematic, and the parts of it that don't explain themselves.</p>
+    <h3>Why it exists</h3>
+    <p>His experience teaching comes down to one move: <strong>find the constant</strong> &mdash; the bridge you and the student already share. Here, that bridge is a story everyone knows by heart. Hold it perfectly still, change everything around it, and the changes themselves do the teaching. Nobody has to be told what tone is while they are busy noticing that the same wolf suddenly frightens them.</p>
+    <h3>The fine print</h3>
+    <p>He is currently between classrooms &mdash; which is a polite way of saying you could hire him. The full r&eacute;sum&eacute; lives at <a href="https://sk.md" target="_blank" rel="noopener">sk.md</a>, a domain shorter than his name has any right to be.</p>
   </div>
 </div>
 
@@ -1217,6 +1254,8 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   bindSheet('open-manual', 'sheet-manual');
   bindSheet('open-instructions', 'sheet-instructions');
   bindSheet('open-lesson', 'sheet-lesson');
+  bindSheet('open-author', 'sheet-author');
+  document.getElementById('open-author').addEventListener('click', function (e) { e.preventDefault(); });
 
   // The manual figure is a cinemagraph. It runs (looped) only while the
   // sheet is open. Its machine-hum audio plays only when background music
@@ -1580,6 +1619,11 @@ html[data-skin="light"] .mode-btn { box-shadow: inset 0 1px 3px rgba(20,24,32,0.
   el.count.textContent =
     DATA.stories.length + ' stories × ' + DATA.genres.length + ' genres = ' +
     total + ' pairings — ' + written + ' with full prose so far.';
+  var tm = document.getElementById('tagline-math');
+  if (tm) {
+    tm.textContent = DATA.stories.length + ' tales × ' + DATA.genres.length +
+      ' lenses = ' + total + ' retellings of the same plot';
+  }
 
   window.addEventListener('hashchange', function () { fromHash(); render(); });
 
